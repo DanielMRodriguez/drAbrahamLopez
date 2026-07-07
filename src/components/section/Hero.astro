@@ -1,0 +1,80 @@
+---
+import Button from "../ui/Button.astro";
+import WhatsAppButton from "../ui/WhatsAppButton.astro";
+
+interface Stat {
+  value: string;
+  suffix?: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  tagline?: string;
+  stats?: Stat[];
+  photo?: string;
+  photoAlt?: string;
+  photoTag?: string;
+}
+
+const {
+  eyebrow = "Urólogo certificado UNAM · CDMX y EdoMex",
+  title = "Cirugía de próstata<br>con <em>láser</em>",
+  tagline = "<strong>Dr. Abraham López Venegas.</strong> Más de 700 cirugías HoLEP y ThuFLEP. Pionero en técnica MiLEP en México. Tres consultorios en zona norte y oriente de CDMX y Estado de México.",
+  stats = [
+    { value: "700", suffix: "+", label: "Cirugías HoLEP" },
+    { value: "1,300", suffix: "+", label: "Reseñas" },
+    { value: "4.9", suffix: "★", label: "Calificación" },
+  ],
+  photo = "/assets/dr-retrato-tall.avif",
+  photoAlt = "Dr. Abraham López Venegas",
+  photoTag = "Dr. Abraham López Venegas · Urólogo CDMX",
+} = Astro.props;
+---
+
+<section class="container-fluid hero-home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <div class="hero-eyebrow">
+              <div class="hero-eyebrow-dot"></div>
+              <span>{eyebrow}</span>
+            </div>
+            <h1 set:html={title} />
+            <p class="hero-tagline" set:html={tagline} />
+            <div class="hero-proof">
+              {
+                stats.map((stat) => (
+                  <div class="hproof-item">
+                    <div class="hproof-num">
+                      {stat.value}
+                      <span style="font-size:.55em;opacity:.6">
+                        {stat.suffix}
+                      </span>
+                    </div>
+                    <div class="hproof-lbl">{stat.label}</div>
+                  </div>
+                ))
+              }
+            </div>
+            <div class="hero-ctas">
+              <WhatsAppButton />
+              <Button href="/ubicaciones" variant="ghost"
+                >Ver ubicaciones</Button
+              >
+            </div>
+          </div>
+          <div class="hero-photo-wrap">
+            <img src={photo} alt={photoAlt} class="hero-dr-img" />
+            <div class="hero-photo-tag-wrap">
+              <span class="hero-photo-tag">{photoTag}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

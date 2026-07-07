@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Hiperplasia Prostática Benigna (HPB) — Dr. Abraham López Venegas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.fact-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  margin:32px 0;
+}
+.fact-item{background:var(--white);padding:24px 22px;}
+.fog .fact-item{background:var(--fog);}
+.fact-check{
+  width:22px;height:22px;border-radius:6px;
+  background:rgba(27,175,196,.1);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:12px;
+}
+.fact-check svg{width:11px;height:11px;stroke:var(--teal);fill:none;stroke-width:2.5;}
+.fact-item p{font-size:13.5px;color:var(--slate);line-height:1.55;}
+.fact-item strong{color:var(--ink);}
+.symptom-numbered{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.sym-item{
+  display:grid;grid-template-columns:48px 1fr;gap:12px;
+  padding:24px 20px;border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+}
+.sym-item:nth-child(2n){border-right:none;}
+.sym-item:nth-last-child(-n+2){border-bottom:none;}
+.sym-n{
+  width:36px;height:36px;border-radius:9px;
+  background:rgba(27,175,196,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:var(--teal);
+  flex-shrink:0;
+}
+.sym-title{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.sym-desc{font-size:13px;color:var(--mist);line-height:1.5;}
+.dx-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.dx-step{background:var(--white);padding:28px 24px;}
+.dx-num{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.06em;margin-bottom:10px;}
+.dx-step h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.dx-step p{font-size:13px;color:var(--mist);line-height:1.6;}
+.tx-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.tx-card{border:1px solid var(--line);border-radius:14px;padding:32px 28px;}
+.tx-card.featured{border-color:var(--teal);background:rgba(27,175,196,.03);}
+.tx-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:8px;}
+.tx-card.featured .tx-label{color:var(--teal);}
+.tx-card h3{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px;}
+.tx-card p{font-size:13.5px;color:var(--mist);line-height:1.65;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="prostata.html" class="active">Próstata</a>
+    <a href="ubicaciones.html">Ubicaciones</a>
+    <a href="perfil.html">Dr. Abraham</a>
+    <a href="blog.html">Blog</a>
+    <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
+    <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:var(--dark);padding:64px 56px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:center;min-height:340px;">
+  <div style="position:absolute;inset:0;overflow:hidden;">
+    <img src="assets/clinica-2.avif" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.55;filter:blur(4px);transform:scale(1.06);display:block;">
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(9,21,32,.90) 0%,rgba(9,21,32,.55) 50%,rgba(9,21,32,.20) 100%);z-index:1;pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');opacity:.04;pointer-events:none;mix-blend-mode:screen;z-index:2;"></div>
+  <div style="position:relative;z-index:2;">
+    <div class="hero-eyebrow" style="margin-bottom:18px;">
+      <div class="hero-eyebrow-dot"></div>
+      <span>Condición urológica más frecuente en hombres</span>
+    </div>
+    <h1 style="font-size:50px;font-weight:900;color:#fff;line-height:1.0;letter-spacing:-.02em;margin-bottom:12px;">Hiperplasia<br>prostática <em style="font-style:italic;color:var(--teal);">benigna</em><br>(HPB)</h1>
+    <p style="font-size:14.5px;color:rgba(255,255,255,.45);line-height:1.7;max-width:480px;margin-bottom:28px;">¿Qué es y cómo se trata? Información médica del Dr. Abraham López Venegas, urólogo especialista en próstata en CDMX y Estado de México.</p>
+    <div style="display:flex;gap:12px;">
+      <a href="#" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+        Agendar consulta
+      </a>
+      <a href="ubicaciones.html" class="btn-ghost">Ver ubicaciones</a>
+    </div>
+  </div>
+  <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:10px;">
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px 20px;">
+      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;">50%</div>
+      <div style="font-size:12.5px;color:rgba(255,255,255,.35);margin-top:3px;">de los hombres a los 60 años la padece</div>
+    </div>
+    <div style="background:rgba(27,175,196,.1);border:1px solid rgba(27,175,196,.2);border-radius:12px;padding:18px 20px;">
+      <div style="font-size:28px;font-weight:900;color:var(--teal);letter-spacing:-.02em;line-height:1;">90%</div>
+      <div style="font-size:12.5px;color:rgba(255,255,255,.35);margin-top:3px;">de los hombres a los 85 años</div>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 20px;">
+      <p style="font-size:12.5px;color:rgba(255,255,255,.4);line-height:1.55;"><strong style="color:rgba(255,255,255,.7);">No es cáncer,</strong> pero requiere diagnóstico y seguimiento médico</p>
+    </div>
+  </div>
+</section>
+
+<!-- ¿QUÉ ES? -->
+<section class="section">
+  <div class="two-col">
+    <div class="two-col-content">
+      <span class="sect-tag">Definición médica</span>
+      <h2 class="section-h" style="margin-bottom:14px;">¿Qué es la hiperplasia prostática benigna?</h2>
+      <p>La hiperplasia prostática benigna (HPB) es el <strong>agrandamiento no canceroso de la próstata</strong>. Es la condición urológica más frecuente en hombres mayores de 50 años.</p>
+      <p>A medida que la próstata crece, comprime la uretra y dificulta el flujo urinario, lo que genera síntomas que afectan la calidad de vida. <strong>No es cáncer, pero requiere diagnóstico y seguimiento médico.</strong></p>
+      <div class="fact-strip" style="margin-top:24px;">
+        <div class="fact-item">
+          <div class="fact-check"><svg viewBox="0 0 11 11"><path d="M1.5 5.5l3 3 5-5"/></svg></div>
+          <p>No está relacionada con la actividad sexual</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-check"><svg viewBox="0 0 11 11"><path d="M1.5 5.5l3 3 5-5"/></svg></div>
+          <p>La próstata normal pesa entre <strong>20 y 30 gramos</strong></p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-check"><svg viewBox="0 0 11 11"><path d="M1.5 5.5l3 3 5-5"/></svg></div>
+          <p>Puede coexistir con cáncer de próstata — el diagnóstico diferencial es importante</p>
+        </div>
+      </div>
+    </div>
+    <div class="two-col-img">
+      <img src="assets/clinica-1.avif" alt="Consulta urológica Dr. Abraham">
+    </div>
+  </div>
+</section>
+
+<!-- FACTORES DE RIESGO -->
+<section class="section fog">
+  <div style="text-align:center;max-width:560px;margin:0 auto 40px;">
+    <span class="sect-tag">Causas</span>
+    <h2 class="section-h">¿Por qué ocurre la hiperplasia prostática?</h2>
+    <p style="font-size:14px;color:var(--mist);margin-top:10px;">La causa exacta no se conoce completamente, pero se asocia a cambios hormonales naturales del envejecimiento masculino.</p>
+  </div>
+  <div class="icon-cards">
+    <div class="icon-card">
+      <div class="ic-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>Edad</h3>
+      <p>Más del 50% de los hombres mayores de 60 años la padece. El riesgo aumenta progresivamente con cada década de vida.</p>
+    </div>
+    <div class="icon-card">
+      <div class="ic-icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="7.5" r="2.6"/><circle cx="16" cy="7.5" r="2.6"/><path d="M3.5 18c0-2.6 2-4.5 4.5-4.5s4.5 1.9 4.5 4.5M12.6 17.4c.5-2.1 2.2-3.6 4.4-3.6 2.5 0 4.5 1.9 4.5 4.5" stroke-linecap="round"/></svg></div>
+      <h3>Antecedentes familiares</h3>
+      <p>Tener un padre o hermano con HPB aumenta el riesgo significativamente. Los antecedentes familiares son uno de los factores más relevantes.</p>
+    </div>
+    <div class="icon-card">
+      <div class="ic-icon"><svg viewBox="0 0 24 24"><circle cx="6.5" cy="7" r="2.3"/><circle cx="17.5" cy="9" r="2.3"/><circle cx="11" cy="17" r="2.3"/><path d="M8.4 8.3 15.4 9.6M8 9 9.8 14.9M13 15.6 16.2 11" stroke-linecap="round"/></svg></div>
+      <h3>Cambios hormonales</h3>
+      <p>El aumento relativo de estrógenos con la edad estimula el crecimiento prostático. Los desequilibrios hormonales juegan un papel clave.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SÍNTOMAS -->
+<section class="section">
+  <div style="display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;">
+    <div>
+      <span class="sect-tag">Identificar a tiempo</span>
+      <h2 class="section-h" style="margin-bottom:12px;">¿Cómo saber si tienes hiperplasia prostática?</h2>
+      <p class="section-p" style="margin-bottom:28px;">Los síntomas aparecen gradualmente y muchos hombres los ignoran por años. Identificarlos a tiempo permite un tratamiento menos invasivo.</p>
+      <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;">
+        <div class="symptom-numbered">
+          <div class="sym-item">
+            <div class="sym-n">01</div>
+            <div><div class="sym-title">Dificultad para iniciar la micción</div><div class="sym-desc">El chorro tarda en salir o requiere esfuerzo para comenzar.</div></div>
+          </div>
+          <div class="sym-item">
+            <div class="sym-n">04</div>
+            <div><div class="sym-title">Levantarse de noche a orinar</div><div class="sym-desc">Más de 2 veces por noche interrumpe el sueño habitualmente.</div></div>
+          </div>
+          <div class="sym-item">
+            <div class="sym-n">02</div>
+            <div><div class="sym-title">Chorro urinario débil o intermitente</div><div class="sym-desc">El flujo se corta o es más delgado de lo normal.</div></div>
+          </div>
+          <div class="sym-item">
+            <div class="sym-n">05</div>
+            <div><div class="sym-title">Urgencia repentina de orinar</div><div class="sym-desc">Necesidad incontrolable que no da tiempo de llegar al baño.</div></div>
+          </div>
+          <div class="sym-item">
+            <div class="sym-n">03</div>
+            <div><div class="sym-title">Sensación de vaciado incompleto</div><div class="sym-desc">La vejiga no se siente completamente vacía después de orinar.</div></div>
+          </div>
+          <div class="sym-item">
+            <div class="sym-n">06</div>
+            <div><div class="sym-title">Goteo al final de la micción</div><div class="sym-desc">Gotas que continúan saliendo después de terminar de orinar.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:sticky;top:88px;">
+      <div style="background:var(--ink);border-radius:16px;padding:32px 28px;">
+        <span class="sect-tag" style="color:rgba(27,175,196,.7);">¿Reconoces alguno?</span>
+        <h3 style="font-size:22px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:10px;">No esperes a que empeoren</h3>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:24px;">El diagnóstico temprano permite tratamientos menos invasivos. Una valoración urológica es rápida, sencilla y no requiere preparación especial.</p>
+        <a href="#" class="btn-teal btn-block">Agendar valoración — WhatsApp</a>
+        <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;">Consulta desde $800 · 3 sedes disponibles</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO Y TRATAMIENTO -->
+<section class="section fog">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;">
+    <div>
+      <span class="sect-tag">Diagnóstico</span>
+      <h2 class="section-h" style="margin-bottom:12px;">¿Cómo se diagnostica?</h2>
+      <p class="section-p" style="margin-bottom:28px;">El diagnóstico es sencillo y se realiza en consultorio. El urólogo combina varias pruebas para confirmar el tamaño de la próstata y descartar otras condiciones.</p>
+      <div class="dx-steps">
+        <div class="dx-step">
+          <div class="dx-num">PASO 01</div>
+          <h3>Tacto rectal</h3>
+          <p>Evaluación manual del tamaño, forma y consistencia. Rápido e indoloro en consultorio.</p>
+        </div>
+        <div class="dx-step">
+          <div class="dx-num">PASO 02</div>
+          <h3>PSA en sangre</h3>
+          <p>Mide el antígeno prostático. Permite descartar cáncer de próstata y evaluar la actividad glandular.</p>
+        </div>
+        <div class="dx-step">
+          <div class="dx-num">PASO 03</div>
+          <h3>Ultrasonido prostático</h3>
+          <p>Mide el volumen exacto de la próstata en tiempo real. Confirma el grado de agrandamiento.</p>
+        </div>
+        <div class="dx-step">
+          <div class="dx-num">PASO 04</div>
+          <h3>Uroflujometría</h3>
+          <p>Mide la velocidad y el flujo de la orina. Determina el grado de obstrucción urinaria.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="sect-tag">Opciones de tratamiento</span>
+      <h2 class="section-h" style="margin-bottom:12px;">¿Cómo se trata la HPB?</h2>
+      <p class="section-p" style="margin-bottom:24px;">El tratamiento depende del tamaño de la próstata, la severidad de los síntomas y la respuesta previa a medicamentos.</p>
+      <div class="tx-grid">
+        <div class="tx-card">
+          <div class="tx-label">Primera línea</div>
+          <h3>Tratamiento médico</h3>
+          <p>Medicamentos que relajan la musculatura prostática o reducen el tamaño de la glándula. Indicado para casos leves a moderados sin complicaciones.</p>
+        </div>
+        <div class="tx-card featured">
+          <div class="tx-label">Casos moderados a severos</div>
+          <h3>Cirugía láser HoLEP</h3>
+          <p>Para cuando el tratamiento médico no es suficiente. Elimina el tejido prostático de forma permanente sin cortes externos. Recuperación en 1–2 semanas.</p>
+          <a href="holep.html" style="font-size:12.5px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:12px;">Ver HoLEP →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div style="max-width:720px;margin:0 auto;">
+    <span class="sect-tag">Preguntas frecuentes</span>
+    <h2 class="section-h" style="margin-bottom:28px;">Dudas frecuentes sobre HPB</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">¿La hiperplasia prostática puede convertirse en cáncer?</div>
+        <div class="faq-a">No. Son condiciones independientes. Sin embargo pueden coexistir, por eso el diagnóstico diferencial con PSA y ultrasonido es importante.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Se puede vivir sin tratamiento?</div>
+        <div class="faq-a">En casos leves sí, con seguimiento médico. Sin tratamiento los síntomas tienden a empeorar y pueden generar complicaciones como infecciones o daño renal.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿La hiperplasia afecta la función sexual?</div>
+        <div class="faq-a">Puede afectar la eyaculación en algunos casos. El urólogo evalúa cada caso de forma integral considerando la salud sexual del paciente.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿La cirugía HoLEP tiene cura definitiva?</div>
+        <div class="faq-a">La cirugía HoLEP elimina el tejido prostático de forma permanente con muy baja probabilidad de reintervención. Es considerada la solución más duradera disponible.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALISTA -->
+<section class="section dark" style="position:relative;overflow:hidden;">
+  <div class="dark-glow"></div>
+  <div class="specialist-card" style="background:transparent;padding:0;border-radius:0;">
+    <div class="spec-photo"><img src="assets/dr-retrato.avif" alt="Dr. Abraham López Venegas"></div>
+    <div class="spec-content">
+      <div class="spec-badges">
+        <span class="spec-badge">Especialista en casos complejos</span>
+        <span class="spec-badge">Láser de Tulio última generación</span>
+        <span class="spec-badge">CNMU folio 1776</span>
+      </div>
+      <h3>Dr. Abraham López Venegas</h3>
+      <p>Urólogo especialista en hiperplasia prostática con más de 700 cirugías HoLEP realizadas. Experto en casos complejos y próstatas de gran tamaño. 3 consultorios en CDMX y EdoMex.</p>
+      <div class="spec-ctas">
+        <a href="#" class="btn-wa">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+          Agendar consulta
+        </a>
+        <a href="ubicaciones.html" class="btn-white-outline">Ver ubicaciones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo-row"><img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="foot-logo-img"></div>
+      <p>Urólogo certificado · Cirugía de próstata con láser · CDMX y Estado de México</p>
+    </div>
+    <div class="foot-col"><h4>Procedimientos</h4><ul><li>Cirugía HoLEP / ThuFLEP</li><li>Cálculos urinarios con láser</li><li>Circuncisión láser</li><li>Salud masculina y andrología</li></ul></div>
+    <div class="foot-col"><h4>Ubicaciones</h4><ul><li>Lindavista · CDMX Norte</li><li>La Viga · Iztapalapa</li><li>Chalco · EdoMex</li></ul></div>
+    <div class="foot-col"><h4>Contacto</h4><ul><li>55 2845 4843</li><li>WhatsApp directo</li><li>Doctoralia</li><li>GNP · AXA · Mapfre · BBVA</li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Dr. Abraham López Venegas · Todos los derechos reservados</div>
+    <div class="foot-social">
+      <div class="soc"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <div class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,.35)"/></svg></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Consultorios — Dr. Abraham López Venegas · CDMX y EdoMex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.ubi-detail{
+  display:grid;grid-template-columns:480px 1fr;
+  gap:0;border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;
+}
+.ubi-detail-map{
+  height:100%;min-height:320px;
+  background:linear-gradient(135deg,#d0dde8,#b8cdd9);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:#7a9aac;letter-spacing:.06em;text-transform:uppercase;
+  position:relative;overflow:hidden;
+}
+.ubi-detail-map::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 60%,rgba(12,26,38,.06));
+}
+.ubi-detail-info{padding:40px 44px;background:var(--white);}
+.ubi-detail-info .ubi-zone{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.ubi-detail-info h2{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.15;margin-bottom:20px;}
+.info-row{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);}
+.info-row:last-child{border-bottom:none;}
+.info-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);width:120px;flex-shrink:0;padding-top:1px;}
+.info-value{font-size:14px;color:var(--slate);line-height:1.55;}
+.info-value strong{color:var(--ink);font-weight:600;}
+.zone-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+.zone-chip{background:var(--fog);border:1px solid var(--line);padding:4px 10px;border-radius:20px;font-size:12px;color:var(--slate);}
+.ubi-actions{display:flex;gap:10px;margin-top:24px;}
+.sede-divider{display:flex;align-items:center;gap:16px;padding:48px 0 40px;}
+.sede-divider-line{flex:1;height:1px;background:var(--line);}
+.sede-divider-num{font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.06em;}
+.asegura-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.asegura-card{
+  border:1px solid var(--line);border-radius:12px;
+  padding:30px 24px;min-height:96px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--white);box-shadow:var(--shadow-card);
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.asegura-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card-hover);border-color:var(--teal);}
+.asegura-card img{max-height:38px;max-width:140px;width:auto;height:auto;object-fit:contain;filter:grayscale(1) opacity(.6);transition:filter .25s;}
+.asegura-card:hover img{filter:grayscale(0) opacity(1);}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="prostata.html">Próstata</a>
+    <a href="ubicaciones.html" class="active">Ubicaciones</a>
+    <a href="perfil.html">Dr. Abraham</a>
+    <a href="blog.html">Blog</a>
+    <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
+    <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:var(--dark);padding:56px 56px 52px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;overflow:hidden;">
+    <img src="assets/consultorio.jpg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.55;filter:blur(4px);transform:scale(1.06);display:block;">
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,21,32,.78),rgba(9,21,32,.88));z-index:1;pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');opacity:.04;pointer-events:none;mix-blend-mode:screen;z-index:2;"></div>
+  <div style="position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:760px;margin:0 auto;">
+    <div class="hero-eyebrow" style="margin-bottom:16px;">
+      <div class="hero-eyebrow-dot"></div>
+      <span>3 sedes para atenderte</span>
+    </div>
+    <h1 style="font-size:52px;font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:14px;">Consultorios en CDMX<br>y Estado de México</h1>
+    <p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.7;max-width:520px;margin-bottom:28px;">Atención en hospitales privados de referencia. Fácil acceso y estacionamiento. Citas disponibles de lunes a sábado.</p>
+    <a href="#" class="btn-wa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+      Agendar cita
+    </a>
+  </div>
+  <!-- Trust mini strip -->
+  <div style="display:flex;gap:32px;margin-top:36px;position:relative;z-index:3;justify-content:center;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--teal);">✓</span><span style="font-size:12.5px;color:rgba(255,255,255,.62);">3 sedes disponibles</span></div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--teal);">✓</span><span style="font-size:12.5px;color:rgba(255,255,255,.62);">Consulta desde $800</span></div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--teal);">✓</span><span style="font-size:12.5px;color:rgba(255,255,255,.62);">Lunes a sábado</span></div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--teal);">✓</span><span style="font-size:12.5px;color:rgba(255,255,255,.62);">Estacionamiento disponible</span></div>
+    <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11px;color:var(--teal);">✓</span><span style="font-size:12.5px;color:rgba(255,255,255,.62);">GNP · AXA · Mapfre y más</span></div>
+  </div>
+</section>
+
+<!-- SEDES -->
+<section class="section">
+  <!-- SEDE 1 -->
+  <div class="sede-divider">
+    <div class="sede-divider-line"></div>
+    <div class="sede-divider-num">SEDE 01 · CDMX NORTE</div>
+    <div class="sede-divider-line"></div>
+  </div>
+  <div class="ubi-detail">
+    <div class="ubi-detail-map">Mapa interactivo — Lindavista</div>
+    <div class="ubi-detail-info">
+      <div class="ubi-zone">CDMX Norte</div>
+      <h2>Lindavista</h2>
+      <div class="info-row">
+        <div class="info-label">Hospital</div>
+        <div class="info-value"><strong>Hospital Ángeles Lindavista</strong><br>Health Center Piso 1</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Dirección</div>
+        <div class="info-value">Calle Riobamba 639, Col. Lindavista Sur<br>Gustavo A. Madero, CDMX</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Consultorio</div>
+        <div class="info-value"><strong>184</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Consulta</div>
+        <div class="info-value"><strong style="color:var(--teal);">$1,500</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Teléfono</div>
+        <div class="info-value"><strong>55 2845 4843</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Zonas</div>
+        <div class="info-value">
+          <div class="zone-chips">
+            <span class="zone-chip">Gustavo A. Madero</span>
+            <span class="zone-chip">Vallejo</span>
+            <span class="zone-chip">Ticomán</span>
+            <span class="zone-chip">Zacatenco</span>
+            <span class="zone-chip">La Villa</span>
+            <span class="zone-chip">Insurgentes Norte</span>
+            <span class="zone-chip">Tlalnepantla</span>
+          </div>
+        </div>
+      </div>
+      <div class="ubi-actions">
+        <a href="#" class="btn-teal">Agendar cita en Lindavista</a>
+        <a href="#" class="btn-outline">Cómo llegar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEDE 2 -->
+  <div class="sede-divider">
+    <div class="sede-divider-line"></div>
+    <div class="sede-divider-num">SEDE 02 · CDMX ORIENTE</div>
+    <div class="sede-divider-line"></div>
+  </div>
+  <div class="ubi-detail">
+    <div class="ubi-detail-map">Mapa interactivo — La Viga</div>
+    <div class="ubi-detail-info">
+      <div class="ubi-zone">CDMX Oriente</div>
+      <h2>La Viga · Iztapalapa</h2>
+      <div class="info-row">
+        <div class="info-label">Hospital</div>
+        <div class="info-value"><strong>Hospital MAC La Viga</strong><br>Consultorio 607</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Dirección</div>
+        <div class="info-value">Calz. de la Viga 1174, Col. El Triunfo<br>Iztapalapa, CDMX</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Consultorio</div>
+        <div class="info-value"><strong>607</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Consulta</div>
+        <div class="info-value"><strong style="color:var(--teal);">$1,500</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Teléfono</div>
+        <div class="info-value"><strong>55 2845 4843</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Zonas</div>
+        <div class="info-value">
+          <div class="zone-chips">
+            <span class="zone-chip">Iztapalapa</span>
+            <span class="zone-chip">Oriente CDMX</span>
+            <span class="zone-chip">Nezahualcóyotl</span>
+          </div>
+        </div>
+      </div>
+      <div class="ubi-actions">
+        <a href="#" class="btn-teal">Agendar cita en La Viga</a>
+        <a href="#" class="btn-outline">Cómo llegar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEDE 3 -->
+  <div class="sede-divider">
+    <div class="sede-divider-line"></div>
+    <div class="sede-divider-num">SEDE 03 · ESTADO DE MÉXICO</div>
+    <div class="sede-divider-line"></div>
+  </div>
+  <div class="ubi-detail">
+    <div class="ubi-detail-map">Mapa interactivo — Chalco</div>
+    <div class="ubi-detail-info">
+      <div class="ubi-zone">Estado de México</div>
+      <h2>Chalco</h2>
+      <div class="info-row">
+        <div class="info-label">Clínica</div>
+        <div class="info-value"><strong>UM Chalco</strong><br>Consultorio 4</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Dirección</div>
+        <div class="info-value">Av. San Isidro 3, Col. La Conchita<br>Chalco Centro, Estado de México</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Referencia</div>
+        <div class="info-value" style="font-size:13px;">A un costado de Farmacias Guadalajara La Bomba, frente a Sushi Gold, a dos calles de la Clínica 71 del IMSS. Estacionamiento frente a la puerta.</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Consulta</div>
+        <div class="info-value"><strong style="color:var(--teal);">$800</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Teléfono</div>
+        <div class="info-value"><strong>55 2845 4843</strong> / 221 9933 153</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Zonas</div>
+        <div class="info-value">
+          <div class="zone-chips">
+            <span class="zone-chip">Valle de Chalco</span>
+            <span class="zone-chip">Ixtapaluca</span>
+            <span class="zone-chip">Los Reyes La Paz</span>
+            <span class="zone-chip">Chimalhuacán</span>
+            <span class="zone-chip">Tláhuac</span>
+            <span class="zone-chip">Ozumba</span>
+          </div>
+        </div>
+      </div>
+      <div class="ubi-actions">
+        <a href="#" class="btn-teal">Agendar cita en Chalco</a>
+        <a href="#" class="btn-outline">Cómo llegar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASEGURADORAS -->
+<section class="section fog">
+  <div style="text-align:center;max-width:560px;margin:0 auto 36px;">
+    <span class="sect-tag">Aseguradoras aceptadas</span>
+    <h2 class="section-h">Trabajamos con<br>tu seguro médico</h2>
+    <p style="font-size:14px;color:var(--mist);margin-top:8px;">Contáctanos para verificar cobertura en tu sede más cercana.</p>
+  </div>
+  <div class="asegura-grid">
+    <div class="asegura-card"><img src="assets/logo-gnp.svg" alt="GNP Seguros"></div>
+    <div class="asegura-card"><img src="assets/logo-axa.svg" alt="AXA"></div>
+    <div class="asegura-card"><img src="assets/logo-mapfre.svg" alt="Mapfre"></div>
+    <div class="asegura-card"><img src="assets/logo-bbva.svg" alt="BBVA Seguros"></div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:var(--mist);margin-top:20px;">+ otras aseguradoras. Consulta disponibilidad por WhatsApp.</p>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-banner-content">
+    <h2>¿No sabes cuál sede<br>te queda más cerca?</h2>
+    <p>Escríbenos por WhatsApp y te ayudamos a elegir la sede más conveniente según tu zona.</p>
+  </div>
+  <div class="cta-banner-actions">
+    <a href="#" class="btn-wa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+      Consultar por WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo-row"><img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="foot-logo-img"></div>
+      <p>Urólogo certificado · Cirugía de próstata con láser · CDMX y Estado de México</p>
+    </div>
+    <div class="foot-col"><h4>Procedimientos</h4><ul><li>Cirugía HoLEP / ThuFLEP</li><li>Cálculos urinarios con láser</li><li>Circuncisión láser</li><li>Salud masculina y andrología</li></ul></div>
+    <div class="foot-col"><h4>Ubicaciones</h4><ul><li>Lindavista · CDMX Norte</li><li>La Viga · Iztapalapa</li><li>Chalco · EdoMex</li><li>Mapa y horarios</li></ul></div>
+    <div class="foot-col"><h4>Contacto</h4><ul><li>55 2845 4843</li><li>WhatsApp directo</li><li>Doctoralia</li><li>GNP · AXA · Mapfre · BBVA</li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Dr. Abraham López Venegas · Todos los derechos reservados</div>
+    <div class="foot-social">
+      <div class="soc"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <div class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,.35)"/></svg></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+---
+interface Props {
+	image: string;
+	alt: string;
+	tag: string;
+	title: string;
+	meta: string;
+	href: string;
+}
+
+const { image, alt, tag, title, meta, href } = Astro.props;
+---
+
+<div class="blog-card">
+	<div class="blog-thumb" style="height:200px;"><img src={image} alt={alt} style="width:100%;height:100%;object-fit:cover;"></div>
+	<div class="blog-body">
+		<div class="blog-tag">{tag}</div>
+		<div class="blog-title">{title}</div>
+		<div class="blog-meta">{meta}</div>
+		<a href={href} class="blog-read">Leer artículo →</a>
+	</div>
+</div>

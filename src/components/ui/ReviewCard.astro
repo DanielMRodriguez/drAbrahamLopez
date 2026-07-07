@@ -1,0 +1,15 @@
+---
+interface Props {
+	quote: string;
+	source: string;
+	stars?: number;
+}
+
+const { quote, source, stars = 5 } = Astro.props;
+---
+
+<div class="rev-card">
+	<div class="rev-stars">{'★'.repeat(stars)}</div>
+	<p class="rev-q">"{quote}"</p>
+	<div class="rev-src">{source}</div>
+</div>

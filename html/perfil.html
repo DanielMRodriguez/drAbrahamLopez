@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Dr. Abraham López Venegas — Perfil y Trayectoria · Urólogo CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero-perfil{
+  background:var(--dark);
+  display:grid;grid-template-columns:1fr 520px;
+  min-height:580px;position:relative;overflow:hidden;align-items:center;
+}
+/* Fondo ambiental con blur (mata el vacío y da consistencia con las otras páginas) */
+.hero-perfil-bg{position:absolute;inset:0;overflow:hidden;z-index:0;}
+.hero-perfil-bg img{width:100%;height:100%;object-fit:cover;opacity:.22;filter:blur(10px);transform:scale(1.12);display:block;}
+.hero-perfil-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(9,21,32,.95) 30%,rgba(9,21,32,.6) 65%,rgba(9,21,32,.35));}
+/* Glow teal sutil a la izquierda */
+.hero-perfil-glow{content:'';position:absolute;left:-120px;top:-80px;width:520px;height:520px;background:radial-gradient(circle,rgba(27,175,196,.10) 0%,transparent 70%);z-index:0;pointer-events:none;}
+.hero-perfil::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.04;pointer-events:none;mix-blend-mode:screen;
+}
+.hero-perfil-content{position:relative;z-index:2;padding:64px 24px 64px 56px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;max-width:640px;}
+/* Acento vertical editorial al inicio del bloque */
+.hero-perfil-content::before{content:'';position:absolute;left:56px;top:50%;transform:translateY(-50%);width:3px;height:148px;border-radius:3px;background:linear-gradient(to bottom,transparent,var(--teal),transparent);opacity:.6;}
+.hero-perfil-content > *{padding-left:26px;}
+/* Retrato enmarcado: recorte cerrado al doctor (scrubs azul marino integran con el tema) */
+.hero-perfil-photo{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding:0 56px;}
+.portrait-card{
+  position:relative;width:100%;max-width:400px;aspect-ratio:5/6;
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+.portrait-card img{width:100%;height:100%;object-fit:cover;object-position:38% 42%;display:block;filter:saturate(.98) contrast(1.02);}
+/* Borde interior + grounding inferior para integrar el retrato */
+.portrait-card::after{content:'';position:absolute;inset:0;border-radius:20px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06), inset 0 -60px 60px -30px rgba(9,21,32,.7);
+  background:linear-gradient(to top,rgba(9,21,32,.45) 0%,transparent 38%);pointer-events:none;}
+.portrait-badge{
+  position:absolute;left:16px;bottom:16px;z-index:2;
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(9,21,32,.6);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);
+  padding:7px 13px;border-radius:30px;
+  font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);
+}
+.portrait-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(27,175,196,.7);}
+.formacion-item{
+  display:grid;grid-template-columns:32px 1fr;gap:16px;
+  padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.formacion-item:first-child{border-top:1px solid rgba(255,255,255,.06);}
+.form-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--teal);margin-top:4px;
+  box-shadow:0 0 8px rgba(27,175,196,.4);
+  justify-self:center;
+}
+.formacion-item h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;}
+.formacion-item span{font-size:12.5px;color:rgba(255,255,255,.35);}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cert-card{
+  border:1px solid rgba(255,255,255,.07);border-radius:12px;
+  padding:20px 22px;background:rgba(255,255,255,.03);
+}
+.cert-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(27,175,196,.1);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:12px;
+}
+.cert-icon svg{width:19px;height:19px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.cert-card h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.cert-card p{font-size:12px;color:rgba(255,255,255,.35);line-height:1.55;}
+.spec-area-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.spec-area{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 16px;border:1px solid var(--line);
+  border-radius:9px;background:var(--white);
+}
+.spec-area-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+.spec-area p{font-size:13.5px;font-weight:500;color:var(--slate);}
+.quote-block{
+  background:var(--ink);border-radius:16px;padding:40px 44px;
+  position:relative;overflow:hidden;
+}
+.quote-block::before{
+  content:'"';position:absolute;top:-20px;left:24px;
+  font-size:160px;font-weight:900;color:rgba(27,175,196,.06);
+  line-height:1;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.quote-block blockquote{
+  font-size:19px;font-style:italic;color:rgba(255,255,255,.75);
+  line-height:1.65;margin-bottom:20px;position:relative;z-index:1;
+  font-weight:300;
+}
+.quote-block cite{font-size:12.5px;color:rgba(255,255,255,.35);font-style:normal;position:relative;z-index:1;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="prostata.html">Próstata</a>
+    <a href="ubicaciones.html">Ubicaciones</a>
+    <a href="perfil.html" class="active">Dr. Abraham</a>
+    <a href="blog.html">Blog</a>
+    <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
+    <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-perfil">
+  <div class="hero-perfil-bg"><img src="assets/clinica-1.avif" alt=""></div>
+  <div class="hero-perfil-glow"></div>
+  <div class="hero-perfil-content">
+    <div class="hero-eyebrow" style="margin-bottom:20px;">
+      <div class="hero-eyebrow-dot"></div>
+      <span>Urólogo certificado UNAM · CDMX y EdoMex</span>
+    </div>
+    <h1 style="font-size:50px;font-weight:900;color:#fff;line-height:1.0;letter-spacing:-.02em;margin-bottom:12px;">Dr. Abraham<br>López Venegas</h1>
+    <p style="font-size:15px;color:rgba(255,255,255,.62);line-height:1.7;max-width:520px;margin-bottom:28px;">Urólogo especialista en <strong style="color:rgba(255,255,255,.85);">cirugía de próstata con láser</strong>, cálculos urinarios y salud masculina. Pionero en MiLEP/ThuFLEP en México.</p>
+    <div class="chips-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
+      <span style="background:rgba(27,175,196,.12);border:1px solid rgba(27,175,196,.2);color:var(--teal);font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:20px;">Doctoralia Awards 2022</span>
+      <span style="background:rgba(27,175,196,.12);border:1px solid rgba(27,175,196,.2);color:var(--teal);font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:20px;">Doctoralia Awards 2023</span>
+      <span style="background:rgba(27,175,196,.12);border:1px solid rgba(27,175,196,.2);color:var(--teal);font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:20px;">CNMU Folio 1776</span>
+      <span style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.5);font-size:11.5px;font-weight:600;padding:6px 14px;border-radius:20px;">700+ cirugías HoLEP</span>
+    </div>
+    <div class="ctas-row" style="display:flex;gap:12px;">
+      <a href="#" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+        Agendar consulta
+      </a>
+      <a href="ubicaciones.html" class="btn-ghost">Ver ubicaciones</a>
+    </div>
+  </div>
+  <div class="hero-perfil-photo">
+    <div class="portrait-card">
+      <img src="assets/dr-retrato-2.jpg" alt="Dr. Abraham López Venegas">
+      <span class="portrait-badge">Urólogo · CDMX</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORMACIÓN ACADÉMICA -->
+<section class="section dark" style="position:relative;overflow:hidden;">
+  <div class="dark-glow"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;position:relative;z-index:1;">
+    <div>
+      <span class="sect-tag">Formación académica</span>
+      <h2 class="section-h" style="color:#fff;margin-bottom:32px;">Trayectoria<br>académica</h2>
+      <div>
+        <div class="formacion-item">
+          <div class="form-dot"></div>
+          <div>
+            <h3>Médico Cirujano</h3>
+            <span>Facultad de Medicina · UNAM · Cédula Profesional 9148863</span>
+          </div>
+        </div>
+        <div class="formacion-item">
+          <div class="form-dot"></div>
+          <div>
+            <h3>Formación troncal en Cirugía General</h3>
+            <span>Hospital Juárez de México</span>
+          </div>
+        </div>
+        <div class="formacion-item">
+          <div class="form-dot"></div>
+          <div>
+            <h3>Especialidad en Urología</h3>
+            <span>Hospital Juárez de México · Avalado por UNAM · Cédula 12366905</span>
+          </div>
+        </div>
+        <div class="formacion-item">
+          <div class="form-dot"></div>
+          <div>
+            <h3>Coordinador de Donación de Órganos y Tejidos</h3>
+            <span>Centro Nacional de Trasplantes / UNAM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="sect-tag">Certificaciones y membresías</span>
+      <h2 class="section-h" style="color:#fff;margin-bottom:24px;">Certificaciones<br>vigentes</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.4"/><path d="M12 6.6l.95 1.92 2.12.31-1.53 1.49.36 2.11L12 11.44l-1.9 1 .36-2.11L8.93 8.83l2.12-.31z" stroke-linejoin="round"/><path d="M8.7 13.3 6.3 21l5.7-2.7 5.7 2.7-2.4-7.7" stroke-linejoin="round"/></svg></div>
+          <h3>Doctoralia Awards 2022</h3>
+          <p>Urólogo mejor valorado de México</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.6 1.9 3.2-.1 1 3 2.6 1.8-1 3 1 3-2.6 1.8-1 3-3.2-.1L12 21.5l-2.6-1.9-3.2.1-1-3L2.6 15l1-3-1-3 2.6-1.8 1-3 3.2.1z" stroke-linejoin="round"/><path d="M9.3 12l1.9 1.9 3.5-3.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Doctoralia Awards 2023</h3>
+          <p>Urólogo mejor valorado de México</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="12.5" rx="1.6"/><path d="M7.5 7h9M7.5 10h5.5" stroke-linecap="round"/><circle cx="12" cy="18.4" r="2.7"/><path d="M10.4 20.4 9.6 23l2.4-1.3 2.4 1.3-.8-2.6" stroke-linejoin="round"/></svg></div>
+          <h3>CNMU Folio 1776</h3>
+          <p>Consejo Nacional Mexicano de Urología · Certificación vigente</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18" stroke-linecap="round"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z" stroke-linejoin="round"/></svg></div>
+          <h3>Membresías internacionales</h3>
+          <p>SMU · CNMU · CAU · Sociedad Internacional de Urología</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE ESPECIALIZACIÓN -->
+<section class="section fog">
+  <div style="display:grid;grid-template-columns:1fr 500px;gap:72px;align-items:center;">
+    <div>
+      <span class="sect-tag">Áreas de especialización</span>
+      <h2 class="section-h" style="margin-bottom:8px;">En qué es especialista</h2>
+      <p class="section-p" style="margin-bottom:28px;">Con más de 10 años de experiencia y más de 2,000 pacientes atendidos, el Dr. Abraham domina las técnicas más avanzadas en urología.</p>
+      <div class="spec-area-grid">
+        <div class="spec-area"><div class="spec-area-dot"></div><p>Cirugía de próstata con láser HoLEP / ThuFLEP / MiLEP</p></div>
+        <div class="spec-area"><div class="spec-area-dot"></div><p>Tratamiento de cálculos urinarios con láser de Tulio</p></div>
+        <div class="spec-area"><div class="spec-area-dot"></div><p>Circuncisión láser</p></div>
+        <div class="spec-area"><div class="spec-area-dot"></div><p>Andrología y salud masculina</p></div>
+        <div class="spec-area"><div class="spec-area-dot"></div><p>Endourología</p></div>
+        <div class="spec-area"><div class="spec-area-dot"></div><p>Urología oncológica</p></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;height:280px;">
+        <img src="assets/dr-retrato.avif" alt="Dr. Abraham López Venegas" style="width:100%;height:100%;object-fit:cover;object-position:30% 35%;">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px 18px;">
+          <div style="font-size:28px;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1;">700+</div>
+          <div style="font-size:11px;color:var(--mist);margin-top:3px;">Cirugías HoLEP</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px 18px;">
+          <div style="font-size:28px;font-weight:900;color:var(--teal);letter-spacing:-.02em;line-height:1;">4.9★</div>
+          <div style="font-size:11px;color:var(--mist);margin-top:3px;">Doctoralia y Google</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENFOQUE MÉDICO (QUOTE) -->
+<section class="section">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="quote-block">
+      <blockquote>"Con un enfoque humano, moderno y resolutivo. Protocolos preoperatorios sencillos y fáciles de cumplir. Tecnología de vanguardia con atención cercana al paciente."</blockquote>
+      <cite>— Dr. Abraham López Venegas · Urólogo CDMX</cite>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="section fog">
+  <div class="reviews-top">
+    <div>
+      <span class="sect-tag">Lo que dicen los pacientes</span>
+      <h2 class="section-h">Más de 1,300 opiniones<br>verificadas</h2>
+    </div>
+    <div style="text-align:right;">
+      <div class="reviews-num">4.9</div>
+      <div class="reviews-stars">★★★★★</div>
+      <div class="reviews-cnt">Doctoralia y Google</div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-q">"El Dr. Abraham es un excelente profesional. Me explicó todo el procedimiento con detalle y la recuperación fue muy rápida."</p>
+      <div class="rev-src">Paciente verificado · Google · Cirugía HoLEP</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-q">"Muy buena atención, el doctor muy amable y profesional. El consultorio limpio y bien equipado. 100% recomendado."</p>
+      <div class="rev-src">Paciente verificado · Doctoralia · Circuncisión láser</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-q">"Excelente médico, resuelve todas las dudas. El precio de la consulta es accesible y la atención de primer nivel."</p>
+      <div class="rev-src">Paciente verificado · Google · Consulta urológica</div>
+    </div>
+  </div>
+  <div class="reviews-footer"><a href="#">Ver todas las reseñas en Doctoralia →</a></div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-banner-content">
+    <h2>¿Listo para agendar<br>tu consulta?</h2>
+    <p>3 consultorios en CDMX y Estado de México. Consulta desde $800. Sin lista de espera.</p>
+  </div>
+  <div class="cta-banner-actions">
+    <a href="#" class="btn-wa">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+      Agendar por WhatsApp
+    </a>
+    <a href="ubicaciones.html" class="btn-white-outline">Ver ubicaciones</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo-row"><img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="foot-logo-img"></div>
+      <p>Urólogo certificado · Cirugía de próstata con láser · CDMX y Estado de México</p>
+    </div>
+    <div class="foot-col"><h4>Procedimientos</h4><ul><li>Cirugía HoLEP / ThuFLEP</li><li>Cálculos urinarios con láser</li><li>Circuncisión láser</li><li>Salud masculina y andrología</li></ul></div>
+    <div class="foot-col"><h4>Ubicaciones</h4><ul><li>Lindavista · CDMX Norte</li><li>La Viga · Iztapalapa</li><li>Chalco · EdoMex</li><li>Mapa y horarios</li></ul></div>
+    <div class="foot-col"><h4>Contacto</h4><ul><li>55 2845 4843</li><li>WhatsApp directo</li><li>Doctoralia</li><li>GNP · AXA · Mapfre · BBVA</li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Dr. Abraham López Venegas · Todos los derechos reservados</div>
+    <div class="foot-social">
+      <div class="soc"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <div class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,.35)"/></svg></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

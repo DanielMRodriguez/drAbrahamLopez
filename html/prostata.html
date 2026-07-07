@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Próstata — Dr. Abraham López Venegas · Urólogo CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.when-grid{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;}
+.when-list{display:flex;flex-direction:column;gap:0;}
+.when-item{
+  display:grid;grid-template-columns:40px 1fr;gap:14px;
+  padding:18px 0;border-bottom:1px solid var(--line);
+}
+.when-item:first-child{border-top:1px solid var(--line);}
+.when-n{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.02em;padding-top:2px;}
+.when-text{font-size:15px;font-weight:500;color:var(--ink);line-height:1.45;}
+.sticky-cta{
+  background:var(--ink);border-radius:16px;padding:32px 28px;
+  position:sticky;top:88px;
+}
+.sticky-cta h3{font-size:22px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:10px;}
+.sticky-cta p{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:24px;}
+.sticky-note{font-size:11px;color:rgba(255,255,255,.5);text-align:center;margin-top:10px;}
+.cond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.cond-card{
+  background:var(--white);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow-card);
+  transition:transform .2s,box-shadow .2s;
+}
+.cond-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover);}
+.cond-thumb{height:160px;overflow:hidden;position:relative;}
+.cond-thumb img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.cond-thumb-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#d0dde8,#b8cdd9);display:flex;align-items:center;justify-content:center;font-size:11px;color:#7a9aac;letter-spacing:.06em;text-transform:uppercase;}
+.cond-body{padding:22px 22px 24px;}
+.cond-tag{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.cond-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3;}
+.cond-text{font-size:13px;color:var(--mist);line-height:1.65;margin-bottom:16px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="prostata.html" class="active">Próstata</a>
+    <a href="ubicaciones.html">Ubicaciones</a>
+    <a href="perfil.html">Dr. Abraham</a>
+    <a href="blog.html">Blog</a>
+    <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
+    <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:var(--dark);padding:80px 56px;position:relative;overflow:hidden;min-height:380px;">
+  <!-- Imagen de fondo con blur -->
+  <div style="position:absolute;inset:0;overflow:hidden;">
+    <img src="assets/sala-laser.jpg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.55;filter:blur(4px);transform:scale(1.06);display:block;">
+  </div>
+  <!-- Gradiente para legibilidad del texto -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 85% at 50% 50%,rgba(9,21,32,.9) 0%,rgba(9,21,32,.72) 55%,rgba(9,21,32,.6) 100%),linear-gradient(to bottom,rgba(9,21,32,.45),rgba(9,21,32,.55));z-index:1;pointer-events:none;"></div>
+  <!-- Noise texture -->
+  <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');opacity:.04;pointer-events:none;mix-blend-mode:screen;z-index:2;"></div>
+  <!-- Contenido -->
+  <div style="position:relative;z-index:3;max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;">
+    <div class="hero-eyebrow" style="margin-bottom:18px;">
+      <div class="hero-eyebrow-dot"></div>
+      <span>Especialista en próstata · CDMX y EdoMex</span>
+    </div>
+    <h1 style="font-size:54px;font-weight:900;color:#fff;line-height:1.04;letter-spacing:-.02em;margin-bottom:16px;">Cirugía de <em style="font-style:italic;color:var(--teal);">próstata</em> con láser</h1>
+    <p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.7;max-width:560px;margin-bottom:30px;">Información médica del Dr. Abraham López Venegas, urólogo especialista en próstata en CDMX y Estado de México. <strong style="color:rgba(255,255,255,.85);">Más de 700 cirugías HoLEP y ThuFLEP.</strong></p>
+    <div class="hero-proof" style="margin-bottom:32px;">
+      <div class="hproof-item"><div class="hproof-num">700+</div><div class="hproof-lbl">Cirugías HoLEP</div></div>
+      <div class="hproof-item"><div class="hproof-num">3</div><div class="hproof-lbl">Sedes en CDMX</div></div>
+      <div class="hproof-item"><div class="hproof-num">2022–23</div><div class="hproof-lbl">Doctoralia Awards</div></div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;">
+      <a href="#" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+        Agendar consulta
+      </a>
+      <a href="ubicaciones.html" class="btn-ghost">Ver ubicaciones</a>
+    </div>
+  </div>
+</section>
+
+<!-- ¿QUÉ ES LA PRÓSTATA? -->
+<section class="section">
+  <div class="two-col">
+    <div class="two-col-content">
+      <span class="sect-tag">Anatomía básica</span>
+      <h2 class="section-h" style="margin-bottom:16px;">¿Qué es la próstata?</h2>
+      <p>La próstata es una glándula del tamaño de una nuez ubicada debajo de la vejiga en los hombres. Produce parte del líquido seminal y rodea la uretra, el conducto por donde sale la orina.</p>
+      <p>Con la edad, la próstata tiende a crecer — una condición llamada <strong>hiperplasia prostática benigna (HPB)</strong> — lo que puede dificultar la micción y afectar la calidad de vida significativamente.</p>
+      <p>A partir de los <strong>50 años</strong>, se recomienda revisión urológica anual aunque no haya síntomas. Desde los <strong>40 si hay antecedentes familiares</strong> de cáncer de próstata.</p>
+    </div>
+    <div class="two-col-img">
+      <img src="assets/consultorio.jpg" alt="Consultorio Dr. Abraham López Venegas">
+    </div>
+  </div>
+</section>
+
+<!-- CONDICIONES QUE TRATAMOS -->
+<section class="section fog">
+  <div style="text-align:center;max-width:580px;margin:0 auto 40px;">
+    <span class="sect-tag">Condiciones que tratamos</span>
+    <h2 class="section-h">Especialización en próstata</h2>
+  </div>
+  <div class="cond-grid">
+    <div class="cond-card">
+      <div class="cond-thumb">
+        <img src="assets/clinica-2.avif" alt="Hiperplasia prostática">
+      </div>
+      <div class="cond-body">
+        <div class="cond-tag">Diagnóstico y tratamiento</div>
+        <div class="cond-title">Hiperplasia prostática benigna</div>
+        <div class="cond-text">El agrandamiento de la próstata es la condición urológica más frecuente en hombres mayores de 50 años. Conoce qué es, por qué ocurre y cómo se trata.</div>
+        <a href="hpb.html" class="btn-outline" style="font-size:13px;">Conocer más →</a>
+      </div>
+    </div>
+    <div class="cond-card">
+      <div class="cond-thumb">
+        <img src="assets/clinica-3.avif" alt="Síntomas de próstata">
+      </div>
+      <div class="cond-body">
+        <div class="cond-tag">Identificar señales</div>
+        <div class="cond-title">Síntomas de próstata</div>
+        <div class="cond-text">Dificultad para orinar, chorro débil, levantarse de noche. Aprende a identificar las señales que indican que debes consultar a un urólogo.</div>
+        <a href="sintomas.html" class="btn-outline" style="font-size:13px;">Ver síntomas →</a>
+      </div>
+    </div>
+    <div class="cond-card">
+      <div class="cond-thumb">
+        <img src="assets/procedimiento-holep.avif" alt="Cirugía láser HoLEP">
+      </div>
+      <div class="cond-body">
+        <div class="cond-tag">Procedimiento quirúrgico</div>
+        <div class="cond-title">Cirugía láser HoLEP</div>
+        <div class="cond-text">El estándar de oro para tratar la hiperplasia prostática. Sin cortes externos, recuperación en 1–2 semanas y resultados duraderos.</div>
+        <a href="holep.html" class="btn-outline" style="font-size:13px;">Ver cirugía HoLEP →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿CUÁNDO ACUDIR? -->
+<section class="section">
+  <div class="when-grid">
+    <div>
+      <span class="sect-tag">Señales de alerta</span>
+      <h2 class="section-h" style="margin-bottom:32px;">¿Cuándo acudir<br>con un urólogo?</h2>
+      <div class="when-list">
+        <div class="when-item"><span class="when-n">01</span><span class="when-text">Dificultad para iniciar la micción</span></div>
+        <div class="when-item"><span class="when-n">02</span><span class="when-text">Chorro urinario débil o intermitente</span></div>
+        <div class="when-item"><span class="when-n">03</span><span class="when-text">Sensación de vaciado incompleto</span></div>
+        <div class="when-item"><span class="when-n">04</span><span class="when-text">Levantarte más de 2 veces por noche a orinar</span></div>
+        <div class="when-item"><span class="when-n">05</span><span class="when-text">Urgencia repentina e incontrolable de orinar</span></div>
+        <div class="when-item"><span class="when-n">06</span><span class="when-text">Sangre en la orina</span></div>
+        <div class="when-item"><span class="when-n">07</span><span class="when-text">PSA elevado en análisis reciente</span></div>
+        <div class="when-item"><span class="when-n">08</span><span class="when-text">Próstata grande confirmada por ultrasonido previo</span></div>
+      </div>
+    </div>
+    <div class="sticky-cta">
+      <h3>No esperes a que los síntomas empeoren</h3>
+      <p>Una valoración temprana permite mejores resultados y opciones de tratamiento menos invasivas. El Dr. Abraham evalúa cada caso de forma personalizada.</p>
+      <a href="#" class="btn-teal btn-block">Agendar valoración — WhatsApp</a>
+      <div class="sticky-note">Consulta desde $800 · Sin lista de espera</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section fog">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;">
+    <div>
+      <span class="sect-tag">Preguntas frecuentes</span>
+      <h2 class="section-h" style="margin-bottom:28px;">Dudas comunes<br>sobre la próstata</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">¿A qué edad debo hacerme revisión de próstata?</div>
+          <div class="faq-a">A partir de los 50 años, o desde los 40 si hay antecedentes familiares de cáncer de próstata. La revisión incluye tacto rectal y medición del PSA.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿La hiperplasia prostática es cáncer?</div>
+          <div class="faq-a">No. La hiperplasia prostática benigna es un agrandamiento no canceroso. Sin embargo requiere seguimiento porque los síntomas afectan la calidad de vida y pueden empeorar.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Todos los problemas de próstata requieren cirugía?</div>
+          <div class="faq-a">No. Muchos casos se manejan con medicamento. La cirugía se recomienda cuando el tratamiento médico no es suficiente o hay complicaciones.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Qué es el PSA y por qué importa?</div>
+          <div class="faq-a">Es una proteína producida por la próstata. Niveles elevados pueden indicar hiperplasia, inflamación o cáncer. Es una prueba de sangre simple que forma parte del chequeo urológico anual.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿La cirugía de próstata afecta la función sexual?</div>
+          <div class="faq-a">La cirugía HoLEP preserva la función eréctil. Puede haber eyaculación retrógrada, lo cual es inofensivo y se informa al paciente desde antes del procedimiento.</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-end;">
+      <div style="width:100%;">
+        <div style="background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;height:260px;margin-bottom:16px;">
+          <img src="assets/sala-laser.jpg" alt="Tecnología láser para cirugía de próstata" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="font-size:12.5px;color:var(--mist);line-height:1.6;">Tecnología de láser Holmio y Tulio — el estándar actual en cirugía de próstata mínimamente invasiva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALISTA -->
+<section class="section dark" style="position:relative;overflow:hidden;">
+  <div class="dark-glow"></div>
+  <div class="specialist-card" style="background:transparent;padding:0;border-radius:0;">
+    <div class="spec-photo">
+      <img src="assets/dr-retrato.avif" alt="Dr. Abraham López Venegas">
+    </div>
+    <div class="spec-content">
+      <div class="spec-badges">
+        <span class="spec-badge">700+ cirugías HoLEP y ThuFLEP</span>
+        <span class="spec-badge">Doctoralia Awards 2022</span>
+        <span class="spec-badge">Doctoralia Awards 2023</span>
+        <span class="spec-badge">CNMU folio 1776</span>
+      </div>
+      <h3>Dr. Abraham López Venegas</h3>
+      <p>Urólogo especialista en próstata con más de 700 cirugías HoLEP y ThuFLEP realizadas. Pionero en MiLEP/ThuFLEP en CDMX y Estado de México. Certificado por el Consejo Nacional Mexicano de Urología.</p>
+      <div class="spec-ctas">
+        <a href="#" class="btn-wa">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+          Agendar consulta
+        </a>
+        <a href="ubicaciones.html" class="btn-white-outline">Ver ubicaciones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo-row"><img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="foot-logo-img"></div>
+      <p>Urólogo certificado · Cirugía de próstata con láser · CDMX y Estado de México</p>
+    </div>
+    <div class="foot-col"><h4>Procedimientos</h4><ul><li>Cirugía HoLEP / ThuFLEP</li><li>Cálculos urinarios con láser</li><li>Circuncisión láser</li><li>Salud masculina y andrología</li></ul></div>
+    <div class="foot-col"><h4>Ubicaciones</h4><ul><li>Lindavista · CDMX Norte</li><li>La Viga · Iztapalapa</li><li>Chalco · EdoMex</li></ul></div>
+    <div class="foot-col"><h4>Contacto</h4><ul><li>55 2845 4843</li><li>WhatsApp directo</li><li>Doctoralia</li><li>GNP · AXA · Mapfre · BBVA</li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Dr. Abraham López Venegas · Todos los derechos reservados</div>
+    <div class="foot-social">
+      <div class="soc"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <div class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,.35)"/></svg></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

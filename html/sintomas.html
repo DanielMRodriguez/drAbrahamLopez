@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Síntomas de próstata — Dr. Abraham López Venegas · Urólogo CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:32px;}
+.why-item{background:var(--white);padding:28px 26px;display:flex;align-items:flex-start;gap:14px;}
+.why-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;}
+.why-item p{font-size:14px;color:var(--slate);line-height:1.6;}
+.why-item p strong{color:var(--ink);}
+.sym-row-list{display:flex;flex-direction:column;gap:0;}
+.sym-row{
+  display:grid;grid-template-columns:48px 1fr 24px;
+  align-items:center;gap:16px;
+  padding:20px 0;border-bottom:1px solid var(--line);
+  transition:padding .15s;cursor:default;
+}
+.sym-row:first-child{border-top:1px solid var(--line);}
+.sym-row:hover{padding-left:8px;}
+.sym-row:hover .sym-arrow{color:var(--teal);}
+.sym-num{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:.02em;}
+.sym-name{font-size:15.5px;font-weight:500;color:var(--ink);}
+.sym-arrow{font-size:18px;color:var(--line);justify-self:end;transition:color .15s;}
+.what-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.what-step{background:var(--white);padding:36px 30px;}
+.what-num{font-size:48px;font-weight:900;color:var(--fog);line-height:1;letter-spacing:-.03em;margin-bottom:12px;}
+.what-bar{width:24px;height:3px;background:var(--teal);border-radius:2px;margin-bottom:18px;}
+.what-step h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3;}
+.what-step p{font-size:13.5px;color:var(--mist);line-height:1.65;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="nav-logo-img">
+  </a>
+  <div class="nav-links">
+    <a href="prostata.html" class="active">Próstata</a>
+    <a href="ubicaciones.html">Ubicaciones</a>
+    <a href="perfil.html">Dr. Abraham</a>
+    <a href="blog.html">Blog</a>
+    <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
+    <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:var(--dark);padding:64px 56px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center;min-height:340px;">
+  <div style="position:absolute;inset:0;overflow:hidden;">
+    <img src="assets/clinica-3.avif" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.55;filter:blur(4px);transform:scale(1.06);display:block;">
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(9,21,32,.90) 0%,rgba(9,21,32,.55) 50%,rgba(9,21,32,.20) 100%);z-index:1;pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 512 512%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');opacity:.04;pointer-events:none;mix-blend-mode:screen;z-index:2;"></div>
+  <div style="position:relative;z-index:2;">
+    <div class="hero-eyebrow" style="margin-bottom:18px;">
+      <div class="hero-eyebrow-dot"></div>
+      <span>Información médica · Próstata y vías urinarias</span>
+    </div>
+    <h1 style="font-size:52px;font-weight:900;color:#fff;line-height:1.0;letter-spacing:-.02em;margin-bottom:12px;"><em style="font-style:italic;color:var(--teal);">Síntomas</em><br>de próstata</h1>
+    <p style="font-size:14.5px;color:rgba(255,255,255,.45);line-height:1.7;max-width:500px;margin-bottom:28px;">Información médica del Dr. Abraham López Venegas, urólogo especialista en próstata en CDMX y Estado de México. <strong style="color:rgba(255,255,255,.7);">Más de 2,000 procedimientos realizados.</strong></p>
+    <div style="display:flex;gap:12px;">
+      <a href="#" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+        Agendar consulta
+      </a>
+      <a href="ubicaciones.html" class="btn-ghost">Ver ubicaciones</a>
+    </div>
+  </div>
+  <div style="position:relative;z-index:2;border-radius:14px;overflow:hidden;height:240px;">
+    <img src="assets/consultorio.jpg" alt="Consultorio urología" style="width:100%;height:100%;object-fit:cover;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,21,32,.4),transparent);"></div>
+  </div>
+</section>
+
+<!-- POR QUÉ IMPORTA -->
+<section class="section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+    <div>
+      <span class="sect-tag">Detección temprana</span>
+      <h2 class="section-h" style="margin-bottom:14px;">¿Por qué importa identificarlos?</h2>
+      <p style="font-size:14.5px;color:var(--mist);line-height:1.75;margin-bottom:16px;">Los síntomas prostáticos aparecen <strong style="color:var(--slate);">gradualmente</strong> y muchos hombres los normalizan como parte del envejecimiento. Sin embargo, ignorarlos puede derivar en complicaciones serias.</p>
+      <p style="font-size:14.5px;color:var(--mist);line-height:1.75;">Una valoración urológica es rápida, sencilla y no requiere preparación especial.</p>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <p>La detección temprana permite <strong>tratamientos menos invasivos</strong></p>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <p>Muchos casos se resuelven con <strong>medicamento</strong> si se atienden a tiempo</p>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <p>Los síntomas <strong>no desaparecen solos</strong>, tienden a empeorar con la edad</p>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <p>Sin tratamiento pueden derivar en <strong>infecciones o daño renal</strong></p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="sect-tag">Lista completa</span>
+      <h2 class="section-h" style="margin-bottom:24px;">Síntomas frecuentes</h2>
+      <div class="sym-row-list">
+        <div class="sym-row"><span class="sym-num">01</span><span class="sym-name">Dificultad para orinar</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">02</span><span class="sym-name">Sensación de vaciado incompleto</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">03</span><span class="sym-name">Chorro débil o intermitente</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">04</span><span class="sym-name">Sangre en la orina (hematuria)</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">05</span><span class="sym-name">Levantarse de noche a orinar (nocturia)</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">06</span><span class="sym-name">Urgencia repentina e incontrolable</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">07</span><span class="sym-name">Disfunción eréctil o salud masculina</span><span class="sym-arrow">→</span></div>
+        <div class="sym-row"><span class="sym-num">08</span><span class="sym-name">PSA elevado en análisis de sangre</span><span class="sym-arrow">→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SÍNTOMAS EN DETALLE -->
+<section class="section fog">
+  <div style="text-align:center;max-width:560px;margin:0 auto 40px;">
+    <span class="sect-tag">En detalle</span>
+    <h2 class="section-h">Los 3 síntomas más comunes</h2>
+  </div>
+  <div class="icon-cards">
+    <div class="icon-card">
+      <div class="ic-icon"><svg viewBox="0 0 24 24"><path d="M6.5 3h11M6.5 21h11" stroke-linecap="round"/><path d="M7.5 3c0 4 4.5 5.8 4.5 9s-4.5 5-4.5 9M16.5 3c0 4-4.5 5.8-4.5 9s4.5 5 4.5 9" stroke-linejoin="round"/></svg></div>
+      <h3>Dificultad para iniciar la micción</h3>
+      <p>El chorro tarda en salir o requiere esfuerzo para comenzar. Uno de los primeros síntomas de obstrucción prostática. Aparece de forma gradual e imperceptible al inicio.</p>
+    </div>
+    <div class="icon-card">
+      <div class="ic-icon"><svg viewBox="0 0 24 24"><path d="M12 3.5c3.4 4.3 5.5 7.2 5.5 10a5.5 5.5 0 0 1-11 0c0-1 .3-2 .8-3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7.5h2.4M3.2 11h2.2" stroke-linecap="round"/></svg></div>
+      <h3>Chorro urinario débil o intermitente</h3>
+      <p>El flujo se corta o es más delgado de lo normal. Indica que la próstata está comprimiendo la uretra. Muchos hombres lo normalizan por años antes de consultar.</p>
+    </div>
+    <div class="icon-card">
+      <div class="ic-icon"><svg viewBox="0 0 24 24"><path d="M20.5 14a8.5 8.5 0 1 1-10-10 6.8 6.8 0 0 0 10 10z" stroke-linejoin="round"/><path d="M17 3.5l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6L14.7 5.8l1.6-.7z" stroke-linejoin="round"/></svg></div>
+      <h3>Nocturia: levantarse de noche</h3>
+      <p>Más de 2 veces por noche interrumpe el sueño de forma habitual. Afecta directamente la calidad de vida y el descanso. Es señal de que la vejiga no está vaciando correctamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ HACER -->
+<section class="section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+    <div>
+      <span class="sect-tag">Pasos a seguir</span>
+      <h2 class="section-h" style="margin-bottom:8px;">¿Qué hacer si tienes síntomas?</h2>
+      <p class="section-p" style="margin-bottom:32px;">No ignores los síntomas ni te automediques. El diagnóstico correcto es el primer paso hacia la solución.</p>
+      <div class="what-steps">
+        <div class="what-step">
+          <div class="what-num">01</div>
+          <div class="what-bar"></div>
+          <h3>No te automediques</h3>
+          <p>Los medicamentos para próstata requieren diagnóstico previo. Automedicarse puede enmascarar síntomas importantes y retrasar el tratamiento correcto.</p>
+        </div>
+        <div class="what-step">
+          <div class="what-num">02</div>
+          <div class="what-bar"></div>
+          <h3>Agenda una valoración urológica</h3>
+          <p>Una consulta incluye revisión física, PSA en sangre y ultrasonido prostático para determinar la causa exacta de los síntomas.</p>
+        </div>
+        <div class="what-step">
+          <div class="what-num">03</div>
+          <div class="what-bar"></div>
+          <h3>Sigue el plan de tratamiento</h3>
+          <p>Dependiendo del diagnóstico, el tratamiento puede ser médico o quirúrgico. El Dr. Abraham evalúa cada caso de forma personalizada.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div style="background:var(--ink);border-radius:16px;padding:40px 36px;width:100%;position:relative;overflow:hidden;">
+        <div style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(27,175,196,.07) 0%,transparent 70%);"></div>
+        <span class="sect-tag" style="color:rgba(27,175,196,.7);position:relative;z-index:1;">¿Tienes síntomas?</span>
+        <h3 style="font-size:24px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:10px;position:relative;z-index:1;">Agenda tu valoración urológica hoy</h3>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:24px;position:relative;z-index:1;">3 consultorios en CDMX y Estado de México. El Dr. Abraham evalúa cada caso de forma personalizada y confidencial.</p>
+        <div style="position:relative;z-index:1;">
+          <a href="#" class="btn-wa btn-block">Agendar valoración — WhatsApp</a>
+          <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;">Consulta desde $800 · Sin lista de espera</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section fog">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;">
+    <div>
+      <span class="sect-tag">Preguntas frecuentes</span>
+      <h2 class="section-h" style="margin-bottom:28px;">Dudas sobre<br>los síntomas</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">¿Los síntomas de próstata siempre indican algo grave?</div>
+          <div class="faq-a">No necesariamente. Muchos casos son hiperplasia benigna tratable con medicamento. Sin embargo, solo un urólogo puede determinar la causa exacta.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿A qué edad aparecen los síntomas?</div>
+          <div class="faq-a">Generalmente a partir de los 50 años, aunque pueden aparecer antes. Los hombres con antecedentes familiares deben revisarse desde los 40.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Los síntomas desaparecen solos?</div>
+          <div class="faq-a">No. Sin tratamiento tienden a empeorar progresivamente. La intervención temprana permite opciones menos invasivas y mejores resultados.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Cuánto dura una consulta urológica?</div>
+          <div class="faq-a">Entre 30 y 45 minutos. Incluye interrogatorio, exploración física y solicitud de estudios si se requieren.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿El chequeo de próstata es doloroso?</div>
+          <div class="faq-a">El tacto rectal es breve e incómodo pero no doloroso. Es una parte rutinaria de la valoración urológica masculina a partir de los 50 años.</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-end;">
+      <div style="width:100%;">
+        <div style="border-radius:14px;overflow:hidden;height:300px;margin-bottom:16px;">
+          <img src="assets/sala-laser.jpg" alt="Tecnología láser urológica" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="font-size:12.5px;color:var(--mist);line-height:1.6;">Los síntomas tienen solución. Desde medicamento hasta cirugía láser HoLEP — el Dr. Abraham evalúa la mejor opción para cada caso.</p>
+        <a href="holep.html" style="font-size:13px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:10px;">Conocer cirugía HoLEP →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALISTA -->
+<section class="section dark" style="position:relative;overflow:hidden;">
+  <div class="dark-glow"></div>
+  <div class="specialist-card" style="background:transparent;padding:0;border-radius:0;">
+    <div class="spec-photo"><img src="assets/dr-retrato.avif" alt="Dr. Abraham López Venegas"></div>
+    <div class="spec-content">
+      <div class="spec-badges">
+        <span class="spec-badge">2,000+ procedimientos</span>
+        <span class="spec-badge">Doctoralia Awards 2022</span>
+        <span class="spec-badge">Doctoralia Awards 2023</span>
+        <span class="spec-badge">CNMU folio 1776</span>
+      </div>
+      <h3>Dr. Abraham López Venegas</h3>
+      <p>El especialista que te atenderá. Urólogo con más de 2,000 procedimientos realizados. Técnica refinada con resultados estéticos y funcionales consistentes. 3 consultorios en CDMX y EdoMex.</p>
+      <div class="spec-ctas">
+        <a href="#" class="btn-wa">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.124 1.534 5.855L.057 23.486a.5.5 0 0 0 .608.629l5.79-1.518A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.876 9.876 0 0 1-5.034-1.378l-.36-.214-3.733.979.995-3.635-.235-.374A9.855 9.855 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/></svg>
+          Agendar consulta
+        </a>
+        <a href="ubicaciones.html" class="btn-white-outline">Ver ubicaciones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-logo-row"><img src="assets/logo.avif" alt="Dr. Abraham López Venegas" class="foot-logo-img"></div>
+      <p>Urólogo certificado · Cirugía de próstata con láser · CDMX y Estado de México</p>
+    </div>
+    <div class="foot-col"><h4>Procedimientos</h4><ul><li>Cirugía HoLEP / ThuFLEP</li><li>Cálculos urinarios con láser</li><li>Circuncisión láser</li><li>Salud masculina y andrología</li></ul></div>
+    <div class="foot-col"><h4>Ubicaciones</h4><ul><li>Lindavista · CDMX Norte</li><li>La Viga · Iztapalapa</li><li>Chalco · EdoMex</li></ul></div>
+    <div class="foot-col"><h4>Contacto</h4><ul><li>55 2845 4843</li><li>WhatsApp directo</li><li>Doctoralia</li><li>GNP · AXA · Mapfre · BBVA</li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Dr. Abraham López Venegas · Todos los derechos reservados</div>
+    <div class="foot-social">
+      <div class="soc"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <div class="soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(255,255,255,.35)"/></svg></div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

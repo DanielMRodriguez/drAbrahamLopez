@@ -1,0 +1,17 @@
+---
+import Heading from './Heading.astro';
+
+interface Props {
+	tag: string;
+	heading: string;
+	headingClass?: string;
+	variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+}
+
+const { tag, heading, headingClass = 'section-h', variant = 'h2' } = Astro.props;
+---
+
+<div>
+	<span class="sect-tag">{tag}</span>
+	<Heading variant={variant} class={headingClass} set:html={heading} />
+</div>
