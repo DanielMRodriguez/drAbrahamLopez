@@ -1,0 +1,55 @@
+---
+interface TrustItem {
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+interface Props {
+  items: TrustItem[];
+  ctaHref?: string;
+  ctaText?: string;
+}
+
+const { items, ctaHref = "/perfil", ctaText = "Perfil completo" } =
+  Astro.props;
+---
+
+<div class="container-fluid trust">
+  <div class="container">
+    <div class="row row-cols-2">
+      <div class="col-12">
+        <div class="trust-wrapper">
+          {
+            items.map((item, i) => (
+              <>
+                <div class="t-item">
+                  <div class="t-icon" set:html={item.icon} />
+                  <div class="t-label">
+                    <strong>{item.title}</strong>
+                    <span>{item.subtitle}</span>
+                  </div>
+                </div>
+                {i < items.length - 1 && <div class="t-sep" />}
+              </>
+            ))
+          }
+          <div class="t-item">
+            <a href={ctaHref} class="trust-cta"
+              >{ctaText}{" "}
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5"></path></svg
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

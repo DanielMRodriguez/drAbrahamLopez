@@ -1,0 +1,57 @@
+---
+import SectionTag from "../../ui/SectionTag.astro";
+import Button from "../../ui/Button.astro";
+
+interface ProcedureItem {
+  icon: string;
+  title: string;
+  text: string;
+  linkHref: string;
+  linkText: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  ctaHref: string;
+  ctaText: string;
+  items: ProcedureItem[];
+}
+
+const { tag, heading, ctaHref, ctaText, items } = Astro.props;
+---
+
+<section
+  class="container-fluid section bg-white"
+  style="border-bottom:1px solid var(--line);"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div
+          style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;"
+        >
+          <SectionTag tag={tag} heading={heading} />
+          <Button href={ctaHref} variant="outline">{ctaText}</Button>
+        </div>
+      </div>
+    </div>
+    <div class="row icon-cards">
+      {
+        items.map((item) => (
+          <div class="col-12 col-md-4 icon-card">
+            <div class="ic-icon" set:html={item.icon} />
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <a
+              href={item.linkHref}
+              style="font-size:12.5px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:14px;"
+            >
+              {item.linkText}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

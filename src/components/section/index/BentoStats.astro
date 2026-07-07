@@ -1,0 +1,120 @@
+---
+interface StatItem {
+  value: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+  teal?: boolean;
+  color?: string;
+}
+
+interface DescriptionHighlight {
+  type: "description";
+  title: string;
+  text: string;
+}
+
+interface AwardHighlight {
+  type: "award";
+  eyebrow: string;
+  title: string;
+  chips: string[];
+}
+
+interface BadgeHighlight {
+  type: "badge";
+  label: string;
+  value: string;
+  caption: string;
+}
+
+type Highlight = DescriptionHighlight | AwardHighlight | BadgeHighlight;
+
+interface Props {
+  stats: StatItem[];
+  highlights: Highlight[];
+}
+
+const { stats, highlights } = Astro.props;
+const spans = ["b5", "b6", "b7"];
+---
+
+<section class="container-fluid bento">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="bento-grid">
+          {
+            stats.map((stat, i) => (
+              <div
+                class:list={[
+                  "bento-cell",
+                  "c-stat",
+                  `b${i + 1}`,
+                  { "c-teal": stat.teal },
+                ]}
+              >
+                <div
+                  class:list={["bento-big-num", { "teal-c": stat.teal }]}
+                  style={stat.color ? `color:${stat.color}` : undefined}
+                >
+                  <span
+                    data-countup={stat.value}
+                    data-countup-decimals={stat.decimals ?? 0}
+                    >0</span
+                  >
+                  <span style="font-size:.5em;font-weight:700">
+                    {stat.suffix}
+                  </span>
+                </div>
+                <div class:list={["bento-lbl", { "teal-lbl": stat.teal }]}>
+                  {stat.label}
+                </div>
+              </div>
+            ))
+          }
+          {
+            highlights.map((h, i) => {
+              if (h.type === "description") {
+                return (
+                  <div class={`bento-cell c-dark bento-desc-cell ${spans[i]}`}>
+                    <h3>{h.title}</h3>
+                    <p>{h.text}</p>
+                  </div>
+                );
+              }
+              if (h.type === "award") {
+                return (
+                  <div class={`bento-cell c-dark bento-award ${spans[i]}`}>
+                    <div>
+                      <div class="bento-award-title">{h.eyebrow}</div>
+                      <h3>{h.title}</h3>
+                    </div>
+                    <div class="bento-award-years">
+                      {h.chips.map((chip) => (
+                        <span class="award-chip">{chip}</span>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <div class={`bento-cell c-teal bento-cnmu ${spans[i]}`}>
+                  <div>
+                    <div style="font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px;">
+                      {h.label}
+                    </div>
+                    <div class="bento-cnmu-num" data-countup={h.value}>
+                      0
+                    </div>
+                    <div class="bento-cnmu-lbl">{h.caption}</div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

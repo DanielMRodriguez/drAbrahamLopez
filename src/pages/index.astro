@@ -1,56 +1,117 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/ui/Button.astro";
-import ReviewCard from "../components/ui/ReviewCard.astro";
-import BlogCard from "../components/ui/BlogCard.astro";
-import SectionTag from "../components/ui/SectionTag.astro";
 import Hero from "../components/section/Hero.astro";
-import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
-import LocationCard from "../components/ui/LocationCard.astro";
+import CtaBanner from "../components/section/CtaBanner.astro";
+import TrustStrip from "../components/section/index/TrustStrip.astro";
+import BentoStats from "../components/section/index/BentoStats.astro";
+import Procedures from "../components/section/index/Procedures.astro";
+import Credentials from "../components/section/index/Credentials.astro";
+import Locations from "../components/section/index/Locations.astro";
+import Reviews from "../components/section/index/Reviews.astro";
+import Insurers from "../components/section/index/Insurers.astro";
+import BlogPreview from "../components/section/index/BlogPreview.astro";
 
-const reviews = [
+const trustItems = [
   {
-    quote:
-      "El Dr. Abraham es un excelente profesional. Me explicó todo el procedimiento con detalle y la recuperación fue muy rápida.",
-    source: "Paciente verificado · Google · Cirugía HoLEP",
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.4"/><path d="M12 6.6l.95 1.92 2.12.31-1.53 1.49.36 2.11L12 11.44l-1.9 1 .36-2.11L8.93 8.83l2.12-.31z" stroke-linejoin="round"/><path d="M8.7 13.3 6.3 21l5.7-2.7 5.7 2.7-2.4-7.7" stroke-linejoin="round"/></svg>`,
+    title: "Doctoralia Awards",
+    subtitle: "Mejor urólogo México 2022 y 2023",
   },
   {
-    quote:
-      "Muy buena atención, el doctor muy amable y profesional. El consultorio limpio y bien equipado. 100% recomendado.",
-    source: "Paciente verificado · Doctoralia · Circuncisión láser",
+    icon: `<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="12.5" rx="1.6"/><path d="M7.5 7h9M7.5 10h5.5" stroke-linecap="round"/><circle cx="12" cy="18.4" r="2.7"/><path d="M10.4 20.4 9.6 23l2.4-1.3 2.4 1.3-.8-2.6" stroke-linejoin="round"/></svg>`,
+    title: "Cédula CNMU folio 1776",
+    subtitle: "Consejo Nacional Mexicano de Urología",
   },
   {
-    quote:
-      "Excelente médico, resuelve todas las dudas. El precio de la consulta es accesible y la atención de primer nivel.",
-    source: "Paciente verificado · Google · Consulta urológica",
+    icon: `<svg viewBox="0 0 24 24"><path d="M2 8.6 12 4l10 4.6-10 4.6z" stroke-linejoin="round"/><path d="M6.5 10.9V15c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-4.1" stroke-linecap="round"/><path d="M22 8.6v4.4" stroke-linecap="round"/></svg>`,
+    title: "Egresado UNAM",
+    subtitle: "Hospital Juárez · Especialidad Urología",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M12 21.5s6.5-5.8 6.5-11A6.5 6.5 0 0 0 5.5 10.5c0 5.2 6.5 11 6.5 11z" stroke-linejoin="round"/><path d="M12 7.8v5.2M9.4 10.4h5.2" stroke-linecap="round"/></svg>`,
+    title: "3 consultorios",
+    subtitle: "CDMX Norte · Iztapalapa · Chalco EdoMex",
   },
 ];
 
-const blogPosts = [
+const bentoStats = [
+  { value: "700", suffix: "+", label: "Cirugías HoLEP y ThuFLEP realizadas" },
   {
-    image: "/assets/psa-analisis.jpg",
-    alt: "Por qué se eleva el antígeno prostático",
-    tag: "Próstata",
-    title: "Por qué se eleva el antígeno prostático (PSA)",
-    meta: "19 mayo 2026 · 5 min · Dr. Abraham López Venegas",
-    href: "/blog",
+    value: "1300",
+    suffix: "+",
+    label: "Reseñas verificadas en Google y Doctoralia",
+    teal: true,
   },
   {
-    image: "/assets/sala-laser.jpg",
-    alt: "Qué es el antígeno prostático",
-    tag: "Próstata",
-    title: "Qué es el antígeno prostático y cuándo importa",
-    meta: "19 mayo 2026 · 6 min · Dr. Abraham López Venegas",
-    href: "/blog",
+    value: "4.9",
+    suffix: "★",
+    decimals: 1,
+    label: "Calificación promedio de pacientes",
+    color: "var(--amber)",
   },
   {
-    image: "/assets/consultorio.jpg",
-    alt: "Engrosamiento de pene quirúrgico",
-    tag: "Andrología",
-    title: "Engrosamiento de pene quirúrgico y faloplastia",
-    meta: "19 mayo 2026 · 6 min · Dr. Abraham López Venegas",
-    href: "/blog",
+    value: "3",
+    suffix: "",
+    label: "Consultorios en CDMX y EdoMex",
+    color: "var(--teal)",
   },
+];
+
+const bentoHighlights = [
+  {
+    type: "description" as const,
+    title: "Pionero en técnica MiLEP en México",
+    text: "Médico Cirujano egresado de la UNAM con especialidad en Urología en el Hospital Juárez de México. Miembro de la Sociedad Mexicana de Urología y la Confederación Americana de Urología.",
+  },
+  {
+    type: "award" as const,
+    eyebrow: "Reconocimiento",
+    title: "Urólogo mejor valorado de México",
+    chips: ["Doctoralia 2022", "Doctoralia 2023"],
+  },
+  {
+    type: "badge" as const,
+    label: "Folio CNMU",
+    value: "1776",
+    caption: "Certificación vigente",
+  },
+];
+
+const procedures = [
+  {
+    icon: `<svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2" stroke-linecap="round"/></svg>`,
+    title: "Cirugía de próstata con láser",
+    text: "HoLEP, ThuFLEP y MiLEP. Más de 700 cirugías realizadas. Sin cortes externos, recuperación en 1–2 semanas.",
+    linkHref: "/holep",
+    linkText: "Ver cirugía HoLEP →",
+  },
+  {
+    icon: `<svg viewBox="0 0 18 18"><path d="M9 2l2 5h5l-4 3 1.5 5L9 12l-4.5 3L6 10 2 7h5z" stroke-linejoin="round"/></svg>`,
+    title: "Cálculos urinarios con láser de Tulio",
+    text: "Litotricia láser endoscópica para cálculos en riñón, uréter y vejiga. Tecnología de última generación.",
+    linkHref: "/prostata",
+    linkText: "Conocer más →",
+  },
+  {
+    icon: `<svg viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M9 6v6M6 9h6" stroke-linecap="round"/></svg>`,
+    title: "Circuncisión láser y salud masculina",
+    text: "Más de 2,000 circuncisiones con técnica láser. Andrología y salud masculina integral con atención confidencial.",
+    linkHref: "/prostata",
+    linkText: "Conocer más →",
+  },
+];
+
+const credentialStats = [
+  { value: "700", suffix: "+", label: "Cirugías HoLEP y ThuFLEP" },
+  { value: "2000", suffix: "+", label: "Pacientes operados en total" },
+  {
+    value: "4.9",
+    suffix: "★",
+    decimals: 1,
+    label: "Doctoralia Awards 2022 y 2023",
+    color: "var(--amber)",
+  },
+  { value: "1776", label: "Folio CNMU vigente", color: "var(--teal)" },
 ];
 
 const locations = [
@@ -86,500 +147,121 @@ const locations = [
     href: "/ubicaciones",
   },
 ];
+
+const reviews = [
+  {
+    quote:
+      "El Dr. Abraham es un excelente profesional. Me explicó todo el procedimiento con detalle y la recuperación fue muy rápida.",
+    source: "Paciente verificado · Google · Cirugía HoLEP",
+  },
+  {
+    quote:
+      "Muy buena atención, el doctor muy amable y profesional. El consultorio limpio y bien equipado. 100% recomendado.",
+    source: "Paciente verificado · Doctoralia · Circuncisión láser",
+  },
+  {
+    quote:
+      "Excelente médico, resuelve todas las dudas. El precio de la consulta es accesible y la atención de primer nivel.",
+    source: "Paciente verificado · Google · Consulta urológica",
+  },
+];
+
+const insuranceLogos = [
+  { src: "/assets/logo-gnp.svg", alt: "GNP Seguros" },
+  { src: "/assets/logo-axa.svg", alt: "AXA" },
+  { src: "/assets/logo-mapfre.svg", alt: "Mapfre" },
+  { src: "/assets/logo-bbva.svg", alt: "BBVA Seguros" },
+];
+
+const blogPosts = [
+  {
+    image: "/assets/psa-analisis.jpg",
+    alt: "Por qué se eleva el antígeno prostático",
+    tag: "Próstata",
+    title: "Por qué se eleva el antígeno prostático (PSA)",
+    meta: "19 mayo 2026 · 5 min · Dr. Abraham López Venegas",
+    href: "/blog",
+  },
+  {
+    image: "/assets/sala-laser.jpg",
+    alt: "Qué es el antígeno prostático",
+    tag: "Próstata",
+    title: "Qué es el antígeno prostático y cuándo importa",
+    meta: "19 mayo 2026 · 6 min · Dr. Abraham López Venegas",
+    href: "/blog",
+  },
+  {
+    image: "/assets/consultorio.jpg",
+    alt: "Engrosamiento de pene quirúrgico",
+    tag: "Andrología",
+    title: "Engrosamiento de pene quirúrgico y faloplastia",
+    meta: "19 mayo 2026 · 6 min · Dr. Abraham López Venegas",
+    href: "/blog",
+  },
+];
 ---
 
 <Layout>
-  <!-- HERO -->
   <Hero />
 
-  <!-- TRUST STRIP -->
-  <div class="container-fluid trust">
-    <div class="container">
-      <div class="row row-cols-2">
-        <div class="col-12">
-          <div class="trust-wrapper">
-            <div class="t-item">
-              <div class="t-icon">
-                <svg viewBox="0 0 24 24"
-                  ><circle cx="12" cy="9" r="5.4"></circle><path
-                    d="M12 6.6l.95 1.92 2.12.31-1.53 1.49.36 2.11L12 11.44l-1.9 1 .36-2.11L8.93 8.83l2.12-.31z"
-                    stroke-linejoin="round"></path><path
-                    d="M8.7 13.3 6.3 21l5.7-2.7 5.7 2.7-2.4-7.7"
-                    stroke-linejoin="round"></path></svg
-                >
-              </div>
-              <div class="t-label">
-                <strong>Doctoralia Awards</strong><span
-                  >Mejor urólogo México 2022 y 2023</span
-                >
-              </div>
-            </div>
-            <div class="t-sep"></div>
-            <div class="t-item">
-              <div class="t-icon">
-                <svg viewBox="0 0 24 24"
-                  ><rect x="4" y="3" width="16" height="12.5" rx="1.6"
-                  ></rect><path d="M7.5 7h9M7.5 10h5.5" stroke-linecap="round"
-                  ></path><circle cx="12" cy="18.4" r="2.7"></circle><path
-                    d="M10.4 20.4 9.6 23l2.4-1.3 2.4 1.3-.8-2.6"
-                    stroke-linejoin="round"></path></svg
-                >
-              </div>
-              <div class="t-label">
-                <strong>Cédula CNMU folio 1776</strong><span
-                  >Consejo Nacional Mexicano de Urología</span
-                >
-              </div>
-            </div>
-            <div class="t-sep"></div>
-            <div class="t-item">
-              <div class="t-icon">
-                <svg viewBox="0 0 24 24"
-                  ><path d="M2 8.6 12 4l10 4.6-10 4.6z" stroke-linejoin="round"
-                  ></path><path
-                    d="M6.5 10.9V15c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-4.1"
-                    stroke-linecap="round"></path><path
-                    d="M22 8.6v4.4"
-                    stroke-linecap="round"></path></svg
-                >
-              </div>
-              <div class="t-label">
-                <strong>Egresado UNAM</strong><span
-                  >Hospital Juárez · Especialidad Urología</span
-                >
-              </div>
-            </div>
-            <div class="t-sep"></div>
-            <div class="t-item">
-              <div class="t-icon">
-                <svg viewBox="0 0 24 24"
-                  ><path
-                    d="M12 21.5s6.5-5.8 6.5-11A6.5 6.5 0 0 0 5.5 10.5c0 5.2 6.5 11 6.5 11z"
-                    stroke-linejoin="round"></path><path
-                    d="M12 7.8v5.2M9.4 10.4h5.2"
-                    stroke-linecap="round"></path></svg
-                >
-              </div>
-              <div class="t-label">
-                <strong>3 consultorios</strong><span
-                  >CDMX Norte · Iztapalapa · Chalco EdoMex</span
-                >
-              </div>
-            </div>
-            <div class="t-item">
-              <a href="/perfil" class="trust-cta"
-                >Perfil completo <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  ><path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5"></path></svg
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <TrustStrip items={trustItems} ctaHref="/perfil" ctaText="Perfil completo" />
 
-  <!-- BENTO STATS -->
-  <section class="container-fluid bento">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="bento-grid">
-            <div class="bento-cell c-stat b1">
-              <div class="bento-big-num">
-                700<span style="font-size:.5em;font-weight:700">+</span>
-              </div>
-              <div class="bento-lbl">Cirugías HoLEP y ThuFLEP realizadas</div>
-            </div>
-            <div class="bento-cell c-stat c-teal b2">
-              <div class="bento-big-num teal-c">
-                1,300<span style="font-size:.5em;font-weight:700">+</span>
-              </div>
-              <div class="bento-lbl teal-lbl">
-                Reseñas verificadas en Google y Doctoralia
-              </div>
-            </div>
-            <div class="bento-cell c-stat b3">
-              <div class="bento-big-num" style="color:var(--amber)">
-                4.9<span style="font-size:.45em;opacity:.6">★</span>
-              </div>
-              <div class="bento-lbl">Calificación promedio de pacientes</div>
-            </div>
-            <div class="bento-cell c-stat b4">
-              <div class="bento-big-num" style="color:var(--teal)">3</div>
-              <div class="bento-lbl">Consultorios en CDMX y EdoMex</div>
-            </div>
-            <div class="bento-cell c-dark bento-desc-cell b5">
-              <h3>Pionero en técnica MiLEP en México</h3>
-              <p>
-                Médico Cirujano egresado de la UNAM con especialidad en
-                Urología en el Hospital Juárez de México. Miembro de la
-                Sociedad Mexicana de Urología y la Confederación Americana de
-                Urología.
-              </p>
-            </div>
-            <div class="bento-cell c-dark bento-award b6">
-              <div>
-                <div class="bento-award-title">Reconocimiento</div>
-                <h3>Urólogo mejor valorado de México</h3>
-              </div>
-              <div class="bento-award-years">
-                <span class="award-chip">Doctoralia 2022</span>
-                <span class="award-chip">Doctoralia 2023</span>
-              </div>
-            </div>
-            <div class="bento-cell c-teal bento-cnmu b7">
-              <div>
-                <div
-                  style="font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px;"
-                >
-                  Folio CNMU
-                </div>
-                <div class="bento-cnmu-num">1776</div>
-                <div class="bento-cnmu-lbl">Certificación vigente</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <BentoStats stats={bentoStats} highlights={bentoHighlights} />
 
-  <!-- PROCEDIMIENTOS (3 cards rápidas) -->
-  <section
-    class="container section"
-    style="border-bottom:1px solid var(--line);"
-  >
-    <div class="row">
-      <div class="col-12">
-        <div
-          style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;"
-        >
-          <SectionTag
-            tag="Áreas de especialización"
-            heading="Procedimientos que realizamos"
-          />
-          <Button href="/prostata" variant="outline"
-            >Ver todos los servicios →</Button
-          >
-        </div>
-      </div>
-    </div>
-    <div class="row icon-cards">
-      <div class="col-12 col-md-4 icon-card">
-        <div class="ic-icon">
-          <svg viewBox="0 0 18 18"
-            ><circle cx="9" cy="9" r="7"></circle><path
-              d="M9 5v4l2.5 2"
-              stroke-linecap="round"></path></svg
-          >
-        </div>
-        <h3>Cirugía de próstata con láser</h3>
-        <p>
-          HoLEP, ThuFLEP y MiLEP. Más de 700 cirugías realizadas. Sin cortes
-          externos, recuperación en 1–2 semanas.
-        </p>
-        <a
-          href="/holep"
-          style="font-size:12.5px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:14px;"
-          >Ver cirugía HoLEP →</a
-        >
-      </div>
-      <div class="col-12 col-md-4 icon-card">
-        <div class="ic-icon">
-          <svg viewBox="0 0 18 18"
-            ><path
-              d="M9 2l2 5h5l-4 3 1.5 5L9 12l-4.5 3L6 10 2 7h5z"
-              stroke-linejoin="round"></path></svg
-          >
-        </div>
-        <h3>Cálculos urinarios con láser de Tulio</h3>
-        <p>
-          Litotricia láser endoscópica para cálculos en riñón, uréter y vejiga.
-          Tecnología de última generación.
-        </p>
-        <a
-          href="/prostata"
-          style="font-size:12.5px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:14px;"
-          >Conocer más →</a
-        >
-      </div>
-      <div class="col-12 col-md-4 icon-card">
-        <div class="ic-icon">
-          <svg viewBox="0 0 18 18"
-            ><rect x="3" y="3" width="12" height="12" rx="2"></rect><path
-              d="M9 6v6M6 9h6"
-              stroke-linecap="round"></path></svg
-          >
-        </div>
-        <h3>Circuncisión láser y salud masculina</h3>
-        <p>
-          Más de 2,000 circuncisiones con técnica láser. Andrología y salud
-          masculina integral con atención confidencial.
-        </p>
-        <a
-          href="/prostata"
-          style="font-size:12.5px;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:14px;"
-          >Conocer más →</a
-        >
-      </div>
-    </div>
-  </section>
+  <Procedures
+    tag="Áreas de especialización"
+    heading="Procedimientos que realizamos"
+    ctaHref="/prostata"
+    ctaText="Ver todos los servicios →"
+    items={procedures}
+  />
 
-  <!-- CREDENCIALES -->
-  <section
-    class="container-fluid section dark"
-    style="position:relative;overflow:hidden;"
-  >
-    <div class="dark-glow"></div>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 col-lg-8">
-          <div class="pe-5">
-            <SectionTag
-              tag="Formación y certificaciones"
-              heading="Dr. Abraham López Venegas — Urólogo certificado UNAM"
-              headingClass="creds-h"
-            />
-            <p class="creds-bio">
-              Médico Cirujano egresado de la Facultad de Medicina de la UNAM
-              (Cédula Prof. 9148863). Especialidad en Urología en el Hospital
-              Juárez de México (Cédula Especialidad 12366905). Certificado por
-              el Consejo Nacional Mexicano de Urología, folio vigente 1776.
-              Miembro de la Sociedad Mexicana de Urología, Colegio Nacional
-              Mexicano de Urología, Confederación Americana de Urología y
-              Sociedad Internacional de Urología.
-            </p>
-            <div class="creds-stats">
-              <div class="cstat">
-                <div class="cstat-num">700+</div><div class="cstat-lbl">
-                  Cirugías HoLEP y ThuFLEP
-                </div>
-              </div>
-              <div class="cstat">
-                <div class="cstat-num">2,000+</div><div class="cstat-lbl">
-                  Pacientes operados en total
-                </div>
-              </div>
-              <div class="cstat">
-                <div class="cstat-num" style="color:var(--amber)">4.9★</div><div
-                  class="cstat-lbl"
-                >
-                  Doctoralia Awards 2022 y 2023
-                </div>
-              </div>
-              <div class="cstat">
-                <div class="cstat-num" style="color:var(--teal)">1776</div><div
-                  class="cstat-lbl"
-                >
-                  Folio CNMU vigente
-                </div>
-              </div>
-            </div>
-            <Button href="/perfil" variant="white-outline"
-              >Conocer trayectoria completa →</Button
-            >
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="creds-photo">
-            <img
-              src="/assets/dr-retrato.avif"
-              alt="Dr. Abraham López Venegas"
-              class="img-fluid"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Credentials
+    tag="Formación y certificaciones"
+    heading="Dr. Abraham López Venegas — Urólogo certificado UNAM"
+    bio="Médico Cirujano egresado de la Facultad de Medicina de la UNAM (Cédula Prof. 9148863). Especialidad en Urología en el Hospital Juárez de México (Cédula Especialidad 12366905). Certificado por el Consejo Nacional Mexicano de Urología, folio vigente 1776. Miembro de la Sociedad Mexicana de Urología, Colegio Nacional Mexicano de Urología, Confederación Americana de Urología y Sociedad Internacional de Urología."
+    stats={credentialStats}
+    ctaHref="/perfil"
+    ctaText="Conocer trayectoria completa →"
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+  />
 
-  <!-- UBICACIONES -->
-  <section class="container-fluid bg-white section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div
-            style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;"
-          >
-            <SectionTag
-              tag="Consultorios"
-              heading="3 sedes en CDMX<br>y Estado de México"
-            />
-            <p class="section-p" style="text-align:right;max-width:240px;">
-              Atención en hospitales privados de referencia. Citas disponibles
-              de lunes a sábado.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        {
-          locations.map((location) => (
-            <div class="col-12 col-md-4">
-              <LocationCard
-                mapUrl={location.mapUrl}
-                mapQuery={location.mapQuery}
-                zone={location.zone}
-                name={location.name}
-                hospital={location.hospital}
-                address={location.address}
-                price={location.price}
-                href={location.href}
-              />
-            </div>
-          ))
-        }
-      </div>
-      <div class="row">
-        <div class="col-12 text-center py-5">
-          <Button href="/ubicaciones" variant="outline"
-            >Ver mapa y horarios completos →</Button
-          >
-        </div>
-      </div>
-    </div>
-  </section>
+  <Locations
+    tag="Consultorios"
+    heading="3 sedes en CDMX<br>y Estado de México"
+    intro="Atención en hospitales privados de referencia. Citas disponibles de lunes a sábado."
+    locations={locations}
+    ctaHref="/ubicaciones"
+    ctaText="Ver mapa y horarios completos →"
+  />
 
-  <!-- RESEÑAS -->
-  <section class="container-fluid section fog">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="reviews-top">
-            <div>
-              <SectionTag
-                tag="Opiniones de pacientes"
-                heading="Más de 1,300 opiniones<br>reales de pacientes"
-              />
-              <p style="font-size:13px;color:var(--mist);margin-top:6px;">
-                Doctoralia Awards — Urólogo mejor valorado de México 2022 y 2023
-              </p>
-            </div>
-            <div style="text-align:right;">
-              <div class="reviews-num">4.9</div>
-              <div class="reviews-stars">★★★★★</div>
-              <div class="reviews-cnt">1,300+ reseñas verificadas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        {
-          reviews.map((review) => (
-            <div class="col-12 col-md-4">
-              <ReviewCard quote={review.quote} source={review.source} />
-            </div>
-          ))
-        }
-        <div class="col-12 pt-5">
-          <a href="#">Ver todas las reseñas en Doctoralia →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Reviews
+    tag="Opiniones de pacientes"
+    heading="Más de 1,300 opiniones<br>reales de pacientes"
+    subtext="Doctoralia Awards — Urólogo mejor valorado de México 2022 y 2023"
+    ratingScore="4.9"
+    ratingCount="1,300+ reseñas verificadas"
+    reviews={reviews}
+    footerHref="#"
+    footerText="Ver todas las reseñas en Doctoralia →"
+  />
 
-  <!-- ASEGURADORAS -->
-  <div class="container-fluid insur bg-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="insur-wrapper">
-            <div class="insur-label">Aseguradoras aceptadas</div>
-            <div class="insur-logos">
-              <div class="row row-cols-2 row-cols-md-4 g-0 flex-fill">
-                <div class="col insur-logo">
-                  <img src="/assets/logo-gnp.svg" alt="GNP Seguros" />
-                </div>
-                <div class="col insur-logo">
-                  <img src="/assets/logo-axa.svg" alt="AXA" />
-                </div>
-                <div class="col insur-logo">
-                  <img src="/assets/logo-mapfre.svg" alt="Mapfre" />
-                </div>
-                <div class="col insur-logo">
-                  <img src="/assets/logo-bbva.svg" alt="BBVA Seguros" />
-                </div>
-              </div>
-            </div>
-            <div class="insur-more">
-              + otras · <a
-                href="/ubicaciones"
-                style="color:var(--teal);font-weight:600;">Ver cobertura →</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Insurers
+    label="Aseguradoras aceptadas"
+    logos={insuranceLogos}
+    moreText="+ otras ·"
+    moreHref="/ubicaciones"
+    moreLinkText="Ver cobertura →"
+  />
 
-  <!-- BLOG PREVIEW -->
-  <section class="container-fluid section bg-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex justify-content-between align-items-end mb-4">
-            <SectionTag
-              tag="Artículos recientes"
-              heading="Información para pacientes"
-            />
-            <Button href="/blog" variant="outline"
-              >Ver todos los artículos →</Button
-            >
-          </div>
-        </div>
-      </div>
+  <BlogPreview
+    tag="Artículos recientes"
+    heading="Información para pacientes"
+    ctaHref="/blog"
+    ctaText="Ver todos los artículos →"
+    posts={blogPosts}
+  />
 
-      <div class="row g-4">
-        {
-          blogPosts.map((post) => (
-            <div class="col-12 col-md-4">
-              <BlogCard
-                image={post.image}
-                alt={post.alt}
-                tag={post.tag}
-                title={post.title}
-                meta={post.meta}
-                href={post.href}
-              />
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <div class="container-fluid cta-banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="cta-wrapper">
-            <div class="cta-banner-content">
-              <h2>
-                ¿Tienes síntomas urológicos?<br />Agenda tu valoración hoy
-              </h2>
-              <p>
-                3 consultorios en CDMX y Estado de México. Consulta desde $800.
-                Sin lista de espera.
-              </p>
-            </div>
-            <div class="cta-banner-actions">
-              <WhatsAppButton text="Agendar por WhatsApp" size={16} />
-              <Button href="/ubicaciones" variant="white-outline"
-                >Ver ubicaciones</Button
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <CtaBanner />
 </Layout>

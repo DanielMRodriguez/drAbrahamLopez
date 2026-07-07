@@ -1,0 +1,67 @@
+---
+import SectionTag from "../../ui/SectionTag.astro";
+import ReviewCard from "../../ui/ReviewCard.astro";
+
+interface ReviewItem {
+  quote: string;
+  source: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  subtext: string;
+  ratingScore: string;
+  ratingCount: string;
+  reviews: ReviewItem[];
+  footerHref: string;
+  footerText: string;
+}
+
+const {
+  tag,
+  heading,
+  subtext,
+  ratingScore,
+  ratingCount,
+  reviews,
+  footerHref,
+  footerText,
+} = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="reviews-top">
+          <div>
+            <SectionTag tag={tag} heading={heading} />
+            <p style="font-size:13px;color:var(--mist);margin-top:6px;">
+              {subtext}
+            </p>
+          </div>
+          <div style="text-align:right;">
+            <div class="reviews-num" data-countup={ratingScore} data-countup-decimals="1">
+              0
+            </div>
+            <div class="reviews-stars">★★★★★</div>
+            <div class="reviews-cnt">{ratingCount}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {
+        reviews.map((review) => (
+          <div class="col-12 col-md-4">
+            <ReviewCard quote={review.quote} source={review.source} />
+          </div>
+        ))
+      }
+      <div class="col-12 pt-5">
+        <a href={footerHref}>{footerText}</a>
+      </div>
+    </div>
+  </div>
+</section>

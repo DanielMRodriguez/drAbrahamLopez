@@ -1,0 +1,43 @@
+---
+import WhatsAppButton from "../ui/WhatsAppButton.astro";
+import Button from "../ui/Button.astro";
+
+interface Props {
+  title?: string;
+  text?: string;
+  whatsappText?: string;
+  whatsappSize?: number;
+  secondaryHref?: string;
+  secondaryText?: string;
+}
+
+const {
+  title = "¿Tienes síntomas urológicos?<br>Agenda tu valoración hoy",
+  text = "3 consultorios en CDMX y Estado de México. Consulta desde $800. Sin lista de espera.",
+  whatsappText = "Agendar por WhatsApp",
+  whatsappSize = 16,
+  secondaryHref = "/ubicaciones",
+  secondaryText = "Ver ubicaciones",
+} = Astro.props;
+---
+
+<div class="container-fluid cta-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="cta-wrapper">
+          <div class="cta-banner-content">
+            <h2 set:html={title} />
+            <p>{text}</p>
+          </div>
+          <div class="cta-banner-actions">
+            <WhatsAppButton text={whatsappText} size={whatsappSize} />
+            <Button href={secondaryHref} variant="white-outline"
+              >{secondaryText}</Button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

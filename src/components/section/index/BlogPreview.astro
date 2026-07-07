@@ -1,0 +1,53 @@
+---
+import SectionTag from "../../ui/SectionTag.astro";
+import Button from "../../ui/Button.astro";
+import BlogCard from "../../ui/BlogCard.astro";
+
+interface Post {
+  image: string;
+  alt: string;
+  tag: string;
+  title: string;
+  meta: string;
+  href: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  ctaHref: string;
+  ctaText: string;
+  posts: Post[];
+}
+
+const { tag, heading, ctaHref, ctaText, posts } = Astro.props;
+---
+
+<section class="container-fluid section bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <SectionTag tag={tag} heading={heading} />
+          <Button href={ctaHref} variant="outline">{ctaText}</Button>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+      {
+        posts.map((post) => (
+          <div class="col-12 col-md-4">
+            <BlogCard
+              image={post.image}
+              alt={post.alt}
+              tag={post.tag}
+              title={post.title}
+              meta={post.meta}
+              href={post.href}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+import SectionTag from "../../ui/SectionTag.astro";
+import Button from "../../ui/Button.astro";
+import LocationCard from "../../ui/LocationCard.astro";
+
+interface LocationItem {
+  mapUrl: string;
+  mapQuery: string;
+  zone: string;
+  name: string;
+  hospital: string;
+  address: string;
+  price: string;
+  href: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  locations: LocationItem[];
+  ctaHref: string;
+  ctaText: string;
+}
+
+const { tag, heading, intro, locations, ctaHref, ctaText } = Astro.props;
+---
+
+<section class="container-fluid bg-white section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div
+          style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;"
+        >
+          <SectionTag tag={tag} heading={heading} />
+          <p class="section-p" style="text-align:right;max-width:240px;">
+            {intro}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {
+        locations.map((location) => (
+          <div class="col-12 col-md-4">
+            <LocationCard
+              mapUrl={location.mapUrl}
+              mapQuery={location.mapQuery}
+              zone={location.zone}
+              name={location.name}
+              hospital={location.hospital}
+              address={location.address}
+              price={location.price}
+              href={location.href}
+            />
+          </div>
+        ))
+      }
+    </div>
+    <div class="row">
+      <div class="col-12 text-center py-5">
+        <Button href={ctaHref} variant="outline">{ctaText}</Button>
+      </div>
+    </div>
+  </div>
+</section>

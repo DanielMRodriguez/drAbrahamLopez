@@ -1,0 +1,45 @@
+---
+interface Logo {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  label: string;
+  logos: Logo[];
+  moreText: string;
+  moreHref: string;
+  moreLinkText: string;
+}
+
+const { label, logos, moreText, moreHref, moreLinkText } = Astro.props;
+---
+
+<div class="container-fluid insur bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="insur-wrapper">
+          <div class="insur-label">{label}</div>
+          <div class="insur-logos">
+            <div class="row row-cols-2 row-cols-md-4 g-0 flex-fill">
+              {
+                logos.map((logo) => (
+                  <div class="col insur-logo">
+                    <img src={logo.src} alt={logo.alt} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <div class="insur-more">
+            {moreText}{" "}
+            <a href={moreHref} style="color:var(--teal);font-weight:600;">
+              {moreLinkText}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

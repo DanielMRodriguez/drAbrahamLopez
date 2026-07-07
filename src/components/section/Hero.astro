@@ -5,6 +5,7 @@ import WhatsAppButton from "../ui/WhatsAppButton.astro";
 interface Stat {
   value: string;
   suffix?: string;
+  decimals?: number;
   label: string;
 }
 
@@ -24,8 +25,8 @@ const {
   tagline = "<strong>Dr. Abraham López Venegas.</strong> Más de 700 cirugías HoLEP y ThuFLEP. Pionero en técnica MiLEP en México. Tres consultorios en zona norte y oriente de CDMX y Estado de México.",
   stats = [
     { value: "700", suffix: "+", label: "Cirugías HoLEP" },
-    { value: "1,300", suffix: "+", label: "Reseñas" },
-    { value: "4.9", suffix: "★", label: "Calificación" },
+    { value: "1300", suffix: "+", label: "Reseñas" },
+    { value: "4.9", suffix: "★", decimals: 1, label: "Calificación" },
   ],
   photo = "/assets/dr-retrato-tall.avif",
   photoAlt = "Dr. Abraham López Venegas",
@@ -50,7 +51,11 @@ const {
                 stats.map((stat) => (
                   <div class="hproof-item">
                     <div class="hproof-num">
-                      {stat.value}
+                      <span
+                        data-countup={stat.value}
+                        data-countup-decimals={stat.decimals ?? 0}
+                        >0</span
+                      >
                       <span style="font-size:.55em;opacity:.6">
                         {stat.suffix}
                       </span>
