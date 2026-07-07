@@ -1,0 +1,54 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  tagline?: string;
+  ctaText?: string;
+  bgImage?: string;
+  trustItems?: string[];
+}
+
+const {
+  eyebrow = "3 sedes para atenderte",
+  title = "Consultorios en CDMX<br>y Estado de México",
+  tagline = "Atención en hospitales privados de referencia. Fácil acceso y estacionamiento. Citas disponibles de lunes a sábado.",
+  ctaText = "Agendar cita",
+  bgImage = "/assets/consultorio.jpg",
+  trustItems = [
+    "3 sedes disponibles",
+    "Consulta desde $800",
+    "Lunes a sábado",
+    "Estacionamiento disponible",
+    "GNP · AXA · Mapfre y más",
+  ],
+} = Astro.props;
+---
+
+<section class="ubi-hero">
+  <div class="ubi-hero-bg">
+    <img src={bgImage} alt="" />
+  </div>
+  <div class="ubi-hero-overlay"></div>
+  <div class="ubi-hero-noise"></div>
+  <div class="ubi-hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      <span>{eyebrow}</span>
+    </div>
+    <h1 set:html={title} />
+    <p>{tagline}</p>
+    <WhatsAppButton text={ctaText} />
+  </div>
+  <div class="ubi-hero-trust">
+    {
+      trustItems.map((item) => (
+        <div class="ubi-hero-trust-item">
+          <span>✓</span>
+          <span>{item}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>

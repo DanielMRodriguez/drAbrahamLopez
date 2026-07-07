@@ -1,0 +1,38 @@
+---
+import SedeDetailCard from "../../ui/SedeDetailCard.astro";
+
+interface InfoRow {
+  label: string;
+  value: string;
+}
+
+interface Sede {
+  sedeNumber: string;
+  sedeLabel: string;
+  mapQuery: string;
+  zone: string;
+  name: string;
+  infoRows: InfoRow[];
+  zoneChips: string[];
+  ctaText: string;
+  ctaHref: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+}
+
+interface Props {
+  sedes: Sede[];
+}
+
+const { sedes } = Astro.props;
+---
+
+<section class="container-fliud section bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {sedes.map((sede) => <SedeDetailCard {...sede} />)}
+      </div>
+    </div>
+  </div>
+</section>

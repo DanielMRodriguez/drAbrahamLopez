@@ -1,0 +1,49 @@
+---
+import SectionTag from "../../ui/SectionTag.astro";
+
+interface Logo {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  logos: Logo[];
+  footnote: string;
+}
+
+const { tag, heading, intro, logos, footnote } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div style="text-align:center;max-width:560px;margin:0 auto 36px;">
+          <SectionTag tag={tag} heading={heading} />
+          <p style="font-size:14px;color:var(--mist);margin-top:8px;">
+            {intro}
+          </p>
+        </div>
+        <div class="row row-cols-2 row-cols-md-4 g-3">
+          {
+            logos.map((logo) => (
+              <div class="col">
+                <div class="asegura-card">
+                  <img src={logo.src} alt={logo.alt} />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <p
+          style="text-align:center;font-size:13px;color:var(--mist);margin-top:20px;"
+        >
+          {footnote}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
