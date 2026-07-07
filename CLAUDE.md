@@ -1,12 +1,20 @@
 ## Development
 
-When starting the dev server, use background mode:
+Las pruebas y depuraciones visuales las hace el desarrollador directamente en su editor/navegador. **No es necesario levantar el dev server** (`astro dev`) para verificar cambios — evita iniciar, detener o consultar el servidor salvo que el desarrollador lo pida explícitamente.
 
-```
-astro dev --background
-```
+## Git workflow
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+Este proyecto usa [Conventional Commits](https://www.conventionalcommits.org/) para todos los mensajes de commit (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `style:`, `test:`, etc.), con un scope opcional cuando aporte claridad (ej. `feat(hero): ...`).
+
+Flujo estándar para aplicar cambios:
+
+1. **Issue**: se abre un issue documentando el cambio a realizar (qué y por qué).
+2. **Branch**: se crea una rama a partir de `main` para ese issue (ej. `feat/123-nombre-corto` o `fix/123-nombre-corto`, referenciando el número de issue).
+3. **Trabajo**: se implementan los cambios en esa rama, con commits siguiendo Conventional Commits.
+4. **Pull Request**: se abre un PR desde la rama hacia `main` que cierre el issue (ej. incluir `Closes #123` en la descripción).
+5. **Merge**: una vez aprobado, se mergea el PR a `main`.
+
+No se trabaja directamente sobre `main`; todo cambio pasa por issue → rama → PR → merge.
 
 ## Patrón de páginas: composición por secciones
 
