@@ -1,0 +1,58 @@
+---
+import Button from "../../ui/Button.astro";
+
+interface Props {
+  tag: string;
+  heading: string;
+  signs: string[];
+  ctaHeading: string;
+  ctaText: string;
+  ctaButtonText: string;
+  ctaHref: string;
+  ctaNote: string;
+}
+
+const {
+  tag,
+  heading,
+  signs,
+  ctaHeading,
+  ctaText,
+  ctaButtonText,
+  ctaHref,
+  ctaNote,
+} = Astro.props;
+---
+
+<section class="container-fluid bg-white section">
+  <div class="container">
+    <div class="row">
+    <div class="col-12">
+      <div class="when-grid">
+        <div>
+          <span class="sect-tag">{tag}</span>
+          <h2 class="section-h" style="margin-bottom:32px;" set:html={heading} />
+          <div class="when-list">
+            {
+              signs.map((sign, i) => (
+                <div class="when-item">
+                  <span class="when-n">{String(i + 1).padStart(2, "0")}</span>
+                  <span class="when-text">{sign}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="sticky-cta">
+          <h3>{ctaHeading}</h3>
+          <p>{ctaText}</p>
+          <Button href={ctaHref} variant="teal" class="btn-block">
+            {ctaButtonText}
+          </Button>
+          <div class="sticky-note">{ctaNote}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

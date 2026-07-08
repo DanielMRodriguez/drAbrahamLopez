@@ -1,0 +1,43 @@
+---
+import ConditionCard from "../../ui/ConditionCard.astro";
+
+interface Condition {
+  image: string;
+  imageAlt: string;
+  tag: string;
+  title: string;
+  text: string;
+  linkHref: string;
+  linkText: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  conditions: Condition[];
+}
+
+const { tag, heading, conditions } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div style="text-align:center;max-width:580px;margin:0 auto 40px;">
+          <span class="sect-tag">{tag}</span>
+          <h2 class="section-h">{heading}</h2>
+        </div>
+        <div class="row g-3">
+          {
+            conditions.map((condition) => (
+              <div class="col-12 col-md-4">
+                <ConditionCard {...condition} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

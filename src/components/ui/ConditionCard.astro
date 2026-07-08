@@ -1,0 +1,27 @@
+---
+interface Props {
+  image: string;
+  imageAlt: string;
+  tag: string;
+  title: string;
+  text: string;
+  linkHref: string;
+  linkText: string;
+}
+
+const { image, imageAlt, tag, title, text, linkHref, linkText } = Astro.props;
+---
+
+<div class="cond-card">
+  <div class="cond-thumb">
+    <img src={image} alt={imageAlt} />
+  </div>
+  <div class="cond-body">
+    <div class="cond-tag">{tag}</div>
+    <div class="cond-title">{title}</div>
+    <div class="cond-text">{text}</div>
+    <a href={linkHref} class="btn-outline" style="font-size:13px;">
+      {linkText}
+    </a>
+  </div>
+</div>

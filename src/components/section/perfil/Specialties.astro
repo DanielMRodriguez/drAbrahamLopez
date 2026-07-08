@@ -39,16 +39,16 @@ const { tag, heading, intro, areas, photo, photoAlt, stats } = Astro.props;
         </div>
       </div>
       <div class="col-12 col-lg-5" style="display:flex;flex-direction:column;gap:12px;">
-        <div class="spec-photo">
+        <div class="specialty-photo">
           <img src={photo} alt={photoAlt} />
         </div>
         <div class="row g-2">
           {
             stats.map((stat) => (
               <div class="col-6">
-                <div class="spec-stat">
+                <div class="specialty-stat">
                   <div
-                    class="spec-stat-num"
+                    class="specialty-stat-num"
                     style={stat.color ? `color:${stat.color}` : "color:var(--ink)"}
                   >
                     <span
@@ -59,7 +59,7 @@ const { tag, heading, intro, areas, photo, photoAlt, stats } = Astro.props;
                     </span>
                     {stat.suffix}
                   </div>
-                  <div class="spec-stat-lbl">{stat.label}</div>
+                  <div class="specialty-stat-lbl">{stat.label}</div>
                 </div>
               </div>
             ))

@@ -1,0 +1,74 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import Button from "../../ui/Button.astro";
+
+interface Stat {
+  value: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+  countUp?: boolean;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  tagline: string;
+  stats: Stat[];
+  ctaText: string;
+  secondaryHref: string;
+  secondaryText: string;
+  bgImage: string;
+}
+
+const {
+  eyebrow,
+  title,
+  tagline,
+  stats,
+  ctaText,
+  secondaryHref,
+  secondaryText,
+  bgImage,
+} = Astro.props;
+---
+
+<section class="prostata-hero">
+  <div class="prostata-hero-bg"><img src={bgImage} alt="" /></div>
+  <div class="prostata-hero-overlay"></div>
+  <div class="prostata-hero-noise"></div>
+  <div class="prostata-hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      <span>{eyebrow}</span>
+    </div>
+    <h1 set:html={title} />
+    <p set:html={tagline} />
+    <div class="hero-proof">
+      {
+        stats.map((stat) => (
+          <div class="hproof-item">
+            <div class="hproof-num">
+              {stat.countUp === false ? (
+                stat.value
+              ) : (
+                <span
+                  data-countup={stat.value}
+                  data-countup-decimals={stat.decimals ?? 0}
+                >
+                  0
+                </span>
+              )}
+              {stat.suffix}
+            </div>
+            <div class="hproof-lbl">{stat.label}</div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="prostata-hero-ctas">
+      <WhatsAppButton text={ctaText} size={16} />
+      <Button href={secondaryHref} variant="ghost">{secondaryText}</Button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+---
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  items: FaqItem[];
+  image: string;
+  imageAlt: string;
+  caption: string;
+}
+
+const { tag, heading, items, image, imageAlt, caption } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{tag}</span>
+        <h2 class="section-h" style="margin-bottom:28px;" set:html={heading} />
+        <div class="faq-list">
+          {
+            items.map((item) => (
+              <div class="faq-item">
+                <div class="faq-q">{item.q}</div>
+                <div class="faq-a">{item.a}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="col-12 col-lg-6"
+        style="display:flex;align-items:flex-end;"
+      >
+        <div style="width:100%;">
+          <div
+            style="background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;height:260px;margin-bottom:16px;"
+          >
+            <img
+              src={image}
+              alt={imageAlt}
+              style="width:100%;height:100%;object-fit:cover;"
+            />
+          </div>
+          <p style="font-size:12.5px;color:var(--mist);line-height:1.6;">
+            {caption}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

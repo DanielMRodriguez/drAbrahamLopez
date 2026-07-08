@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/section/prostata/Hero.astro";
+import Intro from "../components/section/prostata/Intro.astro";
+import Conditions from "../components/section/prostata/Conditions.astro";
+import WhenToVisit from "../components/section/prostata/WhenToVisit.astro";
+import Faq from "../components/section/prostata/Faq.astro";
+import Specialist from "../components/section/prostata/Specialist.astro";
+
+const heroStats = [
+  { value: "700", suffix: "+", label: "Cirugías HoLEP" },
+  { value: "3", label: "Sedes en CDMX" },
+  { value: "2022–23", label: "Doctoralia Awards", countUp: false },
+];
+
+const introParagraphs = [
+  "La próstata es una glándula del tamaño de una nuez ubicada debajo de la vejiga en los hombres. Produce parte del líquido seminal y rodea la uretra, el conducto por donde sale la orina.",
+  "Con la edad, la próstata tiende a crecer — una condición llamada <strong>hiperplasia prostática benigna (HPB)</strong> — lo que puede dificultar la micción y afectar la calidad de vida significativamente.",
+  "A partir de los <strong>50 años</strong>, se recomienda revisión urológica anual aunque no haya síntomas. Desde los <strong>40 si hay antecedentes familiares</strong> de cáncer de próstata.",
+];
+
+const conditions = [
+  {
+    image: "/assets/clinica-2.avif",
+    imageAlt: "Hiperplasia prostática",
+    tag: "Diagnóstico y tratamiento",
+    title: "Hiperplasia prostática benigna",
+    text: "El agrandamiento de la próstata es la condición urológica más frecuente en hombres mayores de 50 años. Conoce qué es, por qué ocurre y cómo se trata.",
+    linkHref: "/hpb",
+    linkText: "Conocer más →",
+  },
+  {
+    image: "/assets/clinica-3.avif",
+    imageAlt: "Síntomas de próstata",
+    tag: "Identificar señales",
+    title: "Síntomas de próstata",
+    text: "Dificultad para orinar, chorro débil, levantarse de noche. Aprende a identificar las señales que indican que debes consultar a un urólogo.",
+    linkHref: "/sintomas",
+    linkText: "Ver síntomas →",
+  },
+  {
+    image: "/assets/procedimiento-holep.avif",
+    imageAlt: "Cirugía láser HoLEP",
+    tag: "Procedimiento quirúrgico",
+    title: "Cirugía láser HoLEP",
+    text: "El estándar de oro para tratar la hiperplasia prostática. Sin cortes externos, recuperación en 1–2 semanas y resultados duraderos.",
+    linkHref: "/holep",
+    linkText: "Ver cirugía HoLEP →",
+  },
+];
+
+const whenToVisitSigns = [
+  "Dificultad para iniciar la micción",
+  "Chorro urinario débil o intermitente",
+  "Sensación de vaciado incompleto",
+  "Levantarte más de 2 veces por noche a orinar",
+  "Urgencia repentina e incontrolable de orinar",
+  "Sangre en la orina",
+  "PSA elevado en análisis reciente",
+  "Próstata grande confirmada por ultrasonido previo",
+];
+
+const faqItems = [
+  {
+    q: "¿A qué edad debo hacerme revisión de próstata?",
+    a: "A partir de los 50 años, o desde los 40 si hay antecedentes familiares de cáncer de próstata. La revisión incluye tacto rectal y medición del PSA.",
+  },
+  {
+    q: "¿La hiperplasia prostática es cáncer?",
+    a: "No. La hiperplasia prostática benigna es un agrandamiento no canceroso. Sin embargo requiere seguimiento porque los síntomas afectan la calidad de vida y pueden empeorar.",
+  },
+  {
+    q: "¿Todos los problemas de próstata requieren cirugía?",
+    a: "No. Muchos casos se manejan con medicamento. La cirugía se recomienda cuando el tratamiento médico no es suficiente o hay complicaciones.",
+  },
+  {
+    q: "¿Qué es el PSA y por qué importa?",
+    a: "Es una proteína producida por la próstata. Niveles elevados pueden indicar hiperplasia, inflamación o cáncer. Es una prueba de sangre simple que forma parte del chequeo urológico anual.",
+  },
+  {
+    q: "¿La cirugía de próstata afecta la función sexual?",
+    a: "La cirugía HoLEP preserva la función eréctil. Puede haber eyaculación retrógrada, lo cual es inofensivo y se informa al paciente desde antes del procedimiento.",
+  },
+];
+
+const specialistBadges = [
+  "700+ cirugías HoLEP y ThuFLEP",
+  "Doctoralia Awards 2022",
+  "Doctoralia Awards 2023",
+  "CNMU folio 1776",
+];
+---
+
+<Layout title="Próstata — Dr. Abraham López Venegas · Urólogo CDMX">
+  <Hero
+    eyebrow="Especialista en próstata · CDMX y EdoMex"
+    title="Cirugía de <em>próstata</em> con láser"
+    tagline="Información médica del Dr. Abraham López Venegas, urólogo especialista en próstata en CDMX y Estado de México. <strong>Más de 700 cirugías HoLEP y ThuFLEP.</strong>"
+    stats={heroStats}
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones"
+    secondaryText="Ver ubicaciones"
+    bgImage="/assets/sala-laser.jpg"
+  />
+
+  <Intro
+    tag="Anatomía básica"
+    heading="¿Qué es la próstata?"
+    paragraphs={introParagraphs}
+    image="/assets/consultorio.jpg"
+    imageAlt="Consultorio Dr. Abraham López Venegas"
+  />
+
+  <Conditions
+    tag="Condiciones que tratamos"
+    heading="Especialización en próstata"
+    conditions={conditions}
+  />
+
+  <WhenToVisit
+    tag="Señales de alerta"
+    heading="¿Cuándo acudir<br>con un urólogo?"
+    signs={whenToVisitSigns}
+    ctaHeading="No esperes a que los síntomas empeoren"
+    ctaText="Una valoración temprana permite mejores resultados y opciones de tratamiento menos invasivas. El Dr. Abraham evalúa cada caso de forma personalizada."
+    ctaButtonText="Agendar valoración — WhatsApp"
+    ctaHref="#"
+    ctaNote="Consulta desde $800 · Sin lista de espera"
+  />
+
+  <Faq
+    tag="Preguntas frecuentes"
+    heading="Dudas comunes<br>sobre la próstata"
+    items={faqItems}
+    image="/assets/sala-laser.jpg"
+    imageAlt="Tecnología láser para cirugía de próstata"
+    caption="Tecnología de láser Holmio y Tulio — el estándar actual en cirugía de próstata mínimamente invasiva."
+  />
+
+  <Specialist
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+    badges={specialistBadges}
+    title="Dr. Abraham López Venegas"
+    text="Urólogo especialista en próstata con más de 700 cirugías HoLEP y ThuFLEP realizadas. Pionero en MiLEP/ThuFLEP en CDMX y Estado de México. Certificado por el Consejo Nacional Mexicano de Urología."
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones"
+    secondaryText="Ver ubicaciones"
+  />
+</Layout>

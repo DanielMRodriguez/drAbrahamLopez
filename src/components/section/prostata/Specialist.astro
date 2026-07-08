@@ -1,0 +1,60 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import Button from "../../ui/Button.astro";
+
+interface Props {
+  photo: string;
+  photoAlt: string;
+  badges: string[];
+  title: string;
+  text: string;
+  ctaText: string;
+  secondaryHref: string;
+  secondaryText: string;
+}
+
+const {
+  photo,
+  photoAlt,
+  badges,
+  title,
+  text,
+  ctaText,
+  secondaryHref,
+  secondaryText,
+} = Astro.props;
+---
+
+<section
+  class="container-fluid section dark"
+  style="position:relative;overflow:hidden;"
+>
+  <div class="dark-glow"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="specialist-card"
+          style="background:transparent;padding:0;border-radius:0;"
+        >
+          <div class="spec-photo">
+            <img src={photo} alt={photoAlt} />
+          </div>
+          <div class="spec-content">
+            <div class="spec-badges">
+              {badges.map((badge) => <span class="spec-badge">{badge}</span>)}
+            </div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+            <div class="spec-ctas">
+              <WhatsAppButton text={ctaText} size={15} />
+              <Button href={secondaryHref} variant="white-outline">
+                {secondaryText}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
