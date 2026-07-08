@@ -238,6 +238,67 @@ h2 em,
     width: 100%;
     min-width: 0;
   }
+  .trust-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .t-sep {
+    display: none;
+  }
+  .trust-cta {
+    margin-left: 0;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .hero-ctas .btn-wa {
+    justify-content: center;
+  }
+  .hero-ctas .btn-ghost {
+    text-align: center;
+  }
+  .foot-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .insur-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .insur-label,
+  .insur-more {
+    white-space: normal;
+    text-align: center;
+    padding-left: 0;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .section-header-note {
+    text-align: left;
+    max-width: none;
+  }
+  .cta-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .cta-banner-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .insur-logo:nth-child(2n) {
+    border-right: none;
+  }
 }
 
 /* ═══════════════════════════════════
@@ -395,6 +456,18 @@ h2 em,
   color: var(--mist);
   line-height: 1.7;
   max-width: 560px;
+}
+
+/* Header de sección: SectionTag/heading a la izquierda + CTA o nota a la derecha */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+.section-header-note {
+  text-align: right;
+  max-width: 240px;
 }
 
 /* ═══════════════════════════════════
@@ -762,6 +835,11 @@ h2 em,
   overflow: hidden;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.06);
+}
+@media (max-width:767px) {
+  .creds-photo{
+    margin-top: 30px;
+  }
 }
 .creds-photo img {
   width: 100%;
@@ -1370,7 +1448,6 @@ a {
   box-shadow: var(--shadow-card);
 }
 .insur-logo {
-  flex: 1;
   padding: 22px 20px;
   display: flex;
   align-items: center;
@@ -1610,9 +1687,6 @@ footer {
   padding: 56px 56px 32px;
 }
 .foot-top {
-  display: grid;
-  grid-template-columns: 260px 1fr 1fr 1fr;
-  gap: 44px;
   padding-bottom: 44px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   margin-bottom: 24px;

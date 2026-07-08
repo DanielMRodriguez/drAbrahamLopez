@@ -27,7 +27,7 @@ const { tag, heading, ctaHref, ctaText, posts } = Astro.props;
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="d-flex justify-content-between align-items-end mb-4">
+        <div class="section-header">
           <SectionTag tag={tag} heading={heading} />
           <Button href={ctaHref} variant="outline">{ctaText}</Button>
         </div>
