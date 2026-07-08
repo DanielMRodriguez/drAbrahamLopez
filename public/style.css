@@ -228,80 +228,6 @@ h2 em,
 }
 
 /* ═══════════════════════════════════
-   RESPONSIVE (mobile / tablet)
-   ═══════════════════════════════════ */
-@media (max-width: 991.98px) {
-  body {
-    min-width: 0;
-  }
-  .page {
-    width: 100%;
-    min-width: 0;
-  }
-  .trust-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .t-sep {
-    display: none;
-  }
-  .trust-cta {
-    margin-left: 0;
-  }
-  .hero-ctas {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-  .hero-ctas .btn-wa {
-    justify-content: center;
-  }
-  .hero-ctas .btn-ghost {
-    text-align: center;
-  }
-  .foot-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .insur-wrapper {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-  .insur-label,
-  .insur-more {
-    white-space: normal;
-    text-align: center;
-    padding-left: 0;
-  }
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .section-header-note {
-    text-align: left;
-    max-width: none;
-  }
-  .cta-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-  .cta-banner-actions {
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .insur-logo:nth-child(2n) {
-    border-right: none;
-  }
-}
-
-/* ═══════════════════════════════════
    PÁGINA HEADER (páginas internas)
    ═══════════════════════════════════ */
 .page-hero {
@@ -2772,4 +2698,100 @@ footer {
   display: flex;
   gap: 12px;
   justify-content: center;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE (mobile / tablet)
+   ═══════════════════════════════════ */
+@media (max-width: 991.98px) {
+  body {
+    min-width: 0;
+  }
+  .page {
+    width: 100%;
+    min-width: 0;
+  }
+  .trust-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .t-sep {
+    display: none;
+  }
+  .trust-cta {
+    margin-left: 0;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .hero-ctas .btn-wa {
+    justify-content: center;
+  }
+  .hero-ctas .btn-ghost {
+    text-align: center;
+  }
+  .foot-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .insur-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .insur-label,
+  .insur-more {
+    white-space: normal;
+    text-align: center;
+    padding-left: 0;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .section-header-note {
+    text-align: left;
+    max-width: none;
+  }
+  .cta-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .cta-banner-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .insur-logo:nth-child(2n) {
+    border-right: none;
+  }
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .b1,
+  .b2,
+  .b3,
+  .b4 {
+    grid-column: span 1;
+    min-height: auto;
+  }
+  .b5,
+  .b6,
+  .b7 {
+    grid-column: span 2;
+  }
+  .bento-big-num {
+    font-size: 40px;
+  }
+  .bento {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
