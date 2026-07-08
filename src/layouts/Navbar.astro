@@ -11,7 +11,7 @@
               class="nav-logo-img"
             />
           </a>
-          <div class="nav-links">
+          <div class="nav-links d-none d-lg-flex">
             <a href="/prostata">Próstata</a>
             <a href="/ubicaciones">Ubicaciones</a>
             <a href="/perfil">Dr. Abraham</a>
@@ -19,8 +19,54 @@
             <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
             <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
           </div>
+          <button
+            type="button"
+            class="nav-burger d-lg-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileNav"
+            aria-controls="mobileNav"
+            aria-label="Abrir menú"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- NAV MOBILE (offcanvas) -->
+<div
+  class="offcanvas offcanvas-start nav-offcanvas"
+  tabindex="-1"
+  id="mobileNav"
+  aria-labelledby="mobileNavLabel"
+>
+  <div class="offcanvas-header">
+    <a class="nav-logo" href="/">
+      <img
+        src="/assets/logo.avif"
+        alt="Dr. Abraham López Venegas — Urólogo Metropolitano"
+        class="nav-logo-img"
+      />
+    </a>
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      data-bs-dismiss="offcanvas"
+      aria-label="Cerrar"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="nav-offcanvas-links">
+      <a href="/prostata">Próstata</a>
+      <a href="/ubicaciones">Ubicaciones</a>
+      <a href="/perfil">Dr. Abraham</a>
+      <a href="/blog">Blog</a>
+      <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
+      <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
+    </div>
+  </div>
+</div>
