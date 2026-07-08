@@ -2766,6 +2766,126 @@ footer {
   .cta-banner-actions {
     flex-wrap: wrap;
   }
+
+  /* Próstata: hero */
+  .hero-proof {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hproof-item {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hproof-item:last-child {
+    border-bottom: none;
+  }
+  .prostata-hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+  .prostata-hero-ctas .btn-wa {
+    justify-content: center;
+  }
+  .prostata-hero-ctas .btn-ghost {
+    text-align: center;
+  }
+
+  /* Próstata: ¿Qué es la próstata? */
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .two-col-img {
+    height: 260px;
+  }
+
+  /* Próstata: ¿Cuándo acudir? */
+  .when-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .sticky-cta {
+    position: static;
+  }
+
+  /* Próstata: sección especialista (CTA final) */
+  .specialist-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .spec-photo {
+    margin: 0 auto;
+  }
+  .spec-badges {
+    justify-content: center;
+  }
+  .spec-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .spec-ctas .btn-wa,
+  .spec-ctas .btn-white-outline {
+    justify-content: center;
+  }
+
+  /* Ubicaciones: tarjetas de sede */
+  .ubi-detail {
+    grid-template-columns: 1fr;
+  }
+  .ubi-detail-map {
+    min-height: 220px;
+  }
+  .ubi-detail-info {
+    padding: 28px 24px;
+  }
+  .info-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .info-label {
+    width: auto;
+  }
+  .ubi-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ubi-actions .btn-teal,
+  .ubi-actions .btn-outline {
+    justify-content: center;
+  }
+
+  /* Perfil: hero */
+  .hero-wrapper-perfil {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-perfil-content {
+    padding: 48px 24px;
+    align-items: flex-start;
+  }
+  .hero-perfil-content::before {
+    display: none;
+  }
+  .hero-perfil-content > * {
+    padding-left: 0;
+  }
+  .hero-perfil-content h1 {
+    font-size: 36px;
+  }
+  .hero-perfil-photo {
+    padding: 0 24px 48px;
+  }
+  .hero-perfil-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-perfil-ctas .btn-wa {
+    justify-content: center;
+  }
+  .hero-perfil-ctas .btn-ghost {
+    text-align: center;
+  }
 }
 
 @media (max-width: 767.98px) {
