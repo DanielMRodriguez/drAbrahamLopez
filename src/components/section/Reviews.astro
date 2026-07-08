@@ -1,6 +1,6 @@
 ---
-import SectionTag from "../../ui/SectionTag.astro";
-import ReviewCard from "../../ui/ReviewCard.astro";
+import SectionTag from "../ui/SectionTag.astro";
+import ReviewCard from "../ui/ReviewCard.astro";
 
 interface ReviewItem {
   quote: string;
@@ -10,7 +10,7 @@ interface ReviewItem {
 interface Props {
   tag: string;
   heading: string;
-  subtext: string;
+  subtext?: string;
   ratingScore: string;
   ratingCount: string;
   reviews: ReviewItem[];
@@ -37,12 +37,20 @@ const {
         <div class="reviews-top">
           <div>
             <SectionTag tag={tag} heading={heading} />
-            <p style="font-size:13px;color:var(--mist);margin-top:6px;">
-              {subtext}
-            </p>
+            {
+              subtext && (
+                <p style="font-size:13px;color:var(--mist);margin-top:6px;">
+                  {subtext}
+                </p>
+              )
+            }
           </div>
           <div style="text-align:right;">
-            <div class="reviews-num" data-countup={ratingScore} data-countup-decimals="1">
+            <div
+              class="reviews-num"
+              data-countup={ratingScore}
+              data-countup-decimals="1"
+            >
               0
             </div>
             <div class="reviews-stars">★★★★★</div>

@@ -1,0 +1,81 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import Button from "../../ui/Button.astro";
+
+interface Chip {
+  text: string;
+  variant?: "teal" | "muted";
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  tagline: string;
+  chips: Chip[];
+  ctaText: string;
+  secondaryHref: string;
+  secondaryText: string;
+  bgImage: string;
+  photo: string;
+  photoAlt: string;
+  photoBadge: string;
+}
+
+const {
+  eyebrow,
+  title,
+  tagline,
+  chips,
+  ctaText,
+  secondaryHref,
+  secondaryText,
+  bgImage,
+  photo,
+  photoAlt,
+  photoBadge,
+} = Astro.props;
+---
+
+<section class="container-fluid hero-perfil">
+  <div class="hero-perfil-bg"><img src={bgImage} alt="" /></div>
+  <div class="hero-perfil-glow"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="hero-wrapper-perfil">
+          <div class="hero-perfil-content">
+            <div class="hero-eyebrow hero-perfil-eyebrow">
+              <div class="hero-eyebrow-dot"></div>
+              <span>{eyebrow}</span>
+            </div>
+            <h1 set:html={title} />
+            <p set:html={tagline} />
+            <div class="hero-perfil-chips">
+              {
+                chips.map((chip) => (
+                  <span
+                    class:list={["hero-perfil-chip", chip.variant ?? "teal"]}
+                  >
+                    {chip.text}
+                  </span>
+                ))
+              }
+            </div>
+            <div class="hero-perfil-ctas">
+              <WhatsAppButton text={ctaText} size={16} />
+              <Button href={secondaryHref} variant="ghost"
+                >{secondaryText}</Button
+              >
+            </div>
+          </div>
+          <div class="hero-perfil-photo">
+            <div class="portrait-card">
+              <img src={photo} alt={photoAlt} />
+              <span class="portrait-badge">{photoBadge}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CtaBanner from "../components/section/CtaBanner.astro";
+import Reviews from "../components/section/Reviews.astro";
+import Hero from "../components/section/perfil/Hero.astro";
+import Formacion from "../components/section/perfil/Formacion.astro";
+import Specialties from "../components/section/perfil/Specialties.astro";
+import Quote from "../components/section/perfil/Quote.astro";
+
+const heroChips = [
+  { text: "Doctoralia Awards 2022", variant: "teal" as const },
+  { text: "Doctoralia Awards 2023", variant: "teal" as const },
+  { text: "CNMU Folio 1776", variant: "teal" as const },
+  { text: "700+ cirugías HoLEP", variant: "muted" as const },
+];
+
+const education = [
+  {
+    title: "Médico Cirujano",
+    subtitle: "Facultad de Medicina · UNAM · Cédula Profesional 9148863",
+  },
+  {
+    title: "Formación troncal en Cirugía General",
+    subtitle: "Hospital Juárez de México",
+  },
+  {
+    title: "Especialidad en Urología",
+    subtitle:
+      "Hospital Juárez de México · Avalado por UNAM · Cédula 12366905",
+  },
+  {
+    title: "Coordinador de Donación de Órganos y Tejidos",
+    subtitle: "Centro Nacional de Trasplantes / UNAM",
+  },
+];
+
+const certifications = [
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.4"/><path d="M12 6.6l.95 1.92 2.12.31-1.53 1.49.36 2.11L12 11.44l-1.9 1 .36-2.11L8.93 8.83l2.12-.31z" stroke-linejoin="round"/><path d="M8.7 13.3 6.3 21l5.7-2.7 5.7 2.7-2.4-7.7" stroke-linejoin="round"/></svg>`,
+    title: "Doctoralia Awards 2022",
+    text: "Urólogo mejor valorado de México",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M12 2.5l2.6 1.9 3.2-.1 1 3 2.6 1.8-1 3 1 3-2.6 1.8-1 3-3.2-.1L12 21.5l-2.6-1.9-3.2.1-1-3L2.6 15l1-3-1-3 2.6-1.8 1-3 3.2.1z" stroke-linejoin="round"/><path d="M9.3 12l1.9 1.9 3.5-3.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "Doctoralia Awards 2023",
+    text: "Urólogo mejor valorado de México",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="12.5" rx="1.6"/><path d="M7.5 7h9M7.5 10h5.5" stroke-linecap="round"/><circle cx="12" cy="18.4" r="2.7"/><path d="M10.4 20.4 9.6 23l2.4-1.3 2.4 1.3-.8-2.6" stroke-linejoin="round"/></svg>`,
+    title: "CNMU Folio 1776",
+    text: "Consejo Nacional Mexicano de Urología · Certificación vigente",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18" stroke-linecap="round"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z" stroke-linejoin="round"/></svg>`,
+    title: "Membresías internacionales",
+    text: "SMU · CNMU · CAU · Sociedad Internacional de Urología",
+  },
+];
+
+const specialtyAreas = [
+  "Cirugía de próstata con láser HoLEP / ThuFLEP / MiLEP",
+  "Tratamiento de cálculos urinarios con láser de Tulio",
+  "Circuncisión láser",
+  "Andrología y salud masculina",
+  "Endourología",
+  "Urología oncológica",
+];
+
+const specialtyStats = [
+  { value: "700", suffix: "+", label: "Cirugías HoLEP" },
+  {
+    value: "4.9",
+    suffix: "★",
+    decimals: 1,
+    label: "Doctoralia y Google",
+    color: "var(--teal)",
+  },
+];
+
+const reviews = [
+  {
+    quote:
+      "El Dr. Abraham es un excelente profesional. Me explicó todo el procedimiento con detalle y la recuperación fue muy rápida.",
+    source: "Paciente verificado · Google · Cirugía HoLEP",
+  },
+  {
+    quote:
+      "Muy buena atención, el doctor muy amable y profesional. El consultorio limpio y bien equipado. 100% recomendado.",
+    source: "Paciente verificado · Doctoralia · Circuncisión láser",
+  },
+  {
+    quote:
+      "Excelente médico, resuelve todas las dudas. El precio de la consulta es accesible y la atención de primer nivel.",
+    source: "Paciente verificado · Google · Consulta urológica",
+  },
+];
+---
+
+<Layout title="Dr. Abraham López Venegas — Perfil y Trayectoria · Urólogo CDMX">
+  <Hero
+    eyebrow="Urólogo certificado UNAM · CDMX y EdoMex"
+    title="Dr. Abraham<br>López Venegas"
+    tagline="Urólogo especialista en <strong>cirugía de próstata con láser</strong>, cálculos urinarios y salud masculina. Pionero en MiLEP/ThuFLEP en México."
+    chips={heroChips}
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones"
+    secondaryText="Ver ubicaciones"
+    bgImage="/assets/clinica-1.avif"
+    photo="/assets/dr-retrato-2.jpg"
+    photoAlt="Dr. Abraham López Venegas"
+    photoBadge="Urólogo · CDMX"
+  />
+
+  <Formacion
+    educationTag="Formación académica"
+    educationHeading="Trayectoria<br>académica"
+    education={education}
+    certsTag="Certificaciones y membresías"
+    certsHeading="Certificaciones<br>vigentes"
+    certifications={certifications}
+  />
+
+  <Specialties
+    tag="Áreas de especialización"
+    heading="En qué es especialista"
+    intro="Con más de 10 años de experiencia y más de 2,000 pacientes atendidos, el Dr. Abraham domina las técnicas más avanzadas en urología."
+    areas={specialtyAreas}
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+    stats={specialtyStats}
+  />
+
+  <Quote
+    quote="Con un enfoque humano, moderno y resolutivo. Protocolos preoperatorios sencillos y fáciles de cumplir. Tecnología de vanguardia con atención cercana al paciente."
+    cite="Dr. Abraham López Venegas · Urólogo CDMX"
+  />
+
+  <Reviews
+    tag="Lo que dicen los pacientes"
+    heading="Más de 1,300 opiniones<br>verificadas"
+    ratingScore="4.9"
+    ratingCount="Doctoralia y Google"
+    reviews={reviews}
+    footerHref="#"
+    footerText="Ver todas las reseñas en Doctoralia →"
+  />
+
+  <CtaBanner title="¿Listo para agendar<br>tu consulta?" />
+</Layout>

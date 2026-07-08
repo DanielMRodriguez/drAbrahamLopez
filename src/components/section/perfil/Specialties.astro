@@ -1,0 +1,71 @@
+---
+interface Stat {
+  value: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+  color?: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  areas: string[];
+  photo: string;
+  photoAlt: string;
+  stats: Stat[];
+}
+
+const { tag, heading, intro, areas, photo, photoAlt, stats } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-7">
+        <span class="sect-tag">{tag}</span>
+        <h2 class="section-h" style="margin-bottom:8px;">{heading}</h2>
+        <p class="section-p" style="margin-bottom:28px;">{intro}</p>
+        <div class="spec-area-grid">
+          {
+            areas.map((area) => (
+              <div class="spec-area">
+                <div class="spec-area-dot" />
+                <p>{area}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="col-12 col-lg-5" style="display:flex;flex-direction:column;gap:12px;">
+        <div class="spec-photo">
+          <img src={photo} alt={photoAlt} />
+        </div>
+        <div class="row g-2">
+          {
+            stats.map((stat) => (
+              <div class="col-6">
+                <div class="spec-stat">
+                  <div
+                    class="spec-stat-num"
+                    style={stat.color ? `color:${stat.color}` : "color:var(--ink)"}
+                  >
+                    <span
+                      data-countup={stat.value}
+                      data-countup-decimals={stat.decimals ?? 0}
+                    >
+                      0
+                    </span>
+                    {stat.suffix}
+                  </div>
+                  <div class="spec-stat-lbl">{stat.label}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

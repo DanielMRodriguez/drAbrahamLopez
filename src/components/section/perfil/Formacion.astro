@@ -1,0 +1,73 @@
+---
+interface EducationItem {
+  title: string;
+  subtitle: string;
+}
+
+interface Certification {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+interface Props {
+  educationTag: string;
+  educationHeading: string;
+  education: EducationItem[];
+  certsTag: string;
+  certsHeading: string;
+  certifications: Certification[];
+}
+
+const {
+  educationTag,
+  educationHeading,
+  education,
+  certsTag,
+  certsHeading,
+  certifications,
+} = Astro.props;
+---
+
+<section
+  class="container-fluid section dark"
+  style="position:relative;overflow:hidden;"
+>
+  <div class="dark-glow"></div>
+  <div class="container">
+    <div class="row" style="position:relative;z-index:1;">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{educationTag}</span>
+        <h2 class="section-h" style="color:#fff;margin-bottom:32px;" set:html={educationHeading} />
+        <div>
+          {
+            education.map((item) => (
+              <div class="formacion-item">
+                <div class="form-dot" />
+                <div>
+                  <h3>{item.title}</h3>
+                  <span>{item.subtitle}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{certsTag}</span>
+        <h2 class="section-h" style="color:#fff;margin-bottom:24px;" set:html={certsHeading} />
+        <div class="cert-grid">
+          {
+            certifications.map((cert) => (
+              <div class="cert-card">
+                <div class="cert-icon" set:html={cert.icon} />
+                <h3>{cert.title}</h3>
+                <p>{cert.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
