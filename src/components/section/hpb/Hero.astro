@@ -40,34 +40,44 @@ const {
   </div>
   <div class="split-hero-overlay"></div>
   <div class="split-hero-noise"></div>
-  <div class="split-hero-content">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-dot"></div>
-      <span>{eyebrow}</span>
-    </div>
-    <h1 set:html={title} />
-    <p set:html={tagline} />
-    <div class="split-hero-ctas">
-      <WhatsAppButton text={ctaText} size={16} />
-      <Button href={secondaryHref} variant="ghost">{secondaryText}</Button>
-    </div>
-  </div>
-  <div class="split-hero-aside hpb-hero-cards">
-    {
-      stats.map((stat) => (
-        <div class:list={["hpb-stat-card", stat.teal && "teal"]}>
-          <div class="hpb-stat-num">
-            <span data-countup={stat.value} data-countup-decimals="0">
-              0
-            </span>
-            {stat.suffix}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="hero-hpn-wrapper">
+          <div class="split-hero-content">
+            <div class="hero-eyebrow">
+              <div class="hero-eyebrow-dot"></div>
+              <span>{eyebrow}</span>
+            </div>
+            <h1 set:html={title} />
+            <p set:html={tagline} />
+            <div class="split-hero-ctas">
+              <WhatsAppButton text={ctaText} size={16} />
+              <Button href={secondaryHref} variant="ghost"
+                >{secondaryText}</Button
+              >
+            </div>
           </div>
-          <div class="hpb-stat-lbl">{stat.label}</div>
+          <div class="split-hero-aside hpb-hero-cards">
+            {
+              stats.map((stat) => (
+                <div class:list={["hpb-stat-card", stat.teal && "teal"]}>
+                  <div class="hpb-stat-num">
+                    <span data-countup={stat.value} data-countup-decimals="0">
+                      0
+                    </span>
+                    {stat.suffix}
+                  </div>
+                  <div class="hpb-stat-lbl">{stat.label}</div>
+                </div>
+              ))
+            }
+            <div class="hpb-stat-card">
+              <p set:html={note} />
+            </div>
+          </div>
         </div>
-      ))
-    }
-    <div class="hpb-stat-card">
-      <p set:html={note} />
+      </div>
     </div>
   </div>
 </section>
