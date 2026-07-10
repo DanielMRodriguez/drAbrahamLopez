@@ -2059,6 +2059,27 @@ a {
   color: var(--ink);
   line-height: 1.6;
 }
+.post-summary {
+  background: var(--teal-light);
+  border: 1px solid rgba(27, 175, 196, 0.25);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+}
+.post-summary-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal-d);
+  margin-bottom: 8px;
+}
+.post-summary-text {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
 
 /* ═══════════════════════════════════
    FOOTER

@@ -1,4 +1,9 @@
 ---
+interface Props {
+  summary: string;
+}
+
+const { summary } = Astro.props;
 ---
 
 <section class="container-fluid bg-white section">
@@ -6,6 +11,10 @@
     <div class="row">
       <div class="col-12">
         <div class="post-body e-content">
+          <div class="post-summary">
+            <p class="post-summary-label">Resumen rápido</p>
+            <p class="post-summary-text">{summary}</p>
+          </div>
           <slot />
         </div>
       </div>

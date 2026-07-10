@@ -3,6 +3,7 @@ title: "Qué es el antígeno prostático y cuándo importa"
 metaTitle: "Qué es el antígeno prostático (PSA) y cuándo importa — Dr. Abraham López Venegas"
 metaDescription: "El PSA en sangre es una prueba simple que forma parte del chequeo urológico anual desde los 50 años. Aprende qué mide, qué significan sus niveles y cuándo hacerte la prueba."
 shortDescription: "El PSA en sangre es una prueba simple que forma parte del chequeo anual desde los 50. Entiende qué significa cada nivel."
+summary: "El antígeno prostático específico (PSA) es una proteína producida casi exclusivamente por la próstata y se mide con un simple análisis de sangre. Un PSA elevado no significa cáncer por sí solo: también puede deberse a hiperplasia prostática benigna, prostatitis o actividad reciente como la eyaculación o el uso de bicicleta. La prueba forma parte del chequeo urológico anual a partir de los 50 años, o desde los 40 si hay antecedentes familiares de cáncer de próstata. Si tu resultado sale elevado, el siguiente paso es repetir el análisis y una valoración urológica, no motivo de alarma inmediata."
 heroImage: "/assets/sala-laser.jpg"
 categories: ["Próstata"]
 pubDate: 2026-05-19
