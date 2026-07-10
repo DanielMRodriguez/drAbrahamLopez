@@ -8,6 +8,13 @@ heroImage: "/assets/sala-laser.jpg"
 categories: ["Próstata"]
 pubDate: 2026-05-19
 draft: false
+faqs:
+  - question: "¿Un PSA elevado significa que tengo cáncer de próstata?"
+    answer: "No necesariamente. Un PSA elevado es un indicador de que la próstata está más activa de lo habitual, lo cual puede deberse a hiperplasia prostática benigna, prostatitis o actividad reciente, y no solo a cáncer."
+  - question: "¿A qué edad debo empezar a hacerme la prueba de PSA?"
+    answer: "Se recomienda a partir de los 50 años. Si existen antecedentes familiares de cáncer de próstata en padre o hermanos, conviene adelantar la primera revisión a los 40 años."
+  - question: "¿Qué debo hacer si mi PSA sale elevado?"
+    answer: "Repetir el análisis, complementarlo con tacto rectal y, si es necesario, un ultrasonido prostático. En la gran mayoría de los casos, la causa resulta ser benigna."
 ---
 
 El antígeno prostático específico, conocido como PSA por sus siglas en inglés, es una de las pruebas más solicitadas en la consulta urológica. Aunque es un análisis de sangre simple, entender qué mide y qué significa cada nivel genera muchas dudas entre los pacientes. Aquí te explicamos qué es, cuándo importa y qué hacer si tu resultado sale elevado.

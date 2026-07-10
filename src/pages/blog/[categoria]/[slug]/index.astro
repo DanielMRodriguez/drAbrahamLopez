@@ -6,6 +6,7 @@ import Breadcrumbs from "../../../../components/section/Breadcrumbs.astro";
 import PostHero from "../../../../components/section/blog/PostHero.astro";
 import PostBody from "../../../../components/section/blog/PostBody.astro";
 import RelatedArticles from "../../../../components/section/blog/RelatedArticles.astro";
+import Faq from "../../../../components/section/blog/Faq.astro";
 import {
   slugify,
   primaryCategory,
@@ -68,7 +69,7 @@ const breadcrumbItems = [
   { label: post.data.title },
 ];
 
-const schema = [
+const schema: object[] = [
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -92,6 +93,21 @@ const schema = [
   },
   breadcrumbListSchema(breadcrumbItems, Astro.site),
 ];
+
+if (post.data.faqs && post.data.faqs.length > 0) {
+  schema.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.data.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  });
+}
 ---
 
 <Layout
@@ -126,6 +142,10 @@ const schema = [
       <Content />
     </PostBody>
   </article>
+
+  {post.data.faqs && post.data.faqs.length > 0 && (
+    <Faq heading="Preguntas frecuentes" items={post.data.faqs} />
+  )}
 
   <Specialist
     photo="/assets/dr-retrato.avif"
