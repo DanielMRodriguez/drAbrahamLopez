@@ -58,8 +58,9 @@ const specialistBadges = [
 ---
 
 <Layout
-  title={`${post.data.metaTitle ?? post.data.title} — Blog Dr. Abraham López Venegas`}
+  title={`${post.data.metaTitle ?? post.data.title} · Blog`}
   description={post.data.metaDescription}
+  ogImage={post.data.heroImage}
 >
   <PostHero
     tag={primaryCategory(post)}
