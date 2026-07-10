@@ -1,0 +1,68 @@
+---
+import CtaCard from "../../ui/CtaCard.astro";
+
+interface Symptom {
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  symptoms: Symptom[];
+  ctaTag: string;
+  ctaHeading: string;
+  ctaText: string;
+  ctaButtonText: string;
+  ctaNote: string;
+}
+
+const {
+  tag,
+  heading,
+  intro,
+  symptoms,
+  ctaTag,
+  ctaHeading,
+  ctaText,
+  ctaButtonText,
+  ctaNote,
+} = Astro.props;
+---
+
+<section class="container-fluid bg-white section">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-lg-8">
+        <span class="sect-tag">{tag}</span>
+        <h2 class="section-h" style="margin-bottom:12px;">{heading}</h2>
+        <p class="section-p" style="margin-bottom:28px;">{intro}</p>
+        <div class="symptom-numbered">
+          {
+            symptoms.map((symptom, i) => (
+              <div class="sym-item">
+                <div class="sym-n">{String(i + 1).padStart(2, "0")}</div>
+                <div>
+                  <div class="sym-title">{symptom.title}</div>
+                  <div class="sym-desc">{symptom.desc}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <CtaCard
+          tag={ctaTag}
+          heading={ctaHeading}
+          text={ctaText}
+          buttonText={ctaButtonText}
+          buttonVariant="teal"
+          note={ctaNote}
+          sticky
+        />
+      </div>
+    </div>
+  </div>
+</section>

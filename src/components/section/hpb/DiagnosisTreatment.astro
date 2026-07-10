@@ -1,0 +1,81 @@
+---
+interface DxStep {
+  title: string;
+  text: string;
+}
+
+interface TxCard {
+  label: string;
+  title: string;
+  text: string;
+  featured?: boolean;
+  linkHref?: string;
+  linkText?: string;
+}
+
+interface Props {
+  dxTag: string;
+  dxHeading: string;
+  dxIntro: string;
+  dxSteps: DxStep[];
+  txTag: string;
+  txHeading: string;
+  txIntro: string;
+  txCards: TxCard[];
+}
+
+const {
+  dxTag,
+  dxHeading,
+  dxIntro,
+  dxSteps,
+  txTag,
+  txHeading,
+  txIntro,
+  txCards,
+} = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{dxTag}</span>
+        <h2 class="section-h" style="margin-bottom:12px;">{dxHeading}</h2>
+        <p class="section-p" style="margin-bottom:28px;">{dxIntro}</p>
+        <div class="dx-steps">
+          {
+            dxSteps.map((step, i) => (
+              <div class="dx-step">
+                <div class="dx-num">PASO {String(i + 1).padStart(2, "0")}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{txTag}</span>
+        <h2 class="section-h" style="margin-bottom:12px;">{txHeading}</h2>
+        <p class="section-p" style="margin-bottom:24px;">{txIntro}</p>
+        <div class="tx-grid">
+          {
+            txCards.map((card) => (
+              <div class:list={["tx-card", card.featured && "featured"]}>
+                <div class="tx-label">{card.label}</div>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+                {card.linkHref && card.linkText && (
+                  <a href={card.linkHref} class="tx-link">
+                    {card.linkText}
+                  </a>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
