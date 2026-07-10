@@ -14,6 +14,7 @@ import {
   sortByDateDesc,
   categoryHref,
 } from "../../../../lib/blog";
+import { breadcrumbListSchema } from "../../../../lib/schema";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -55,6 +56,41 @@ const specialistBadges = [
   "Doctoralia Awards 2023",
   "CNMU folio 1776",
 ];
+
+const postUrl = new URL(postHref(post), Astro.site).toString();
+const postImageUrl = new URL(post.data.heroImage, Astro.site).toString();
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Blog", href: "/blog/" },
+  { label: primaryCategory(post), href: categoryHref(primaryCategory(post)) },
+  { label: post.data.title },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.metaDescription,
+    image: postImageUrl,
+    datePublished: post.data.pubDate.toISOString(),
+    mainEntityOfPage: postUrl,
+    author: {
+      "@type": "Person",
+      name: "Dr. Abraham López Venegas",
+      url: new URL("/perfil/", Astro.site).toString(),
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: post.data.title,
+    description: post.data.metaDescription,
+    url: postUrl,
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
 <Layout
@@ -62,6 +98,7 @@ const specialistBadges = [
   description={post.data.metaDescription}
   ogImage={post.data.heroImage}
   ogType="article"
+  schema={schema}
 >
   <PostHero
     tag={primaryCategory(post)}
@@ -70,14 +107,7 @@ const specialistBadges = [
     bgImage={post.data.heroImage}
   />
 
-  <Breadcrumbs
-    items={[
-      { label: "Inicio", href: "/" },
-      { label: "Blog", href: "/blog/" },
-      { label: primaryCategory(post), href: categoryHref(primaryCategory(post)) },
-      { label: post.data.title },
-    ]}
-  />
+  <Breadcrumbs items={breadcrumbItems} />
 
   <PostBody>
     <Content />
