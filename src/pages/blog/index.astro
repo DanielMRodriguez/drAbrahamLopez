@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import CtaBanner from "../../components/section/CtaBanner.astro";
+import Breadcrumbs from "../../components/section/Breadcrumbs.astro";
 import Hero from "../../components/section/blog/Hero.astro";
 import Articles from "../../components/section/blog/Articles.astro";
 import Categories from "../../components/section/blog/Categories.astro";
@@ -69,6 +70,8 @@ const categories = allCategories(posts).map((name) => ({
       text="Contenido médico confiable sobre próstata, cálculos urinarios y salud masculina."
       bgImage="/assets/clinica-1.avif"
     />
+
+    <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
 
     {featuredArticle && (
       <Articles

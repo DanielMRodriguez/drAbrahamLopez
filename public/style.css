@@ -1671,6 +1671,47 @@ a {
 }
 
 /* ═══════════════════════════════════
+   BREADCRUMBS
+   ═══════════════════════════════════ */
+.breadcrumbs-section {
+  border-bottom: 1px solid var(--line);
+}
+.breadcrumbs-wrapper {
+  padding: 16px 0;
+}
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumbs-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.breadcrumbs-item a {
+  color: var(--mist);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.breadcrumbs-item a:hover {
+  color: var(--teal-d);
+}
+.breadcrumbs-item span[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+.breadcrumbs-sep {
+  color: var(--line);
+}
+
+/* ═══════════════════════════════════
    HERO BLOG (especial)
    ═══════════════════════════════════ */
 .blog-hero {

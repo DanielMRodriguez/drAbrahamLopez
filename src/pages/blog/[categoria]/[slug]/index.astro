@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "../../../../layouts/Layout.astro";
 import Specialist from "../../../../components/section/Specialist.astro";
+import Breadcrumbs from "../../../../components/section/Breadcrumbs.astro";
 import PostHero from "../../../../components/section/blog/PostHero.astro";
 import PostBody from "../../../../components/section/blog/PostBody.astro";
 import RelatedArticles from "../../../../components/section/blog/RelatedArticles.astro";
@@ -11,6 +12,7 @@ import {
   postHref,
   postMetaLine,
   sortByDateDesc,
+  categoryHref,
 } from "../../../../lib/blog";
 
 export async function getStaticPaths() {
@@ -64,6 +66,15 @@ const specialistBadges = [
     title={post.data.title}
     meta={postMetaLine(post)}
     bgImage={post.data.heroImage}
+  />
+
+  <Breadcrumbs
+    items={[
+      { label: "Inicio", href: "/" },
+      { label: "Blog", href: "/blog" },
+      { label: primaryCategory(post), href: categoryHref(primaryCategory(post)) },
+      { label: post.data.title },
+    ]}
   />
 
   <PostBody>

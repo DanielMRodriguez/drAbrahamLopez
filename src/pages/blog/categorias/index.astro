@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import CtaBanner from "../../../components/section/CtaBanner.astro";
+import Breadcrumbs from "../../../components/section/Breadcrumbs.astro";
 import Hero from "../../../components/section/blog/Hero.astro";
 import Categories from "../../../components/section/blog/Categories.astro";
 import { getPublishedPosts, allCategories, categoryHref } from "../../../lib/blog";
@@ -36,6 +37,14 @@ const categories = allCategories(posts).map((name) => ({
       title="Explora el blog<br><em>por categoría</em>"
       text="Encuentra artículos organizados por tema: próstata, cálculos urinarios, salud masculina y prevención."
       bgImage="/assets/clinica-1.avif"
+    />
+
+    <Breadcrumbs
+      items={[
+        { label: "Inicio", href: "/" },
+        { label: "Blog", href: "/blog" },
+        { label: "Categorías" },
+      ]}
     />
 
     <Categories

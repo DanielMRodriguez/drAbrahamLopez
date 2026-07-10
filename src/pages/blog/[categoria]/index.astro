@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import CtaBanner from "../../../components/section/CtaBanner.astro";
+import Breadcrumbs from "../../../components/section/Breadcrumbs.astro";
 import Hero from "../../../components/section/blog/Hero.astro";
 import RelatedArticles from "../../../components/section/blog/RelatedArticles.astro";
 import { slugify, primaryCategory, postHref, postMetaLine } from "../../../lib/blog";
@@ -51,6 +52,14 @@ const articles = categoryPosts.map((post) => ({
     title={`Categoría: <em>${categoryName}</em>`}
     text={`Artículos sobre ${categoryName.toLowerCase()} escritos por el Dr. Abraham López Venegas.`}
     bgImage="/assets/clinica-1.avif"
+  />
+
+  <Breadcrumbs
+    items={[
+      { label: "Inicio", href: "/" },
+      { label: "Blog", href: "/blog" },
+      { label: categoryName },
+    ]}
   />
 
   <RelatedArticles heading={`Artículos sobre ${categoryName}`} articles={articles} />
