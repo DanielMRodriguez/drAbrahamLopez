@@ -3,6 +3,7 @@ title: "Por qué se eleva el antígeno prostático (PSA)"
 metaTitle: "Por qué se eleva el antígeno prostático (PSA) — Dr. Abraham López Venegas"
 metaDescription: "El antígeno prostático específico (PSA) es una proteína producida por la próstata. Su elevación puede indicar diversas condiciones que requieren evaluación médica. Aprende cuándo preocuparte y cuándo no."
 shortDescription: "El antígeno prostático específico (PSA) es una proteína producida por la próstata. Su elevación puede indicar diversas condiciones que requieren evaluación médica. Aprende cuándo preocuparte y cuándo no."
+summary: "El PSA puede elevarse por distintas razones, no solo por cáncer de próstata. Las causas más frecuentes son la hiperplasia prostática benigna, la prostatitis, la actividad sexual reciente, el uso de bicicleta o procedimientos urinarios recientes. Qué tanto preocupa un PSA elevado depende del nivel alcanzado y de qué tan rápido cambió en el tiempo, no solo del número aislado. Ante un resultado alto, el urólogo repite el análisis, agrega tacto rectal y, si es necesario, un ultrasonido prostático. El chequeo urológico anual sigue siendo la mejor forma de dar seguimiento a tiempo."
 heroImage: "/assets/psa-analisis.jpg"
 categories: ["Próstata"]
 pubDate: 2026-05-20
