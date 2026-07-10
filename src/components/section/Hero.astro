@@ -73,7 +73,12 @@ const {
             </div>
           </div>
           <div class="hero-photo-wrap">
-            <img src={photo} alt={photoAlt} class="hero-dr-img" />
+            <img
+              src={photo}
+              alt={photoAlt}
+              class="hero-dr-img"
+              fetchpriority="high"
+            />
             <div class="hero-photo-tag-wrap">
               <span class="hero-photo-tag">{photoTag}</span>
             </div>
