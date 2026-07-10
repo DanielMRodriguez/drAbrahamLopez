@@ -1,0 +1,63 @@
+---
+import CtaCard from "../../ui/CtaCard.astro";
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  items: FaqItem[];
+  ctaTag: string;
+  ctaHeading: string;
+  ctaText: string;
+  ctaButtonText: string;
+  ctaNote: string;
+}
+
+const {
+  tag,
+  heading,
+  items,
+  ctaTag,
+  ctaHeading,
+  ctaText,
+  ctaButtonText,
+  ctaNote,
+} = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{tag}</span>
+        <h2 class="section-h" style="margin-bottom:28px;" set:html={heading} />
+        <div class="faq-list">
+          {
+            items.map((item) => (
+              <div class="faq-item">
+                <div class="faq-q">{item.q}</div>
+                <div class="faq-a">{item.a}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="col-12 col-lg-6"
+        style="display:flex;flex-direction:column;justify-content:flex-end;"
+      >
+        <CtaCard
+          tag={ctaTag}
+          heading={ctaHeading}
+          text={ctaText}
+          buttonText={ctaButtonText}
+          note={ctaNote}
+        />
+      </div>
+    </div>
+  </div>
+</section>
