@@ -34,18 +34,18 @@ const {
     <div class="row">
       <div class="col-12">
         <div
-          class="specialist-card"
+          class="specialist-card h-card"
           style="background:transparent;padding:0;border-radius:0;"
         >
           <div class="spec-photo">
-            <img src={photo} alt={photoAlt} />
+            <img class="u-photo" src={photo} alt={photoAlt} />
           </div>
           <div class="spec-content">
             <div class="spec-badges">
               {badges.map((badge) => <span class="spec-badge">{badge}</span>)}
             </div>
-            <h3>{title}</h3>
-            <p>{text}</p>
+            <h3 class="p-name">{title}</h3>
+            <p class="p-note">{text}</p>
             <div class="spec-ctas">
               <WhatsAppButton text={ctaText} size={15} />
               <Button href={secondaryHref} variant="white-outline">

@@ -59,6 +59,7 @@ const specialistBadges = [
 
 const postUrl = new URL(postHref(post), Astro.site).toString();
 const postImageUrl = new URL(post.data.heroImage, Astro.site).toString();
+const authorName = "Dr. Abraham López Venegas";
 
 const breadcrumbItems = [
   { label: "Inicio", href: "/" },
@@ -78,7 +79,7 @@ const schema = [
     mainEntityOfPage: postUrl,
     author: {
       "@type": "Person",
-      name: "Dr. Abraham López Venegas",
+      name: authorName,
       url: new URL("/perfil/", Astro.site).toString(),
     },
   },
@@ -100,18 +101,31 @@ const schema = [
   ogType="article"
   schema={schema}
 >
-  <PostHero
-    tag={primaryCategory(post)}
-    title={post.data.title}
-    meta={postMetaLine(post)}
-    bgImage={post.data.heroImage}
-  />
+  <article class="h-entry">
+    <span class="p-author visually-hidden">{authorName}</span>
+    <time
+      class="dt-published visually-hidden"
+      datetime={post.data.pubDate.toISOString()}
+    >
+      {post.data.pubDate.toISOString()}
+    </time>
+    <a class="u-url visually-hidden" href={postUrl}>
+      {post.data.title}
+    </a>
 
-  <Breadcrumbs items={breadcrumbItems} />
+    <PostHero
+      tag={primaryCategory(post)}
+      title={post.data.title}
+      meta={postMetaLine(post)}
+      bgImage={post.data.heroImage}
+    />
 
-  <PostBody>
-    <Content />
-  </PostBody>
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <PostBody>
+      <Content />
+    </PostBody>
+  </article>
 
   <Specialist
     photo="/assets/dr-retrato.avif"
