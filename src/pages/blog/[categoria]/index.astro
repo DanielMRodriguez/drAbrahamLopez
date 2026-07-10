@@ -1,0 +1,63 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import CtaBanner from "../../../components/section/CtaBanner.astro";
+import Hero from "../../../components/section/blog/Hero.astro";
+import RelatedArticles from "../../../components/section/blog/RelatedArticles.astro";
+import { slugify, primaryCategory, postHref, postMetaLine } from "../../../lib/blog";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const bySlug = new Map<string, { name: string; posts: CollectionEntry<"blog">[] }>();
+
+  for (const post of posts) {
+    for (const category of post.data.categories) {
+      const key = slugify(category);
+      if (!bySlug.has(key)) bySlug.set(key, { name: category, posts: [] });
+      bySlug.get(key)!.posts.push(post);
+    }
+  }
+
+  return Array.from(bySlug.entries()).map(([categoria, { name, posts: categoryPosts }]) => ({
+    params: { categoria },
+    props: { categoryName: name, categoryPosts },
+  }));
+}
+
+interface Props {
+  categoryName: string;
+  categoryPosts: CollectionEntry<"blog">[];
+}
+
+const { categoryName, categoryPosts } = Astro.props;
+
+const articles = categoryPosts.map((post) => ({
+  image: post.data.heroImage,
+  imageAlt: post.data.title,
+  tag: primaryCategory(post),
+  title: post.data.title,
+  excerpt: post.data.shortDescription,
+  meta: postMetaLine(post),
+  href: postHref(post),
+}));
+---
+
+<Layout
+  title={`${categoryName} — Blog Dr. Abraham López Venegas`}
+  description={`Artículos sobre ${categoryName.toLowerCase()} escritos por el Dr. Abraham López Venegas, urólogo certificado UNAM.`}
+>
+  <Hero
+    eyebrow="Blog de urología · Dr. Abraham López Venegas"
+    title={`Categoría: <em>${categoryName}</em>`}
+    text={`Artículos sobre ${categoryName.toLowerCase()} escritos por el Dr. Abraham López Venegas.`}
+    bgImage="/assets/clinica-1.avif"
+  />
+
+  <RelatedArticles heading={`Artículos sobre ${categoryName}`} articles={articles} />
+
+  <CtaBanner
+    title="¿Tienes una pregunta<br>sobre tu salud urológica?"
+    text="Agenda una consulta con el Dr. Abraham. Atendemos en 3 sedes en CDMX y Estado de México. Consulta desde $800."
+    whatsappText="Agendar consulta"
+  />
+</Layout>

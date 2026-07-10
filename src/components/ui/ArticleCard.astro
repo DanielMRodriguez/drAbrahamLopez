@@ -1,0 +1,50 @@
+---
+interface Props {
+  image?: string;
+  imageAlt?: string;
+  placeholderText?: string;
+  tag: string;
+  title: string;
+  excerpt: string;
+  meta: string;
+  href?: string;
+  linkText?: string;
+}
+
+const {
+  image,
+  imageAlt = "",
+  placeholderText = "Próximamente",
+  tag,
+  title,
+  excerpt,
+  meta,
+  href,
+  linkText = "Leer artículo →",
+} = Astro.props;
+---
+
+<div class="article-card">
+  <div class="article-thumb">
+    {
+      image ? (
+        <img src={image} alt={imageAlt} />
+      ) : (
+        <div class="placeholder-thumb">
+          <span>{placeholderText}</span>
+        </div>
+      )
+    }
+  </div>
+  <div class="article-body">
+    <div class="article-tag">{tag}</div>
+    <div class="article-title">{title}</div>
+    <p class="article-excerpt">{excerpt}</p>
+    <div class="article-meta">{meta}</div>
+    {href && (
+      <a href={href} class="article-read">
+        {linkText}
+      </a>
+    )}
+  </div>
+</div>

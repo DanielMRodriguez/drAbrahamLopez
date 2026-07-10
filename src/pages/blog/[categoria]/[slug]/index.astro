@@ -1,0 +1,87 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "../../../../layouts/Layout.astro";
+import Specialist from "../../../../components/section/Specialist.astro";
+import PostHero from "../../../../components/section/blog/PostHero.astro";
+import PostBody from "../../../../components/section/blog/PostBody.astro";
+import RelatedArticles from "../../../../components/section/blog/RelatedArticles.astro";
+import {
+  slugify,
+  primaryCategory,
+  postHref,
+  postMetaLine,
+  sortByDateDesc,
+} from "../../../../lib/blog";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: {
+      categoria: slugify(primaryCategory(post)),
+      slug: post.id,
+    },
+    props: { post, allPosts: posts },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  allPosts: CollectionEntry<"blog">[];
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await render(post);
+
+const relatedArticles = sortByDateDesc(
+  allPosts.filter((p) => p.id !== post.id),
+)
+  .slice(0, 2)
+  .map((p) => ({
+    image: p.data.heroImage,
+    imageAlt: p.data.title,
+    tag: primaryCategory(p),
+    title: p.data.title,
+    excerpt: p.data.shortDescription,
+    meta: postMetaLine(p),
+    href: postHref(p),
+  }));
+
+const specialistBadges = [
+  "700+ cirugías HoLEP y ThuFLEP",
+  "Doctoralia Awards 2022",
+  "Doctoralia Awards 2023",
+  "CNMU folio 1776",
+];
+---
+
+<Layout
+  title={`${post.data.metaTitle ?? post.data.title} — Blog Dr. Abraham López Venegas`}
+  description={post.data.metaDescription}
+>
+  <PostHero
+    tag={primaryCategory(post)}
+    title={post.data.title}
+    meta={postMetaLine(post)}
+    bgImage={post.data.heroImage}
+  />
+
+  <PostBody>
+    <Content />
+  </PostBody>
+
+  <Specialist
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+    badges={specialistBadges}
+    title="Dr. Abraham López Venegas"
+    text="Urólogo especialista en próstata con más de 700 cirugías HoLEP y ThuFLEP realizadas. Certificado por el Consejo Nacional Mexicano de Urología. 3 consultorios en CDMX y Estado de México."
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones"
+    secondaryText="Ver ubicaciones"
+  />
+
+  {relatedArticles.length > 0 && (
+    <RelatedArticles heading="Artículos relacionados" articles={relatedArticles} />
+  )}
+</Layout>

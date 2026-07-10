@@ -1,0 +1,79 @@
+---
+import FilterBar from "../../ui/FilterBar.astro";
+import FeaturedArticleCard from "../../ui/FeaturedArticleCard.astro";
+import ArticleCard from "../../ui/ArticleCard.astro";
+
+interface Article {
+  image?: string;
+  imageAlt?: string;
+  placeholderText?: string;
+  tag: string;
+  title: string;
+  excerpt: string;
+  meta: string;
+  href?: string;
+  linkText?: string;
+}
+
+interface Featured {
+  image: string;
+  imageAlt: string;
+  tag: string;
+  title: string;
+  excerpt: string;
+  meta: string;
+  href: string;
+  linkText: string;
+}
+
+interface Props {
+  filters: string[];
+  featured: Featured;
+  heading: string;
+  articles: Article[];
+}
+
+const { filters, featured, heading, articles } = Astro.props;
+---
+
+<section class="container section" style="padding-bottom:0;border-bottom:none;">
+  <div class="row">
+    <div class="col-12">
+      <FilterBar filters={filters} />
+
+      <FeaturedArticleCard
+        image={featured.image}
+        imageAlt={featured.imageAlt}
+        tag={featured.tag}
+        title={featured.title}
+        excerpt={featured.excerpt}
+        meta={featured.meta}
+        href={featured.href}
+        linkText={featured.linkText}
+      />
+
+      <h2 style="font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:24px;">
+        {heading}
+      </h2>
+    </div>
+  </div>
+  <div class="row g-3" style="margin-bottom:64px;">
+    {
+      articles.map((article) => (
+        <div class="col-12 col-md-4">
+          <ArticleCard
+            image={article.image}
+            imageAlt={article.imageAlt}
+            placeholderText={article.placeholderText}
+            tag={article.tag}
+            title={article.title}
+            excerpt={article.excerpt}
+            meta={article.meta}
+            href={article.href}
+            linkText={article.linkText}
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>

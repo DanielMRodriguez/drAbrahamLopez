@@ -1,0 +1,45 @@
+---
+import CategoryCard from "../../ui/CategoryCard.astro";
+
+interface Category {
+  tag: string;
+  title: string;
+  text: string;
+  href?: string;
+}
+
+interface Props {
+  heading: string;
+  categories: Category[];
+  noTopPadding?: boolean;
+}
+
+const { heading, categories, noTopPadding = true } = Astro.props;
+---
+
+<section
+  class="container section"
+  style={noTopPadding ? "padding-top:0;" : undefined}
+>
+  <div class="row">
+    <div class="col-12">
+      <h2 style="font-size:22px;font-weight:700;color:var(--ink);margin-bottom:24px;">
+        {heading}
+      </h2>
+    </div>
+  </div>
+  <div class="row g-3">
+    {
+      categories.map((category) => (
+        <div class="col-6 col-lg-3">
+          <CategoryCard
+            tag={category.tag}
+            title={category.title}
+            text={category.text}
+            href={category.href}
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>

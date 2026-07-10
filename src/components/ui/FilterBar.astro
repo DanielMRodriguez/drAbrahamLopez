@@ -1,0 +1,18 @@
+---
+interface Props {
+  filters: string[];
+  active?: string;
+}
+
+const { filters, active = filters[0] } = Astro.props;
+---
+
+<div class="filter-bar">
+  {
+    filters.map((filter) => (
+      <button class:list={["filter-btn", { active: filter === active }]}>
+        {filter}
+      </button>
+    ))
+  }
+</div>

@@ -1,0 +1,60 @@
+---
+import Button from "../../ui/Button.astro";
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+
+interface QuickLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow: string;
+  code: string;
+  title: string;
+  text: string;
+  homeHref: string;
+  homeText: string;
+  whatsappText: string;
+  links: QuickLink[];
+}
+
+const {
+  eyebrow,
+  code,
+  title,
+  text,
+  homeHref,
+  homeText,
+  whatsappText,
+  links,
+} = Astro.props;
+---
+
+<section
+  class="container-fluid section dark notfound-hero"
+  style="position:relative;overflow:hidden;"
+>
+  <div class="dark-glow"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="notfound-content">
+          <div class="hero-eyebrow">
+            <div class="hero-eyebrow-dot"></div>
+            <span>{eyebrow}</span>
+          </div>
+          <div class="notfound-code">{code}</div>
+          <h1>{title}</h1>
+          <p>{text}</p>
+          <div class="notfound-ctas">
+            <Button href={homeHref} variant="teal">{homeText}</Button>
+            <WhatsAppButton text={whatsappText} />
+          </div>
+          <div class="notfound-links">
+            {links.map((link) => <a href={link.href}>{link.label}</a>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NotFound from "../components/section/404/NotFound.astro";
+
+const quickLinks = [
+  { href: "/prostata", label: "Próstata" },
+  { href: "/ubicaciones", label: "Ubicaciones" },
+  { href: "/perfil", label: "Dr. Abraham" },
+  { href: "/blog", label: "Blog" },
+];
+---
+
+<Layout title="Página no encontrada — Dr. Abraham López Venegas">
+  <NotFound
+    eyebrow="Error 404"
+    code="404"
+    title="Esta página no existe"
+    text="El enlace que seguiste puede estar roto o la página fue movida. Vuelve al inicio o contáctanos si necesitas ayuda para agendar tu consulta."
+    homeHref="/"
+    homeText="Volver al inicio"
+    whatsappText="Contactar por WhatsApp"
+    links={quickLinks}
+  />
+</Layout>

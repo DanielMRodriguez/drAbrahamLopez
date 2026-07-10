@@ -1,0 +1,31 @@
+---
+interface Props {
+  tag: string;
+  title: string;
+  meta: string;
+  bgImage: string;
+  backHref?: string;
+  backText?: string;
+}
+
+const {
+  tag,
+  title,
+  meta,
+  bgImage,
+  backHref = "/blog",
+  backText = "← Volver al blog",
+} = Astro.props;
+---
+
+<section class="blog-hero">
+  <div class="blog-hero-bg"><img src={bgImage} alt="" /></div>
+  <div class="blog-hero-overlay"></div>
+  <div class="blog-hero-noise"></div>
+  <div class="post-hero-content">
+    <a href={backHref} class="post-hero-back">{backText}</a>
+    <div class="post-hero-tag">{tag}</div>
+    <h1>{title}</h1>
+    <div class="post-hero-meta">{meta}</div>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CtaBanner from "../../components/section/CtaBanner.astro";
+import Hero from "../../components/section/blog/Hero.astro";
+import Articles from "../../components/section/blog/Articles.astro";
+import Categories from "../../components/section/blog/Categories.astro";
+import {
+  getPublishedPosts,
+  allCategories,
+  categoryHref,
+  primaryCategory,
+  postHref,
+  postMetaLine,
+} from "../../lib/blog";
+
+const posts = await getPublishedPosts();
+const [featuredPost, ...restPosts] = posts;
+
+const filters = ["Todos", ...allCategories(posts)];
+
+const featuredArticle = featuredPost && {
+  image: featuredPost.data.heroImage,
+  imageAlt: featuredPost.data.title,
+  tag: `${primaryCategory(featuredPost)} · Artículo destacado`,
+  title: featuredPost.data.title,
+  excerpt: featuredPost.data.shortDescription,
+  meta: postMetaLine(featuredPost),
+  href: postHref(featuredPost),
+  linkText: "Leer artículo completo →",
+};
+
+const recentArticles = restPosts.slice(0, 3).map((post) => ({
+  image: post.data.heroImage,
+  imageAlt: post.data.title,
+  tag: primaryCategory(post),
+  title: post.data.title,
+  excerpt: post.data.shortDescription,
+  meta: postMetaLine(post),
+  href: postHref(post),
+}));
+
+const categoryBlurbs: Record<string, string> = {
+  "Próstata":
+    "HoLEP, ThuFLEP, HPB, PSA, cirugía de próstata con láser y diagnóstico.",
+  "Cálculos urinarios":
+    "Litotricia láser, nefrolitotomía, prevención y manejo de litos renales.",
+  "Salud masculina":
+    "Varicocele, disfunción eréctil, andrología, VPH y bienestar integral.",
+  Prevención:
+    "Chequeos urológicos, detección temprana, hábitos saludables y revisiones anuales.",
+};
+
+const categories = allCategories(posts).map((name) => ({
+  tag: "Categoría",
+  title: name,
+  text: categoryBlurbs[name] ?? `Artículos sobre ${name.toLowerCase()}.`,
+  href: categoryHref(name),
+}));
+---
+
+<Layout
+  title="Blog de urología — Dr. Abraham López Venegas · Información para pacientes"
+  description="Artículos médicos sobre próstata, cálculos urinarios y salud masculina, escritos por el Dr. Abraham López Venegas, urólogo certificado UNAM."
+>
+  <div class="bg-white">
+    <Hero
+      eyebrow="Artículos escritos por el Dr. Abraham López Venegas · Urólogo certificado UNAM"
+      title="Blog de urología —<br><em>Información para pacientes</em>"
+      text="Contenido médico confiable sobre próstata, cálculos urinarios y salud masculina."
+      bgImage="/assets/clinica-1.avif"
+    />
+
+    {featuredArticle && (
+      <Articles
+        filters={filters}
+        featured={featuredArticle}
+        heading="Artículos recientes"
+        articles={recentArticles}
+      />
+    )}
+
+    <Categories heading="Explorar por categoría" categories={categories} />
+
+    <CtaBanner
+      title="¿Tienes una pregunta<br>sobre tu salud urológica?"
+      text="Agenda una consulta con el Dr. Abraham. Atendemos en 3 sedes en CDMX y Estado de México. Consulta desde $800."
+      whatsappText="Agendar consulta"
+    />
+  </div>
+</Layout>

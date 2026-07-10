@@ -1,0 +1,30 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  image: string;
+  imageAlt: string;
+  tag: string;
+  title: string;
+  excerpt: string;
+  meta: string;
+  href: string;
+  linkText: string;
+}
+
+const { image, imageAlt, tag, title, excerpt, meta, href, linkText } =
+  Astro.props;
+---
+
+<div class="featured-article">
+  <div class="featured-img">
+    <img src={image} alt={imageAlt} />
+  </div>
+  <div class="featured-body">
+    <div class="featured-tag">{tag}</div>
+    <h2 class="featured-title">{title}</h2>
+    <p class="featured-excerpt">{excerpt}</p>
+    <div class="featured-meta">{meta}</div>
+    <Button href={href} variant="teal">{linkText}</Button>
+  </div>
+</div>

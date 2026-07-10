@@ -1,0 +1,53 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import CtaBanner from "../../../components/section/CtaBanner.astro";
+import Hero from "../../../components/section/blog/Hero.astro";
+import Categories from "../../../components/section/blog/Categories.astro";
+import { getPublishedPosts, allCategories, categoryHref } from "../../../lib/blog";
+
+const posts = await getPublishedPosts();
+
+const categoryBlurbs: Record<string, string> = {
+  "Próstata":
+    "HoLEP, ThuFLEP, HPB, PSA, cirugía de próstata con láser y diagnóstico.",
+  "Cálculos urinarios":
+    "Litotricia láser, nefrolitotomía, prevención y manejo de litos renales.",
+  "Salud masculina":
+    "Varicocele, disfunción eréctil, andrología, VPH y bienestar integral.",
+  Prevención:
+    "Chequeos urológicos, detección temprana, hábitos saludables y revisiones anuales.",
+};
+
+const categories = allCategories(posts).map((name) => ({
+  tag: "Categoría",
+  title: name,
+  text: categoryBlurbs[name] ?? `Artículos sobre ${name.toLowerCase()}.`,
+  href: categoryHref(name),
+}));
+---
+
+<Layout
+  title="Categorías del blog — Dr. Abraham López Venegas · Urólogo CDMX"
+  description="Explora los artículos del blog del Dr. Abraham López Venegas organizados por categoría."
+>
+  <div class="bg-white">
+    <Hero
+      eyebrow="Blog de urología · Dr. Abraham López Venegas"
+      title="Explora el blog<br><em>por categoría</em>"
+      text="Encuentra artículos organizados por tema: próstata, cálculos urinarios, salud masculina y prevención."
+      bgImage="/assets/clinica-1.avif"
+    />
+
+    <Categories
+      heading="Todas las categorías"
+      categories={categories}
+      noTopPadding={false}
+    />
+
+    <CtaBanner
+      title="¿Tienes una pregunta<br>sobre tu salud urológica?"
+      text="Agenda una consulta con el Dr. Abraham. Atendemos en 3 sedes en CDMX y Estado de México. Consulta desde $800."
+      whatsappText="Agendar consulta"
+    />
+  </div>
+</Layout>

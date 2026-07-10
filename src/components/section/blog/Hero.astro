@@ -1,0 +1,24 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  bgImage: string;
+}
+
+const { eyebrow, title, text, bgImage } = Astro.props;
+---
+
+<section class="blog-hero">
+  <div class="blog-hero-bg"><img src={bgImage} alt="" /></div>
+  <div class="blog-hero-overlay"></div>
+  <div class="blog-hero-noise"></div>
+  <div class="blog-hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      <span>{eyebrow}</span>
+    </div>
+    <h1 set:html={title} />
+    <p>{text}</p>
+  </div>
+</section>
