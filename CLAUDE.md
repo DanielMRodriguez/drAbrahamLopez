@@ -109,6 +109,42 @@ Todo número que se muestre como stat (700+, 4.9★, 1,300+, folios, etc.) debe 
 - Preferir un componente concreto (ej. `WhatsAppButton.astro`) sobre una variante de un componente genérico (`Button` con `variant="wa"`) cuando el elemento tiene markup/ícono propio, no solo un cambio de clase.
 - Contenido repetido (reviews, blog posts, ubicaciones) se define como array en el frontmatter de la página y se renderiza con `.map()`, no copiando el mismo bloque de markup varias veces.
 
+## Blog: estructura de artículos médicos (GEO)
+
+Todo artículo médico nuevo del blog (sobre una condición o procedimiento, ej. HPB, cálculos urinarios, HoLEP) debe estructurar su contenido con estos H2, en este orden:
+
+1. **¿Qué es?**
+2. **Síntomas**
+3. **Diagnóstico**
+4. **Tratamiento**
+5. **Recuperación**
+6. **Pronóstico**
+
+Esto además del `summary` (resumen ejecutivo, ver `content.config.ts`) que va antes del cuerpo — ver `PostBody.astro`.
+
+### Excepción: artículos sobre una prueba/análisis (no una condición)
+
+Un artículo sobre un estudio diagnóstico (ej. PSA) no trata una condición con síntomas/tratamiento/recuperación propios, así que forzar esos H2 produciría contenido relleno. Para este tipo de artículo, usar en su lugar:
+
+1. **¿Qué es?** (qué mide la prueba)
+2. **Causas / qué significa** (equivalente a "Síntomas": qué explica un resultado anormal)
+3. **Diagnóstico** (interpretación de niveles/resultados)
+4. **Siguientes pasos** (equivalente a "Tratamiento": qué hace el médico con el resultado)
+5. **Prevención** (equivalente a "Pronóstico": periodicidad recomendada del chequeo)
+
+"Recuperación" no aplica a este tipo de artículo (no hay procedimiento del cual recuperarse).
+
+Los 2 posts existentes (`src/content/blog/que-es-el-antigeno-prostatico.md`, `src/content/blog/por-que-se-eleva-el-antigeno-prostatico.md`) son de este tipo y ya siguen esta variante:
+
+| Sección estándar (prueba) | `que-es-el-antigeno-prostatico.md` | `por-que-se-eleva-el-antigeno-prostatico.md` |
+|---|---|---|
+| ¿Qué es? | "¿Qué es el antígeno prostático específico (PSA)?" | "El PSA sube por más de una razón" (recap) |
+| Causas / qué significa | "¿Qué otras condiciones pueden elevar el PSA?" | "Las causas más frecuentes de un PSA elevado" |
+| Diagnóstico | "¿Para qué sirve la prueba de PSA?" + "¿Qué significan los niveles de PSA?" | "¿Qué tanto debe elevarse para preocupar?" |
+| Siguientes pasos | "¿Qué pasa si mi PSA sale elevado?" | "¿Qué hace el urólogo cuando el PSA sale alto?" |
+| Prevención | "¿A partir de qué edad debo hacerme la prueba?" | "La importancia del chequeo anual" |
+| Recuperación | No aplica | No aplica |
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
