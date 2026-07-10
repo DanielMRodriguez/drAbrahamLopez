@@ -3,7 +3,10 @@ interface Crumb {
   href?: string;
 }
 
-export function breadcrumbListSchema(items: Crumb[], site: string | URL) {
+export function breadcrumbListSchema(
+  items: Crumb[],
+  site: string | URL | undefined,
+) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
