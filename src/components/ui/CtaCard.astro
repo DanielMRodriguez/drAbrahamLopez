@@ -1,0 +1,38 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  tag: string;
+  heading: string;
+  text: string;
+  buttonText: string;
+  buttonHref?: string;
+  buttonVariant?: "wa" | "teal";
+  note: string;
+  sticky?: boolean;
+}
+
+const {
+  tag,
+  heading,
+  text,
+  buttonText,
+  buttonHref = "#",
+  buttonVariant = "wa",
+  note,
+  sticky = false,
+} = Astro.props;
+---
+
+<div class:list={["cta-card", sticky && "sticky"]}>
+  <div class="cta-card-glow"></div>
+  <span class="sect-tag">{tag}</span>
+  <h3>{heading}</h3>
+  <p class="cta-card-text">{text}</p>
+  <div class="cta-card-actions">
+    <Button href={buttonHref} variant={buttonVariant} class="btn-block">
+      {buttonText}
+    </Button>
+    <p class="cta-card-note">{note}</p>
+  </div>
+</div>

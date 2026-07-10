@@ -1,0 +1,189 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/section/sintomas/Hero.astro";
+import WhyItMatters from "../components/section/sintomas/WhyItMatters.astro";
+import IconCards from "../components/section/IconCards.astro";
+import WhatToDo from "../components/section/sintomas/WhatToDo.astro";
+import Faq from "../components/section/FaqImage.astro";
+import Specialist from "../components/section/Specialist.astro";
+
+const whyParagraphs = [
+  'Los síntomas prostáticos aparecen <strong>gradualmente</strong> y muchos hombres los normalizan como parte del envejecimiento. Sin embargo, ignorarlos puede derivar en complicaciones serias.',
+  "Una valoración urológica es rápida, sencilla y no requiere preparación especial.",
+];
+
+const reasons = [
+  "La detección temprana permite <strong>tratamientos menos invasivos</strong>",
+  "Muchos casos se resuelven con <strong>medicamento</strong> si se atienden a tiempo",
+  "Los síntomas <strong>no desaparecen solos</strong>, tienden a empeorar con la edad",
+  "Sin tratamiento pueden derivar en <strong>infecciones o daño renal</strong>",
+];
+
+const symptomList = [
+  "Dificultad para orinar",
+  "Sensación de vaciado incompleto",
+  "Chorro débil o intermitente",
+  "Sangre en la orina (hematuria)",
+  "Levantarse de noche a orinar (nocturia)",
+  "Urgencia repentina e incontrolable",
+  "Disfunción eréctil o salud masculina",
+  "PSA elevado en análisis de sangre",
+];
+
+const commonSymptoms = [
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M6.5 3h11M6.5 21h11" stroke-linecap="round"/><path d="M7.5 3c0 4 4.5 5.8 4.5 9s-4.5 5-4.5 9M16.5 3c0 4-4.5 5.8-4.5 9s4.5 5 4.5 9" stroke-linejoin="round"/></svg>`,
+    title: "Dificultad para iniciar la micción",
+    text: "El chorro tarda en salir o requiere esfuerzo para comenzar. Uno de los primeros síntomas de obstrucción prostática. Aparece de forma gradual e imperceptible al inicio.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M12 3.5c3.4 4.3 5.5 7.2 5.5 10a5.5 5.5 0 0 1-11 0c0-1 .3-2 .8-3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7.5h2.4M3.2 11h2.2" stroke-linecap="round"/></svg>`,
+    title: "Chorro urinario débil o intermitente",
+    text: "El flujo se corta o es más delgado de lo normal. Indica que la próstata está comprimiendo la uretra. Muchos hombres lo normalizan por años antes de consultar.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M20.5 14a8.5 8.5 0 1 1-10-10 6.8 6.8 0 0 0 10 10z" stroke-linejoin="round"/><path d="M17 3.5l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6L14.7 5.8l1.6-.7z" stroke-linejoin="round"/></svg>`,
+    title: "Nocturia: levantarse de noche",
+    text: "Más de 2 veces por noche interrumpe el sueño de forma habitual. Afecta directamente la calidad de vida y el descanso. Es señal de que la vejiga no está vaciando correctamente.",
+  },
+];
+
+const whatToDoSteps = [
+  {
+    title: "No te automediques",
+    text: "Los medicamentos para próstata requieren diagnóstico previo. Automedicarse puede enmascarar síntomas importantes y retrasar el tratamiento correcto.",
+  },
+  {
+    title: "Agenda una valoración urológica",
+    text: "Una consulta incluye revisión física, PSA en sangre y ultrasonido prostático para determinar la causa exacta de los síntomas.",
+  },
+  {
+    title: "Sigue el plan de tratamiento",
+    text: "Dependiendo del diagnóstico, el tratamiento puede ser médico o quirúrgico. El Dr. Abraham evalúa cada caso de forma personalizada.",
+  },
+];
+
+const faqItems = [
+  {
+    q: "¿Los síntomas de próstata siempre indican algo grave?",
+    a: "No necesariamente. Muchos casos son hiperplasia benigna tratable con medicamento. Sin embargo, solo un urólogo puede determinar la causa exacta.",
+  },
+  {
+    q: "¿A qué edad aparecen los síntomas?",
+    a: "Generalmente a partir de los 50 años, aunque pueden aparecer antes. Los hombres con antecedentes familiares deben revisarse desde los 40.",
+  },
+  {
+    q: "¿Los síntomas desaparecen solos?",
+    a: "No. Sin tratamiento tienden a empeorar progresivamente. La intervención temprana permite opciones menos invasivas y mejores resultados.",
+  },
+  {
+    q: "¿Cuánto dura una consulta urológica?",
+    a: "Entre 30 y 45 minutos. Incluye interrogatorio, exploración física y solicitud de estudios si se requieren.",
+  },
+  {
+    q: "¿El chequeo de próstata es doloroso?",
+    a: "El tacto rectal es breve e incómodo pero no doloroso. Es una parte rutinaria de la valoración urológica masculina a partir de los 50 años.",
+  },
+];
+
+const specialistBadges = [
+  "2,000+ procedimientos",
+  "Doctoralia Awards 2022",
+  "Doctoralia Awards 2023",
+  "CNMU folio 1776",
+];
+
+const title =
+  "Síntomas de próstata — Dr. Abraham López Venegas · Urólogo CDMX";
+const description =
+  "Dificultad para orinar, chorro débil, nocturia y otros síntomas de próstata: cómo identificarlos y qué hacer. Información del Dr. Abraham López Venegas, urólogo en CDMX y EdoMex.";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: title,
+    description,
+    url: new URL("/sintomas/", Astro.site).toString(),
+    inLanguage: "es-MX",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage="/assets/clinica-3.avif"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Información médica · Próstata y vías urinarias"
+    title='<em>Síntomas</em><br />de próstata'
+    tagline="Información médica del Dr. Abraham López Venegas, urólogo especialista en próstata en CDMX y Estado de México. <strong>Más de 2,000 procedimientos realizados.</strong>"
+    bgImage="/assets/clinica-3.avif"
+    sideImage="/assets/consultorio.jpg"
+    sideImageAlt="Consultorio urología"
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones/"
+    secondaryText="Ver ubicaciones"
+  />
+
+  <WhyItMatters
+    whyTag="Detección temprana"
+    whyHeading="¿Por qué importa identificarlos?"
+    whyParagraphs={whyParagraphs}
+    reasons={reasons}
+    listTag="Lista completa"
+    listHeading="Síntomas frecuentes"
+    symptoms={symptomList}
+  />
+
+  <IconCards
+    tag="En detalle"
+    heading="Los 3 síntomas más comunes"
+    items={commonSymptoms}
+  />
+
+  <WhatToDo
+    tag="Pasos a seguir"
+    heading="¿Qué hacer si tienes síntomas?"
+    intro="No ignores los síntomas ni te automediques. El diagnóstico correcto es el primer paso hacia la solución."
+    steps={whatToDoSteps}
+    ctaTag="¿Tienes síntomas?"
+    ctaHeading="Agenda tu valoración urológica hoy"
+    ctaText="3 consultorios en CDMX y Estado de México. El Dr. Abraham evalúa cada caso de forma personalizada y confidencial."
+    ctaButtonText="Agendar valoración — WhatsApp"
+    ctaNote="Consulta desde $800 · Sin lista de espera"
+  />
+
+  <Faq
+    tag="Preguntas frecuentes"
+    heading="Dudas sobre<br />los síntomas"
+    items={faqItems}
+    image="/assets/sala-laser.jpg"
+    imageAlt="Tecnología láser urológica"
+    caption="Los síntomas tienen solución. Desde medicamento hasta cirugía láser HoLEP — el Dr. Abraham evalúa la mejor opción para cada caso."
+    linkHref="/holep/"
+    linkText="Conocer cirugía HoLEP →"
+  />
+
+  <Specialist
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+    badges={specialistBadges}
+    title="Dr. Abraham López Venegas"
+    text="El especialista que te atenderá. Urólogo con más de 2,000 procedimientos realizados. Técnica refinada con resultados estéticos y funcionales consistentes. 3 consultorios en CDMX y EdoMex."
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones/"
+    secondaryText="Ver ubicaciones"
+  />
+</Layout>

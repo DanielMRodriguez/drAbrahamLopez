@@ -1,0 +1,245 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/section/holep/Hero.astro";
+import TrustStrip from "../components/section/TrustStrip.astro";
+import About from "../components/section/holep/About.astro";
+import IconCards from "../components/section/IconCards.astro";
+import CompareSteps from "../components/section/holep/CompareSteps.astro";
+import Faq from "../components/section/holep/Faq.astro";
+import Specialist from "../components/section/Specialist.astro";
+
+const heroStats = [
+  { value: "700", suffix: "+", label: "Cirugías HoLEP" },
+  { value: "1–2", label: "semanas recuperación", countUp: false },
+  { value: "24", suffix: "h", label: "alta hospitalaria" },
+];
+
+const trustItems = [
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3.5M12 18.5V22M2 12h3.5M18.5 12H22M5.2 5.2l2.5 2.5M16.3 16.3l2.5 2.5M18.8 5.2l-2.5 2.5M7.7 16.3l-2.5 2.5" stroke-linecap="round"/></svg>`,
+    title: "700+ cirugías realizadas",
+    subtitle: "HoLEP · ThuFLEP · MiLEP",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "Alta en 24–48 horas",
+    subtitle: "Sin hospitalización prolongada",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M12 2.5 5 5.3v5.8c0 4.4 3 8.4 7 9.9 4-1.5 7-5.5 7-9.9V5.3z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "Resultados permanentes",
+    subtitle: "Muy baja probabilidad de reintervención",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2.2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" stroke-linecap="round"/><circle cx="12" cy="15" r="1.4"/></svg>`,
+    title: "Consulta confidencial",
+    subtitle: "Protocolos preoperatorios sencillos",
+  },
+];
+
+const aboutParagraphs = [
+  "La cirugía <strong>HoLEP (Holmium Laser Enucleation of the Prostate)</strong> es el estándar de oro para el tratamiento quirúrgico de la hiperplasia prostática benigna. Utiliza un láser de Holmio para eliminar el tejido prostático que obstruye el flujo urinario, sin necesidad de cortes externos.",
+  "El Dr. Abraham es pionero en las técnicas <strong>MiLEP y ThuFLEP</strong> en CDMX y Estado de México, con más de 700 cirugías realizadas.",
+];
+
+const aboutBullets = [
+  "Procedimiento endoscópico — <strong>sin incisiones externas</strong>",
+  "<strong>Elimina el tejido prostático de forma permanente</strong>",
+  "Menor sangrado que técnicas convencionales",
+  "Alta en <strong>24–48 horas</strong>",
+  "Recuperación completa en <strong>1–2 semanas</strong>",
+];
+
+const candidates = [
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M4 8.5V5.5a1.5 1.5 0 0 1 1.5-1.5h3M20 8.5V5.5a1.5 1.5 0 0 0-1.5-1.5h-3M4 15.5v3A1.5 1.5 0 0 0 5.5 20h3M20 15.5v3a1.5 1.5 0 0 1-1.5 1.5h-3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "Próstata grande confirmada",
+    text: "HoLEP es especialmente efectivo para próstatas de cualquier tamaño, incluso las muy grandes. No hay límite superior de volumen.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M3 12.5h4l2.3-5.5 4 12 2.4-6.5H21" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "Síntomas que afectan la calidad de vida",
+    text: "Nocturia frecuente, retención urinaria recurrente o infecciones urinarias repetidas que no responden al tratamiento médico.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><path d="M12 3.2c3.6 4.6 6 8 6 11A6 6 0 0 1 6 14.2c0-3 2.4-6.4 6-11z" stroke-linejoin="round"/><path d="M9.6 14.6a2.5 2.5 0 0 0 2.4 2.3" stroke-linecap="round"/></svg>`,
+    title: "Pacientes anticoagulados",
+    text: "El láser HoLEP tiene menor riesgo de sangrado, lo que lo hace viable para pacientes que toman anticoagulantes o antiagregantes.",
+  },
+];
+
+const compareRows = [
+  { label: "Sangrado", holep: "Mínimo", rtup: "Mayor riesgo", rtupBad: true },
+  { label: "Cortes externos", holep: "Ninguno", rtup: "Ninguno" },
+  {
+    label: "Hospitalización",
+    holep: "24–48 horas",
+    rtup: "2–4 días",
+    rtupBad: true,
+  },
+  {
+    label: "Recuperación",
+    holep: "1–2 semanas",
+    rtup: "3–6 semanas",
+    rtupBad: true,
+  },
+  {
+    label: "Resultados",
+    holep: "Permanentes",
+    rtup: "Mayor reintervención",
+    rtupBad: true,
+  },
+  {
+    label: "Tamaño próstata",
+    holep: "Cualquier tamaño",
+    rtup: "Limitado",
+    rtupBad: true,
+  },
+];
+
+const surgerySteps = [
+  {
+    title: "Valoración preoperatoria",
+    text: "Consulta inicial, ultrasonido prostático y uroflujometría para confirmar el diagnóstico y planear la cirugía.",
+  },
+  {
+    title: "Preparación",
+    text: "Protocolo preoperatorio sencillo. La mayoría de los pacientes llega el mismo día de la cirugía.",
+  },
+  {
+    title: "Cirugía con láser",
+    text: "Procedimiento endoscópico bajo anestesia. Sin incisiones externas. Duración aproximada de 1–2 horas.",
+  },
+  {
+    title: "Recuperación",
+    text: "Alta en 24–48 horas. Retorno a actividades normales en 1–2 semanas. Seguimiento por consulta.",
+  },
+];
+
+const faqItems = [
+  {
+    q: "¿La cirugía HoLEP es definitiva?",
+    a: "Sí. Elimina el tejido prostático de forma permanente. Las probabilidades de reintervención son muy bajas, inferiores a otros métodos.",
+  },
+  {
+    q: "¿Cuánto dura la recuperación?",
+    a: "La mayoría regresa a actividades normales en 1–2 semanas. El catéter se retira a las 24–48 horas del procedimiento.",
+  },
+  {
+    q: "¿Afecta la función sexual?",
+    a: "La cirugía preserva la función eréctil. Puede haber eyaculación retrógrada, lo cual es inofensivo y se informa al paciente desde antes del procedimiento.",
+  },
+  {
+    q: "¿Trabajan con aseguradoras?",
+    a: "Sí, trabajamos con GNP, AXA, Mapfre y otras. Contáctanos para verificar cobertura en tu sede más cercana.",
+  },
+  {
+    q: "¿Cuánto cuesta la consulta?",
+    a: "La consulta en Chalco es desde $800. En Lindavista y La Viga es de $1,500. Pregunta por opciones de pago para el procedimiento quirúrgico.",
+  },
+];
+
+const specialistBadges = [
+  "Doctoralia Awards 2022",
+  "Doctoralia Awards 2023",
+  "CNMU folio 1776",
+  "2,000+ pacientes",
+];
+
+const title = "Cirugía HoLEP — Dr. Abraham López Venegas · Urólogo CDMX";
+const description =
+  "Cirugía de próstata con láser HoLEP en CDMX y EdoMex. Sin cortes externos, alta en 24–48 horas y recuperación en 1–2 semanas. Más de 700 cirugías realizadas por el Dr. Abraham López Venegas.";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: title,
+    description,
+    url: new URL("/holep/", Astro.site).toString(),
+    inLanguage: "es-MX",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage="/assets/procedimiento-holep.avif"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Cirugía de próstata mínimamente invasiva"
+    title='Cirugía de próstata<br />con láser <em>(HoLEP)</em>'
+    tagline="Diagnóstico, tratamiento y cirugía de próstata con láser. <strong>Consulta confidencial, protocolos preoperatorios sencillos</strong> y 3 sedes en CDMX y EdoMex."
+    stats={heroStats}
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones/"
+    secondaryText="Ver ubicaciones"
+    image="/assets/procedimiento-holep.avif"
+    imageAlt="Procedimiento HoLEP — cirugía láser próstata"
+  />
+
+  <TrustStrip items={trustItems} />
+
+  <About
+    tag="Procedimiento estrella"
+    heading="¿Qué es la cirugía HoLEP?"
+    paragraphs={aboutParagraphs}
+    bullets={aboutBullets}
+    alsoText="También atendemos: <strong>Cálculos urinarios con láser · Circuncisión · Salud masculina</strong>"
+    ctaText="Agendar valoración por WhatsApp"
+    image="/assets/clinica-1.avif"
+    imageAlt="Consultorio Dr. Abraham López Venegas"
+  />
+
+  <IconCards
+    tag="Indicaciones"
+    heading="¿Quién puede operarse con HoLEP?"
+    items={candidates}
+  />
+
+  <CompareSteps
+    compareTag="Comparativa"
+    compareHeading="HoLEP vs RTUP convencional"
+    compareIntro="La RTUP (Resección transuretral) fue el estándar durante décadas. HoLEP la supera en todos los aspectos clínicos relevantes."
+    headerLabel="Criterio"
+    headerA="HoLEP"
+    headerB="RTUP"
+    rows={compareRows}
+    stepsTag="Paso a paso"
+    stepsHeading="¿Cómo es la cirugía?"
+    steps={surgerySteps}
+  />
+
+  <Faq
+    tag="Preguntas frecuentes"
+    heading="Lo que más nos preguntan"
+    items={faqItems}
+    ctaTag="¿Tienes más preguntas?"
+    ctaHeading="Consulta con el especialista directamente"
+    ctaText="El Dr. Abraham resuelve todas las dudas en consulta. Atención confidencial, sin lista de espera."
+    ctaButtonText="Agendar valoración — WhatsApp"
+    ctaNote="Consulta desde $800 · 3 sedes disponibles"
+  />
+
+  <Specialist
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+    badges={specialistBadges}
+    title="Dr. Abraham López Venegas"
+    text="Urólogo con enfoque humano, moderno y resolutivo. Pionero en técnica MiLEP/ThuFLEP en CDMX y Estado de México. Protocolos preoperatorios sencillos y fáciles de cumplir. Atención confidencial en 3 consultorios."
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones/"
+    secondaryText="Ver ubicaciones"
+  />
+</Layout>

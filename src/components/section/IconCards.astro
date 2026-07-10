@@ -1,0 +1,47 @@
+---
+interface Item {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro?: string;
+  items: Item[];
+}
+
+const { tag, heading, intro, items } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div style="text-align:center;max-width:600px;margin:0 auto 44px;">
+          <span class="sect-tag">{tag}</span>
+          <h2 class="section-h" set:html={heading} />
+          {
+            intro && (
+              <p style="font-size:14px;color:var(--mist);margin-top:10px;">
+                {intro}
+              </p>
+            )
+          }
+        </div>
+        <div class="row icon-cards">
+          {
+            items.map((item) => (
+              <div class="col-12 col-md-4 icon-card">
+                <div class="ic-icon" set:html={item.icon} />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

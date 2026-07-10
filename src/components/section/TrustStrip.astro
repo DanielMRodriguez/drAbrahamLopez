@@ -11,8 +11,7 @@ interface Props {
   ctaText?: string;
 }
 
-const { items, ctaHref = "/perfil/", ctaText = "Perfil completo" } =
-  Astro.props;
+const { items, ctaHref, ctaText } = Astro.props;
 ---
 
 <div class="container-fluid trust">
@@ -34,20 +33,25 @@ const { items, ctaHref = "/perfil/", ctaText = "Perfil completo" } =
               </>
             ))
           }
-          <div class="t-item">
-            <a href={ctaHref} class="trust-cta"
-              >{ctaText}{" "}
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                ><path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5"></path></svg
-              ></a
-            >
-          </div>
+          {
+            ctaHref && ctaText && (
+              <div class="t-item">
+                <a href={ctaHref} class="trust-cta">
+                  {ctaText}{" "}
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5" />
+                  </svg>
+                </a>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>

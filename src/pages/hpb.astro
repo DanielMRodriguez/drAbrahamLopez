@@ -1,0 +1,231 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/section/hpb/Hero.astro";
+import WhatIs from "../components/section/hpb/WhatIs.astro";
+import IconCards from "../components/section/IconCards.astro";
+import Symptoms from "../components/section/hpb/Symptoms.astro";
+import DiagnosisTreatment from "../components/section/hpb/DiagnosisTreatment.astro";
+import Faq from "../components/section/hpb/Faq.astro";
+import Specialist from "../components/section/Specialist.astro";
+
+const heroStats = [
+  { value: "50", suffix: "%", label: "de los hombres a los 60 años la padece" },
+  { value: "90", suffix: "%", label: "de los hombres a los 85 años", teal: true },
+];
+
+const whatIsParagraphs = [
+  "La hiperplasia prostática benigna (HPB) es el <strong>agrandamiento no canceroso de la próstata</strong>. Es la condición urológica más frecuente en hombres mayores de 50 años.",
+  "A medida que la próstata crece, comprime la uretra y dificulta el flujo urinario, lo que genera síntomas que afectan la calidad de vida. <strong>No es cáncer, pero requiere diagnóstico y seguimiento médico.</strong>",
+];
+
+const facts = [
+  "No está relacionada con la actividad sexual",
+  "La próstata normal pesa entre <strong>20 y 30 gramos</strong>",
+  "Puede coexistir con cáncer de próstata — el diagnóstico diferencial es importante",
+];
+
+const riskFactors = [
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "Edad",
+    text: "Más del 50% de los hombres mayores de 60 años la padece. El riesgo aumenta progresivamente con cada década de vida.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="8" cy="7.5" r="2.6"/><circle cx="16" cy="7.5" r="2.6"/><path d="M3.5 18c0-2.6 2-4.5 4.5-4.5s4.5 1.9 4.5 4.5M12.6 17.4c.5-2.1 2.2-3.6 4.4-3.6 2.5 0 4.5 1.9 4.5 4.5" stroke-linecap="round"/></svg>`,
+    title: "Antecedentes familiares",
+    text: "Tener un padre o hermano con HPB aumenta el riesgo significativamente. Los antecedentes familiares son uno de los factores más relevantes.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24"><circle cx="6.5" cy="7" r="2.3"/><circle cx="17.5" cy="9" r="2.3"/><circle cx="11" cy="17" r="2.3"/><path d="M8.4 8.3 15.4 9.6M8 9 9.8 14.9M13 15.6 16.2 11" stroke-linecap="round"/></svg>`,
+    title: "Cambios hormonales",
+    text: "El aumento relativo de estrógenos con la edad estimula el crecimiento prostático. Los desequilibrios hormonales juegan un papel clave.",
+  },
+];
+
+const symptoms = [
+  {
+    title: "Dificultad para iniciar la micción",
+    desc: "El chorro tarda en salir o requiere esfuerzo para comenzar.",
+  },
+  {
+    title: "Chorro urinario débil o intermitente",
+    desc: "El flujo se corta o es más delgado de lo normal.",
+  },
+  {
+    title: "Sensación de vaciado incompleto",
+    desc: "La vejiga no se siente completamente vacía después de orinar.",
+  },
+  {
+    title: "Levantarse de noche a orinar",
+    desc: "Más de 2 veces por noche interrumpe el sueño habitualmente.",
+  },
+  {
+    title: "Urgencia repentina de orinar",
+    desc: "Necesidad incontrolable que no da tiempo de llegar al baño.",
+  },
+  {
+    title: "Goteo al final de la micción",
+    desc: "Gotas que continúan saliendo después de terminar de orinar.",
+  },
+];
+
+const dxSteps = [
+  {
+    title: "Tacto rectal",
+    text: "Evaluación manual del tamaño, forma y consistencia. Rápido e indoloro en consultorio.",
+  },
+  {
+    title: "PSA en sangre",
+    text: "Mide el antígeno prostático. Permite descartar cáncer de próstata y evaluar la actividad glandular.",
+  },
+  {
+    title: "Ultrasonido prostático",
+    text: "Mide el volumen exacto de la próstata en tiempo real. Confirma el grado de agrandamiento.",
+  },
+  {
+    title: "Uroflujometría",
+    text: "Mide la velocidad y el flujo de la orina. Determina el grado de obstrucción urinaria.",
+  },
+];
+
+const txCards = [
+  {
+    label: "Primera línea",
+    title: "Tratamiento médico",
+    text: "Medicamentos que relajan la musculatura prostática o reducen el tamaño de la glándula. Indicado para casos leves a moderados sin complicaciones.",
+  },
+  {
+    label: "Casos moderados a severos",
+    title: "Cirugía láser HoLEP",
+    text: "Para cuando el tratamiento médico no es suficiente. Elimina el tejido prostático de forma permanente sin cortes externos. Recuperación en 1–2 semanas.",
+    featured: true,
+    linkHref: "/holep/",
+    linkText: "Ver HoLEP →",
+  },
+];
+
+const faqItems = [
+  {
+    q: "¿La hiperplasia prostática puede convertirse en cáncer?",
+    a: "No. Son condiciones independientes. Sin embargo pueden coexistir, por eso el diagnóstico diferencial con PSA y ultrasonido es importante.",
+  },
+  {
+    q: "¿Se puede vivir sin tratamiento?",
+    a: "En casos leves sí, con seguimiento médico. Sin tratamiento los síntomas tienden a empeorar y pueden generar complicaciones como infecciones o daño renal.",
+  },
+  {
+    q: "¿La hiperplasia afecta la función sexual?",
+    a: "Puede afectar la eyaculación en algunos casos. El urólogo evalúa cada caso de forma integral considerando la salud sexual del paciente.",
+  },
+  {
+    q: "¿La cirugía HoLEP tiene cura definitiva?",
+    a: "La cirugía HoLEP elimina el tejido prostático de forma permanente con muy baja probabilidad de reintervención. Es considerada la solución más duradera disponible.",
+  },
+];
+
+const specialistBadges = [
+  "Especialista en casos complejos",
+  "Láser de Tulio última generación",
+  "CNMU folio 1776",
+];
+
+const title =
+  "Hiperplasia Prostática Benigna (HPB) — Dr. Abraham López Venegas";
+const description =
+  "¿Qué es la hiperplasia prostática benigna y cómo se trata? Causas, síntomas, diagnóstico y opciones de tratamiento explicadas por el Dr. Abraham López Venegas, urólogo en CDMX y EdoMex.";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: title,
+    description,
+    url: new URL("/hpb/", Astro.site).toString(),
+    inLanguage: "es-MX",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage="/assets/clinica-2.avif"
+  schema={schema}
+>
+  <Hero
+    eyebrow="Condición urológica más frecuente en hombres"
+    title='Hiperplasia<br />prostática <em>benigna</em><br />(HPB)'
+    tagline="¿Qué es y cómo se trata? Información médica del Dr. Abraham López Venegas, urólogo especialista en próstata en CDMX y Estado de México."
+    bgImage="/assets/clinica-2.avif"
+    stats={heroStats}
+    note="<strong>No es cáncer,</strong> pero requiere diagnóstico y seguimiento médico"
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones/"
+    secondaryText="Ver ubicaciones"
+  />
+
+  <WhatIs
+    tag="Definición médica"
+    heading="¿Qué es la hiperplasia prostática benigna?"
+    paragraphs={whatIsParagraphs}
+    facts={facts}
+    image="/assets/clinica-1.avif"
+    imageAlt="Consulta urológica Dr. Abraham"
+  />
+
+  <IconCards
+    tag="Causas"
+    heading="¿Por qué ocurre la hiperplasia prostática?"
+    intro="La causa exacta no se conoce completamente, pero se asocia a cambios hormonales naturales del envejecimiento masculino."
+    items={riskFactors}
+  />
+
+  <Symptoms
+    tag="Identificar a tiempo"
+    heading="¿Cómo saber si tienes hiperplasia prostática?"
+    intro="Los síntomas aparecen gradualmente y muchos hombres los ignoran por años. Identificarlos a tiempo permite un tratamiento menos invasivo."
+    symptoms={symptoms}
+    ctaTag="¿Reconoces alguno?"
+    ctaHeading="No esperes a que empeoren"
+    ctaText="El diagnóstico temprano permite tratamientos menos invasivos. Una valoración urológica es rápida, sencilla y no requiere preparación especial."
+    ctaButtonText="Agendar valoración — WhatsApp"
+    ctaNote="Consulta desde $800 · 3 sedes disponibles"
+  />
+
+  <DiagnosisTreatment
+    dxTag="Diagnóstico"
+    dxHeading="¿Cómo se diagnostica?"
+    dxIntro="El diagnóstico es sencillo y se realiza en consultorio. El urólogo combina varias pruebas para confirmar el tamaño de la próstata y descartar otras condiciones."
+    dxSteps={dxSteps}
+    txTag="Opciones de tratamiento"
+    txHeading="¿Cómo se trata la HPB?"
+    txIntro="El tratamiento depende del tamaño de la próstata, la severidad de los síntomas y la respuesta previa a medicamentos."
+    txCards={txCards}
+  />
+
+  <Faq
+    tag="Preguntas frecuentes"
+    heading="Dudas frecuentes sobre HPB"
+    items={faqItems}
+  />
+
+  <Specialist
+    photo="/assets/dr-retrato.avif"
+    photoAlt="Dr. Abraham López Venegas"
+    badges={specialistBadges}
+    title="Dr. Abraham López Venegas"
+    text="Urólogo especialista en hiperplasia prostática con más de 700 cirugías HoLEP realizadas. Experto en casos complejos y próstatas de gran tamaño. 3 consultorios en CDMX y EdoMex."
+    ctaText="Agendar consulta"
+    secondaryHref="/ubicaciones/"
+    secondaryText="Ver ubicaciones"
+  />
+</Layout>

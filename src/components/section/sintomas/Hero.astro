@@ -1,0 +1,61 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import Button from "../../ui/Button.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  tagline: string;
+  bgImage: string;
+  sideImage: string;
+  sideImageAlt: string;
+  ctaText: string;
+  secondaryHref: string;
+  secondaryText: string;
+}
+
+const {
+  eyebrow,
+  title,
+  tagline,
+  bgImage,
+  sideImage,
+  sideImageAlt,
+  ctaText,
+  secondaryHref,
+  secondaryText,
+} = Astro.props;
+---
+
+<section class="split-hero">
+  <div class="split-hero-bg">
+    <img src={bgImage} alt="" fetchpriority="high" />
+  </div>
+  <div class="split-hero-overlay"></div>
+  <div class="split-hero-noise"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="hero-hpn-wrapper">
+          <div class="split-hero-content">
+            <div class="hero-eyebrow">
+              <div class="hero-eyebrow-dot"></div>
+              <span>{eyebrow}</span>
+            </div>
+            <h1 set:html={title} />
+            <p set:html={tagline} />
+            <div class="split-hero-ctas">
+              <WhatsAppButton text={ctaText} size={16} />
+              <Button href={secondaryHref} variant="ghost"
+                >{secondaryText}</Button
+              >
+            </div>
+          </div>
+          <div class="split-hero-aside split-hero-imgcard">
+            <img src={sideImage} alt={sideImageAlt} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

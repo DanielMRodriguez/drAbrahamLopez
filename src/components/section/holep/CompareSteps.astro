@@ -1,0 +1,89 @@
+---
+interface CompareRow {
+  label: string;
+  holep: string;
+  rtup: string;
+  rtupBad?: boolean;
+}
+
+interface Step {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  compareTag: string;
+  compareHeading: string;
+  compareIntro: string;
+  headerLabel: string;
+  headerA: string;
+  headerB: string;
+  rows: CompareRow[];
+  stepsTag: string;
+  stepsHeading: string;
+  steps: Step[];
+}
+
+const {
+  compareTag,
+  compareHeading,
+  compareIntro,
+  headerLabel,
+  headerA,
+  headerB,
+  rows,
+  stepsTag,
+  stepsHeading,
+  steps,
+} = Astro.props;
+---
+
+<section class="container-fluid bg-white section">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{compareTag}</span>
+        <h2 class="section-h" style="margin-bottom:16px;">{compareHeading}</h2>
+        <p class="section-p" style="margin-bottom:32px;">{compareIntro}</p>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>{headerLabel}</th>
+                <th style="color:var(--teal)">{headerA}</th>
+                <th>{headerB}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                rows.map((row) => (
+                  <tr>
+                    <td>{row.label}</td>
+                    <td class="good">{row.holep}</td>
+                    <td class:list={[row.rtupBad && "bad"]}>{row.rtup}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{stepsTag}</span>
+        <h2 class="section-h" style="margin-bottom:24px;">{stepsHeading}</h2>
+        <div class="step-grid">
+          {
+            steps.map((step, i) => (
+              <div class="step-card">
+                <div class="step-num">{String(i + 1).padStart(2, "0")}</div>
+                <div class="step-bar" />
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import Button from "../../ui/Button.astro";
+
+interface Stat {
+  value: string;
+  suffix?: string;
+  label: string;
+  countUp?: boolean;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  tagline: string;
+  stats: Stat[];
+  ctaText: string;
+  secondaryHref: string;
+  secondaryText: string;
+  image: string;
+  imageAlt: string;
+}
+
+const {
+  eyebrow,
+  title,
+  tagline,
+  stats,
+  ctaText,
+  secondaryHref,
+  secondaryText,
+  image,
+  imageAlt,
+} = Astro.props;
+---
+
+<section class="hero-holep">
+  <div class="hero-holep-content">
+    <div class="hero-eyebrow" style="margin-bottom:20px;">
+      <div class="hero-eyebrow-dot"></div>
+      <span>{eyebrow}</span>
+    </div>
+    <h1 set:html={title} />
+    <p set:html={tagline} />
+    <div class="stats-row">
+      {
+        stats.map((stat) => (
+          <div class="stat-item">
+            <div class="stat-num">
+              {stat.countUp === false ? (
+                stat.value
+              ) : (
+                <span data-countup={stat.value} data-countup-decimals="0">
+                  0
+                </span>
+              )}
+              {stat.suffix}
+            </div>
+            <div class="stat-lbl">{stat.label}</div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="hero-holep-ctas">
+      <WhatsAppButton text={ctaText} size={16} />
+      <Button href={secondaryHref} variant="ghost">{secondaryText}</Button>
+    </div>
+  </div>
+  <div class="hero-holep-img">
+    <img src={image} alt={imageAlt} fetchpriority="high" />
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+interface Props {
+  whyTag: string;
+  whyHeading: string;
+  whyParagraphs: string[];
+  reasons: string[];
+  listTag: string;
+  listHeading: string;
+  symptoms: string[];
+}
+
+const {
+  whyTag,
+  whyHeading,
+  whyParagraphs,
+  reasons,
+  listTag,
+  listHeading,
+  symptoms,
+} = Astro.props;
+---
+
+<section class="container-fluid bg-white section">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{whyTag}</span>
+        <h2 class="section-h" style="margin-bottom:14px;">{whyHeading}</h2>
+        {
+          whyParagraphs.map((p) => (
+            <p class="section-p" style="margin-bottom:16px;" set:html={p} />
+          ))
+        }
+        <div class="why-grid">
+          {
+            reasons.map((reason) => (
+              <div class="why-item">
+                <div class="why-dot" />
+                <p set:html={reason} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{listTag}</span>
+        <h2 class="section-h" style="margin-bottom:24px;">{listHeading}</h2>
+        <div class="sym-row-list">
+          {
+            symptoms.map((symptom, i) => (
+              <div class="sym-row">
+                <span class="sym-num">{String(i + 1).padStart(2, "0")}</span>
+                <span class="sym-name">{symptom}</span>
+                <span class="sym-arrow">→</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

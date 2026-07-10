@@ -1,0 +1,65 @@
+---
+import CtaCard from "../../ui/CtaCard.astro";
+
+interface Step {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  steps: Step[];
+  ctaTag: string;
+  ctaHeading: string;
+  ctaText: string;
+  ctaButtonText: string;
+  ctaNote: string;
+}
+
+const {
+  tag,
+  heading,
+  intro,
+  steps,
+  ctaTag,
+  ctaHeading,
+  ctaText,
+  ctaButtonText,
+  ctaNote,
+} = Astro.props;
+---
+
+<section class="container-fluid bg-white section">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">{tag}</span>
+        <h2 class="section-h" style="margin-bottom:8px;">{heading}</h2>
+        <p class="section-p" style="margin-bottom:32px;">{intro}</p>
+        <div class="what-steps">
+          {
+            steps.map((step, i) => (
+              <div class="what-step">
+                <div class="what-num">{String(i + 1).padStart(2, "0")}</div>
+                <div class="what-bar" />
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="col-12 col-lg-6" style="display:flex;align-items:center;">
+        <CtaCard
+          tag={ctaTag}
+          heading={ctaHeading}
+          text={ctaText}
+          buttonText={ctaButtonText}
+          note={ctaNote}
+        />
+      </div>
+    </div>
+  </div>
+</section>
