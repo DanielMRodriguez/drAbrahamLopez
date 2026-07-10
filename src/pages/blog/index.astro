@@ -13,6 +13,7 @@ import {
   postHref,
   postMetaLine,
 } from "../../lib/blog";
+import { breadcrumbListSchema } from "../../lib/schema";
 
 const posts = await getPublishedPosts();
 const [featuredPost, ...restPosts] = posts;
@@ -57,11 +58,24 @@ const categories = allCategories(posts).map((name) => ({
   text: categoryBlurbs[name] ?? `Artículos sobre ${name.toLowerCase()}.`,
   href: categoryHref(name),
 }));
+
+const breadcrumbItems = [{ label: "Inicio", href: "/" }, { label: "Blog" }];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Blog de urología — Dr. Abraham López Venegas",
+    url: new URL("/blog/", Astro.site).toString(),
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
 <Layout
   title="Blog de urología — Dr. Abraham López Venegas · Información para pacientes"
   description="Artículos médicos sobre próstata, cálculos urinarios y salud masculina, escritos por el Dr. Abraham López Venegas, urólogo certificado UNAM."
+  schema={schema}
 >
   <div class="bg-white">
     <Hero
@@ -71,7 +85,7 @@ const categories = allCategories(posts).map((name) => ({
       bgImage="/assets/clinica-1.avif"
     />
 
-    <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
+    <Breadcrumbs items={breadcrumbItems} />
 
     {featuredArticle && (
       <Articles

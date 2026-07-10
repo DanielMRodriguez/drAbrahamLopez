@@ -5,6 +5,7 @@ import Breadcrumbs from "../../../components/section/Breadcrumbs.astro";
 import Hero from "../../../components/section/blog/Hero.astro";
 import Categories from "../../../components/section/blog/Categories.astro";
 import { getPublishedPosts, allCategories, categoryHref } from "../../../lib/blog";
+import { breadcrumbListSchema } from "../../../lib/schema";
 
 const posts = await getPublishedPosts();
 
@@ -25,11 +26,28 @@ const categories = allCategories(posts).map((name) => ({
   text: categoryBlurbs[name] ?? `Artículos sobre ${name.toLowerCase()}.`,
   href: categoryHref(name),
 }));
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Categorías" },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Categorías del blog — Dr. Abraham López Venegas",
+    url: new URL("/blog/categorias/", Astro.site).toString(),
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
 <Layout
   title="Categorías del blog — Dr. Abraham López Venegas · Urólogo CDMX"
   description="Explora los artículos del blog del Dr. Abraham López Venegas organizados por categoría."
+  schema={schema}
 >
   <div class="bg-white">
     <Hero
@@ -39,13 +57,7 @@ const categories = allCategories(posts).map((name) => ({
       bgImage="/assets/clinica-1.avif"
     />
 
-    <Breadcrumbs
-      items={[
-        { label: "Inicio", href: "/" },
-        { label: "Blog", href: "/blog" },
-        { label: "Categorías" },
-      ]}
-    />
+    <Breadcrumbs items={breadcrumbItems} />
 
     <Categories
       heading="Todas las categorías"
