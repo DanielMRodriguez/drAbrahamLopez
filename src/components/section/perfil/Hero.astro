@@ -42,13 +42,13 @@ const {
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="hero-wrapper-perfil">
+        <div class="hero-wrapper-perfil h-card">
           <div class="hero-perfil-content">
             <div class="hero-eyebrow hero-perfil-eyebrow">
               <div class="hero-eyebrow-dot"></div>
-              <span>{eyebrow}</span>
+              <span class="p-job-title">{eyebrow}</span>
             </div>
-            <h1 set:html={title} />
+            <h1 class="p-name" set:html={title} />
             <p set:html={tagline} />
             <div class="hero-perfil-chips">
               {
@@ -70,7 +70,7 @@ const {
           </div>
           <div class="hero-perfil-photo">
             <div class="portrait-card">
-              <img src={photo} alt={photoAlt} />
+              <img class="u-photo" src={photo} alt={photoAlt} />
               <span class="portrait-badge">{photoBadge}</span>
             </div>
           </div>
