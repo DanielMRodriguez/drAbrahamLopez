@@ -199,11 +199,136 @@ const blogPosts = [
     href: "/blog",
   },
 ];
+
+const siteUrl = "https://www.umgrupomedico.com/";
+const doctorUrl = `${siteUrl}perfil/`;
+const doctorImage = `${siteUrl}assets/dr-retrato.avif`;
+const telephone = "+52 55 2845 4843";
+
+const sedeAddresses = [
+  {
+    "@type": "PostalAddress",
+    streetAddress: "Calle Riobamba 639, Consultorio 184",
+    addressLocality: "Gustavo A. Madero",
+    addressRegion: "Ciudad de México",
+    addressCountry: "MX",
+  },
+  {
+    "@type": "PostalAddress",
+    streetAddress: "Calz. de la Viga 1174, Consultorio 607",
+    addressLocality: "Iztapalapa",
+    addressRegion: "Ciudad de México",
+    addressCountry: "MX",
+  },
+  {
+    "@type": "PostalAddress",
+    streetAddress: "Av. San Isidro 3, Col. La Conchita, Chalco Centro",
+    addressLocality: "Chalco",
+    addressRegion: "Estado de México",
+    addressCountry: "MX",
+  },
+];
+
+const aggregateRating = {
+  "@type": "AggregateRating",
+  ratingValue: "4.9",
+  reviewCount: "1300",
+};
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Dr. Abraham López Venegas — Urólogo Metropolitano",
+    url: siteUrl,
+    inLanguage: "es-MX",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    name: "Dr. Abraham López Venegas — Urólogo Metropolitano",
+    url: siteUrl,
+    telephone,
+    image: doctorImage,
+    priceRange: "$800–$1,500",
+    medicalSpecialty: "Urology",
+    address: sedeAddresses[0],
+    aggregateRating,
+    department: [
+      {
+        "@type": "MedicalBusiness",
+        name: "Hospital Ángeles Lindavista — Consultorio 184",
+        telephone,
+        address: sedeAddresses[0],
+      },
+      {
+        "@type": "MedicalBusiness",
+        name: "Hospital MAC La Viga — Consultorio 607",
+        telephone,
+        address: sedeAddresses[1],
+      },
+      {
+        "@type": "MedicalBusiness",
+        name: "UM Chalco",
+        telephone,
+        address: sedeAddresses[2],
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    name: "Dr. Abraham López Venegas",
+    url: doctorUrl,
+    image: doctorImage,
+    telephone,
+    medicalSpecialty: "Urology",
+    aggregateRating,
+    memberOf: [
+      { "@type": "Organization", name: "Sociedad Mexicana de Urología" },
+      { "@type": "Organization", name: "Colegio Nacional Mexicano de Urología" },
+      { "@type": "Organization", name: "Confederación Americana de Urología" },
+      { "@type": "Organization", name: "Sociedad Internacional de Urología" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Dr. Abraham López Venegas",
+    jobTitle: "Urólogo",
+    url: doctorUrl,
+    image: doctorImage,
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Universidad Nacional Autónoma de México",
+    },
+    award: ["Doctoralia Awards 2022", "Doctoralia Awards 2023"],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Cédula Profesional",
+        identifier: "9148863",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Cédula de Especialidad en Urología",
+        identifier: "12366905",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory:
+          "Certificación del Consejo Nacional Mexicano de Urología",
+        identifier: "1776",
+      },
+    ],
+  },
+];
 ---
 
 <Layout
   title="Dr. Abraham López Venegas — Urólogo Metropolitano CDMX"
   description="Urólogo certificado UNAM. Cirugía de próstata con láser HoLEP y ThuFLEP. Consultorios en CDMX y Estado de México."
+  schema={schema}
 >
   <Hero />
 
