@@ -5,7 +5,14 @@ import CtaBanner from "../../../components/section/CtaBanner.astro";
 import Breadcrumbs from "../../../components/section/Breadcrumbs.astro";
 import Hero from "../../../components/section/blog/Hero.astro";
 import RelatedArticles from "../../../components/section/blog/RelatedArticles.astro";
-import { slugify, primaryCategory, postHref, postMetaLine } from "../../../lib/blog";
+import {
+  slugify,
+  primaryCategory,
+  postHref,
+  postMetaLine,
+  categoryHref,
+} from "../../../lib/blog";
+import { breadcrumbListSchema } from "../../../lib/schema";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -41,11 +48,28 @@ const articles = categoryPosts.map((post) => ({
   meta: postMetaLine(post),
   href: postHref(post),
 }));
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Blog", href: "/blog/" },
+  { label: categoryName },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: `${categoryName} — Blog Dr. Abraham López Venegas`,
+    url: new URL(categoryHref(categoryName), Astro.site).toString(),
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
 <Layout
   title={`${categoryName} — Blog Dr. Abraham López Venegas`}
   description={`Artículos sobre ${categoryName.toLowerCase()} escritos por el Dr. Abraham López Venegas, urólogo certificado UNAM.`}
+  schema={schema}
 >
   <Hero
     eyebrow="Blog de urología · Dr. Abraham López Venegas"
@@ -54,13 +78,7 @@ const articles = categoryPosts.map((post) => ({
     bgImage="/assets/clinica-1.avif"
   />
 
-  <Breadcrumbs
-    items={[
-      { label: "Inicio", href: "/" },
-      { label: "Blog", href: "/blog" },
-      { label: categoryName },
-    ]}
-  />
+  <Breadcrumbs items={breadcrumbItems} />
 
   <RelatedArticles heading={`Artículos sobre ${categoryName}`} articles={articles} />
 
