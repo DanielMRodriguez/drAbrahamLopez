@@ -70,7 +70,12 @@ const {
           </div>
           <div class="hero-perfil-photo">
             <div class="portrait-card">
-              <img class="u-photo" src={photo} alt={photoAlt} />
+              <img
+                class="u-photo"
+                src={photo}
+                alt={photoAlt}
+                fetchpriority="high"
+              />
               <span class="portrait-badge">{photoBadge}</span>
             </div>
           </div>
