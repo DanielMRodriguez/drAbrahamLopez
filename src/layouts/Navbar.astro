@@ -1,3 +1,7 @@
+---
+import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
+---
+
 <!-- NAV -->
 <nav class="nav">
   <div class="container">
@@ -11,14 +15,14 @@
               class="nav-logo-img"
             />
           </a>
-          <div class="nav-links d-none d-lg-flex">
-            <a href="/prostata/">Próstata</a>
-            <a href="/ubicaciones/">Ubicaciones</a>
-            <a href="/perfil/">Dr. Abraham</a>
-            <a href="/blog/">Blog</a>
-            <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
-            <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
-          </div>
+          <ul class="nav-links d-none d-lg-flex">
+            <li><a class="nav-link" href="/prostata/">Próstata</a></li>
+            <li><a class="nav-link" href="/ubicaciones/">Ubicaciones</a></li>
+            <li><a class="nav-link" href="/perfil/">Dr. Abraham</a></li>
+            <li><a class="nav-link" href="/blog/">Blog</a></li>
+            <li><a href="tel:5528454843" class="nav-tel">55 2845 4843</a></li>
+            <li><WhatsAppButton text="Agendar cita" /></li>
+          </ul>
           <button
             type="button"
             class="nav-burger d-lg-none"
@@ -60,13 +64,15 @@
     ></button>
   </div>
   <div class="offcanvas-body">
-    <div class="nav-offcanvas-links">
-      <a href="/prostata/">Próstata</a>
-      <a href="/ubicaciones/">Ubicaciones</a>
-      <a href="/perfil/">Dr. Abraham</a>
-      <a href="/blog/">Blog</a>
-      <a href="tel:5528454843" class="nav-tel">55 2845 4843</a>
-      <a href="#" class="nav-cta">Agendar cita — WhatsApp</a>
-    </div>
+    <ul class="nav-offcanvas-links">
+      <li><a class="nav-offcanvas-link" href="/prostata/">Próstata</a></li>
+      <li><a class="nav-offcanvas-link" href="/ubicaciones/">Ubicaciones</a></li>
+      <li><a class="nav-offcanvas-link" href="/perfil/">Dr. Abraham</a></li>
+      <li><a class="nav-offcanvas-link" href="/blog/">Blog</a></li>
+      <li>
+        <a href="tel:5528454843" class="nav-offcanvas-link nav-tel">55 2845 4843</a>
+      </li>
+      <li><WhatsAppButton text="Agendar cita" /></li>
+    </ul>
   </div>
 </div>
