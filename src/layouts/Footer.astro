@@ -1,3 +1,7 @@
+---
+import { DOCTORALIA_URL } from "../lib/consts";
+---
+
 <!-- FOOTER -->
 <footer class="container-fluid">
   <div class="container">
@@ -53,7 +57,11 @@
             <h4>Contacto</h4><ul>
               <li><a href="tel:5528454843">55 2845 4843</a></li><li>
                 WhatsApp directo
-              </li><li>Doctoralia</li><li>GNP · AXA · Mapfre · BBVA</li>
+              </li><li>
+                <a href={DOCTORALIA_URL} target="_blank" rel="noopener"
+                  >Doctoralia</a
+                >
+              </li><li>GNP · AXA · Mapfre · BBVA</li>
             </ul>
           </div>
         </div>
@@ -62,14 +70,26 @@
             © 2026 Dr. Abraham López Venegas · Todos los derechos reservados
           </div>
           <div class="foot-social">
-            <div class="soc">
+            <a
+              class="soc"
+              href="https://www.facebook.com/umgrupomedico"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
               <svg viewBox="0 0 24 24"
                 ><path
                   d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
                 ></path></svg
               >
-            </div>
-            <div class="soc">
+            </a>
+            <a
+              class="soc"
+              href="https://www.instagram.com/urologo.abraham/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
               <svg viewBox="0 0 24 24"
                 ><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle
                   cx="12"
@@ -83,7 +103,20 @@
                   r="1.2"
                   fill="rgba(255,255,255,.35)"></circle></svg
               >
-            </div>
+            </a>
+            <a
+              class="soc"
+              href="https://www.tiktok.com/@uroabraham"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+            >
+              <svg viewBox="0 0 24 24"
+                ><path
+                  d="M16.5 5.6a4.9 4.9 0 0 1-3-2.6h-3v11.6a2.6 2.6 0 1 1-2.6-2.6c.2 0 .4 0 .6.1V9a5.6 5.6 0 1 0 5 5.6V8.9a7.9 7.9 0 0 0 3 .9V6.5c-.4 0-.7-.1-1-.3z"
+                ></path></svg
+              >
+            </a>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import CtaBanner from "../components/section/CtaBanner.astro";
 import Hero from "../components/section/ubicaciones/Hero.astro";
 import Sedes from "../components/section/ubicaciones/Sedes.astro";
 import Insurers from "../components/section/ubicaciones/Insurers.astro";
+import { WHATSAPP_URL } from "../lib/consts";
 
 const heroData = {
   eyebrow: "3 sedes para atenderte",
@@ -56,7 +57,8 @@ const sedes = [
       "Tlalnepantla",
     ],
     ctaText: "Agendar cita en Lindavista",
-    ctaHref: "#",
+    ctaHref: WHATSAPP_URL,
+    ctaTarget: "_blank",
     secondaryHref: "#",
   },
   {
@@ -83,7 +85,8 @@ const sedes = [
     ],
     zoneChips: ["Iztapalapa", "Oriente CDMX", "Nezahualcóyotl"],
     ctaText: "Agendar cita en La Viga",
-    ctaHref: "#",
+    ctaHref: WHATSAPP_URL,
+    ctaTarget: "_blank",
     secondaryHref: "#",
   },
   {
@@ -126,7 +129,8 @@ const sedes = [
       "Ozumba",
     ],
     ctaText: "Agendar cita en Chalco",
-    ctaHref: "#",
+    ctaHref: WHATSAPP_URL,
+    ctaTarget: "_blank",
     secondaryHref: "#",
   },
 ];

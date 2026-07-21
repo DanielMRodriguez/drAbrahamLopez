@@ -17,6 +17,7 @@ interface Props {
   zoneChips: string[];
   ctaText: string;
   ctaHref: string;
+  ctaTarget?: string;
   secondaryText?: string;
   secondaryHref?: string;
 }
@@ -31,6 +32,7 @@ const {
   zoneChips,
   ctaText,
   ctaHref,
+  ctaTarget,
   secondaryText = "Cómo llegar →",
   secondaryHref = "#",
 } = Astro.props;
@@ -79,7 +81,7 @@ const embedSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&
       </div>
     </div>
     <div class="ubi-actions">
-      <Button href={ctaHref} variant="teal">{ctaText}</Button>
+      <Button href={ctaHref} variant="teal" target={ctaTarget}>{ctaText}</Button>
       <Button href={secondaryHref} variant="outline">{secondaryText}</Button>
     </div>
   </div>

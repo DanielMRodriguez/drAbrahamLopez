@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import CtaBanner from "../components/section/CtaBanner.astro";
 import Reviews from "../components/section/Reviews.astro";
 import Hero from "../components/section/perfil/Hero.astro";
+import { DOCTORALIA_URL } from "../lib/consts";
 import Formacion from "../components/section/perfil/Formacion.astro";
 import Specialties from "../components/section/perfil/Specialties.astro";
 import Quote from "../components/section/perfil/Quote.astro";
@@ -144,7 +145,7 @@ const reviews = [
     ratingScore="4.9"
     ratingCount="Doctoralia y Google"
     reviews={reviews}
-    footerHref="#"
+    footerHref={DOCTORALIA_URL}
     footerText="Ver todas las reseñas en Doctoralia →"
   />
 

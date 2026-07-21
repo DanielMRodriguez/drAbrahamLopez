@@ -3,9 +3,10 @@ interface Props {
 	href: string;
 	variant?: 'outline' | 'ghost' | 'white-outline' | 'wa' | 'teal';
 	class?: string;
+	target?: string;
 }
 
-const { href, variant = 'outline', class: className } = Astro.props;
+const { href, variant = 'outline', class: className, target } = Astro.props;
 
 const variantClass = {
 	outline: 'btn-outline',
@@ -14,8 +15,10 @@ const variantClass = {
 	wa: 'btn-wa',
 	teal: 'btn-teal',
 }[variant];
+
+const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
 ---
 
-<a href={href} class:list={[variantClass, className]}>
+<a href={href} class:list={[variantClass, className]} target={target} rel={rel}>
 	<slot />
 </a>
