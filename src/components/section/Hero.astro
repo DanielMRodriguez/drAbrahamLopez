@@ -1,5 +1,6 @@
 ---
 import Button from "../ui/Button.astro";
+import { WHATSAPP_URL } from "../../lib/consts";
 import WhatsAppButton from "../ui/WhatsAppButton.astro";
 
 interface Stat {
@@ -66,7 +67,7 @@ const {
               }
             </div>
             <div class="hero-ctas">
-              <WhatsAppButton />
+              <WhatsAppButton href={WHATSAPP_URL} />
               <Button href="/ubicaciones/" variant="ghost"
                 >Ver ubicaciones</Button
               >

@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import { WHATSAPP_URL } from "../../../lib/consts";
 
 interface Props {
   eyebrow?: string;
@@ -39,7 +40,7 @@ const {
     </div>
     <h1 set:html={title} />
     <p>{tagline}</p>
-    <WhatsAppButton text={ctaText} />
+    <WhatsAppButton href={WHATSAPP_URL} text={ctaText} />
   </div>
   <div class="ubi-hero-trust">
     {

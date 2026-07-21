@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
+import { WHATSAPP_URL } from "../lib/consts";
 ---
 
 <!-- NAV -->
@@ -21,7 +22,7 @@ import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
             <li><a class="nav-link" href="/perfil/">Dr. Abraham</a></li>
             <li><a class="nav-link" href="/blog/">Blog</a></li>
             <li><a href="tel:5528454843" class="nav-tel">55 2845 4843</a></li>
-            <li><WhatsAppButton text="Agendar cita" /></li>
+            <li><WhatsAppButton href={WHATSAPP_URL} text="Agendar cita" /></li>
           </ul>
           <button
             type="button"
@@ -72,7 +73,7 @@ import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
       <li>
         <a href="tel:5528454843" class="nav-offcanvas-link nav-tel">55 2845 4843</a>
       </li>
-      <li><WhatsAppButton text="Agendar cita" /></li>
+      <li><WhatsAppButton href={WHATSAPP_URL} text="Agendar cita" /></li>
     </ul>
   </div>
 </div>
