@@ -34,7 +34,12 @@ const { label, logos, moreText, moreHref, moreLinkText } = Astro.props;
           </div>
           <div class="insur-more">
             {moreText}{" "}
-            <a href={moreHref} style="color:var(--teal);font-weight:600;">
+            <a
+              href={moreHref}
+              target="_blank"
+              rel="noopener"
+              style="color:var(--teal);font-weight:600;"
+            >
               {moreLinkText}
             </a>
           </div>

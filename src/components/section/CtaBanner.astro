@@ -1,6 +1,7 @@
 ---
 import WhatsAppButton from "../ui/WhatsAppButton.astro";
 import Button from "../ui/Button.astro";
+import { WHATSAPP_URL } from "../../lib/consts";
 
 interface Props {
   title?: string;
@@ -31,7 +32,7 @@ const {
             <p>{text}</p>
           </div>
           <div class="cta-banner-actions">
-            <WhatsAppButton text={whatsappText} size={whatsappSize} />
+            <WhatsAppButton href={WHATSAPP_URL} text={whatsappText} size={whatsappSize} />
             <Button href={secondaryHref} variant="white-outline"
               >{secondaryText}</Button
             >

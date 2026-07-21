@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import { WHATSAPP_URL } from "../../../lib/consts";
 import Button from "../../ui/Button.astro";
 
 interface Chip {
@@ -62,7 +63,7 @@ const {
               }
             </div>
             <div class="hero-perfil-ctas">
-              <WhatsAppButton text={ctaText} size={16} />
+              <WhatsAppButton href={WHATSAPP_URL} text={ctaText} size={16} />
               <Button href={secondaryHref} variant="ghost"
                 >{secondaryText}</Button
               >

@@ -8,6 +8,7 @@ import Procedures from "../components/section/index/Procedures.astro";
 import Credentials from "../components/section/index/Credentials.astro";
 import Locations from "../components/section/index/Locations.astro";
 import Reviews from "../components/section/Reviews.astro";
+import { DOCTORALIA_URL, WHATSAPP_URL } from "../lib/consts";
 import Insurers from "../components/section/index/Insurers.astro";
 import BlogPreview from "../components/section/index/BlogPreview.astro";
 
@@ -371,7 +372,7 @@ const schema = [
     ratingScore="4.9"
     ratingCount="1,300+ reseñas verificadas"
     reviews={reviews}
-    footerHref="#"
+    footerHref={DOCTORALIA_URL}
     footerText="Ver todas las reseñas en Doctoralia →"
   />
 
@@ -379,7 +380,7 @@ const schema = [
     label="Aseguradoras aceptadas"
     logos={insuranceLogos}
     moreText="+ otras ·"
-    moreHref="/ubicaciones/"
+    moreHref={WHATSAPP_URL}
     moreLinkText="Ver cobertura →"
   />
 

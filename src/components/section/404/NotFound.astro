@@ -1,6 +1,7 @@
 ---
 import Button from "../../ui/Button.astro";
 import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import { WHATSAPP_URL } from "../../../lib/consts";
 
 interface QuickLink {
   href: string;
@@ -48,7 +49,7 @@ const {
           <p>{text}</p>
           <div class="notfound-ctas">
             <Button href={homeHref} variant="teal">{homeText}</Button>
-            <WhatsAppButton text={whatsappText} />
+            <WhatsAppButton href={WHATSAPP_URL} text={whatsappText} />
           </div>
           <div class="notfound-links">
             {links.map((link) => <a href={link.href}>{link.label}</a>)}
