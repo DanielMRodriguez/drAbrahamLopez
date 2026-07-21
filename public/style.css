@@ -2300,6 +2300,31 @@ footer {
   margin-top: 3px;
   letter-spacing: 0.02em;
 }
+
+/* Home + próstata hero: prueba social sin caja/borde, textos más grandes y blancos */
+.hero-home .hero-proof,
+.prostata-hero .hero-proof {
+  gap: 44px;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+.hero-home .hproof-item,
+.prostata-hero .hproof-item {
+  padding: 0;
+  border-right: none;
+  background: none;
+}
+.hero-home .hproof-num,
+.prostata-hero .hproof-num {
+  font-size: 40px;
+}
+.hero-home .hproof-lbl,
+.prostata-hero .hproof-lbl {
+  font-size: 17px;
+  color: #fff;
+  margin-top: 6px;
+}
 .hero-ctas {
   display: flex;
   gap: 12px;
@@ -3948,6 +3973,15 @@ footer {
   }
   .hproof-item:last-child {
     border-bottom: none;
+  }
+  .hero-home .hproof-item,
+  .prostata-hero .hproof-item {
+    border-bottom: none;
+    padding: 0;
+  }
+  .hero-home .hero-proof,
+  .prostata-hero .hero-proof {
+    gap: 20px;
   }
   .prostata-hero-ctas {
     flex-direction: column;

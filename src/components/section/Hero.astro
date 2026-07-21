@@ -8,6 +8,7 @@ interface Stat {
   suffix?: string;
   decimals?: number;
   label: string;
+  color?: string;
 }
 
 interface Props {
@@ -27,7 +28,13 @@ const {
   stats = [
     { value: "700", suffix: "+", label: "Cirugías HoLEP" },
     { value: "1300", suffix: "+", label: "Reseñas" },
-    { value: "4.9", suffix: "★", decimals: 1, label: "Calificación" },
+    {
+      value: "4.9",
+      suffix: "★",
+      decimals: 1,
+      label: "Calificación",
+      color: "var(--amber)",
+    },
   ],
   photo = "/assets/dr-retrato-tall.avif",
   photoAlt = "Dr. Abraham López Venegas",
@@ -51,13 +58,16 @@ const {
               {
                 stats.map((stat) => (
                   <div class="hproof-item">
-                    <div class="hproof-num">
+                    <div
+                      class="hproof-num"
+                      style={stat.color ? `color:${stat.color}` : undefined}
+                    >
                       <span
                         data-countup={stat.value}
                         data-countup-decimals={stat.decimals ?? 0}
                         >0</span
                       >
-                      <span style="font-size:.55em;opacity:.6">
+                      <span style="font-size:.55em;">
                         {stat.suffix}
                       </span>
                     </div>
