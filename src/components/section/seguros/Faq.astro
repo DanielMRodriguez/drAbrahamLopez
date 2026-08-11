@@ -1,0 +1,53 @@
+---
+import CtaCard from "../../ui/CtaCard.astro";
+import { WHATSAPP_URL } from "../../../lib/consts";
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  name: string;
+  items: FaqItem[];
+  closing: string;
+}
+
+const { name, items, closing } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-lg-6">
+        <span class="sect-tag">Preguntas frecuentes</span>
+        <h2 class="section-h" style="margin-bottom:28px;">
+          Tu seguro {name} y tu cirugía urológica
+        </h2>
+        <div class="faq-list">
+          {
+            items.map((item) => (
+              <div class="faq-item">
+                <div class="faq-q">{item.q}</div>
+                <div class="faq-a">{item.a}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="col-12 col-lg-6"
+        style="display:flex;flex-direction:column;justify-content:flex-end;"
+      >
+        <CtaCard
+          tag="¿Aceptamos tu seguro?"
+          heading={closing}
+          text="Escríbenos por WhatsApp con los datos de tu póliza. Revisamos tu cobertura, resolvemos tus dudas y agendamos tu valoración para tu cirugía de próstata con láser."
+          buttonText="Verificar mi cobertura — WhatsApp"
+          buttonHref={WHATSAPP_URL}
+          note="Consulta desde $1,500 · La Viga · Iztapalapa, CDMX"
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import { WHATSAPP_URL } from "../../../lib/consts";
+
+interface Props {
+  name: string;
+  text: string;
+}
+
+const { name, text } = Astro.props;
+---
+
+<section class="container-fluid section fog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="acomp-wrapper"
+          style="max-width:760px;margin:0 auto;text-align:center;"
+        >
+          <span class="sect-tag">Acompañamiento</span>
+          <h2 class="section-h" style="margin-bottom:20px;">
+            Te acompañamos en todo el trámite con {name}
+          </h2>
+          <p class="section-p" style="margin:0 auto 28px;">{text}</p>
+          <WhatsAppButton
+            href={WHATSAPP_URL}
+            text="Solicitar asesoría por WhatsApp"
+            size={16}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

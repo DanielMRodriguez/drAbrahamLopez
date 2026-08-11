@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/section/Breadcrumbs.astro";
+import Hero from "../components/section/seguros/Hero.astro";
+import Acompanamiento from "../components/section/seguros/Acompanamiento.astro";
+import Promociones from "../components/section/seguros/Promociones.astro";
+import Faq from "../components/section/seguros/Faq.astro";
+import SeoContent from "../components/section/seguros/SeoContent.astro";
+import CtaBanner from "../components/section/CtaBanner.astro";
+import { aseguradoras } from "../data/aseguradoras";
+import { breadcrumbListSchema } from "../lib/schema";
+
+export function getStaticPaths() {
+  return aseguradoras.map((aseguradora) => ({
+    params: { slug: aseguradora.slug },
+    props: { aseguradora },
+  }));
+}
+
+const { aseguradora } = Astro.props;
+const { name, h1, hero, acompanamiento, promociones, faq, seo } = aseguradora;
+
+const pageUrl = new URL(
+  `/urologos-que-aceptan-${aseguradora.slug}/`,
+  Astro.site,
+).toString();
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: `Urólogos que aceptan ${name}` },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: seo.title,
+    description: seo.description,
+    url: pageUrl,
+    inLanguage: "es-MX",
+    about: { "@type": "MedicalSpecialty", name: "Urology" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
+---
+
+<Layout title={seo.title} description={seo.description} schema={schema}>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <Hero
+    name={name}
+    title={h1}
+    tagline={hero.tagline}
+    bullets={hero.bullets}
+    highlight={hero.highlight}
+  />
+
+  <Acompanamiento name={name} text={acompanamiento} />
+
+  <Promociones name={name} items={promociones.items} note={promociones.note} />
+
+  <Faq name={name} items={faq} closing={aseguradora.faqClosing} />
+
+  <SeoContent blocks={aseguradora.seoContent} />
+
+  <CtaBanner
+    title={`¿Buscas un urólogo que acepte ${name}?<br>Agenda tu valoración`}
+    text="Te ayudamos con la papelería y la preautorización de tu seguro de gastos médicos mayores. Consulta desde $1,500 · La Viga · Iztapalapa, CDMX."
+  />
+</Layout>
