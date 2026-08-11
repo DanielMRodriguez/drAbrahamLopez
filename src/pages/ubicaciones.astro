@@ -7,15 +7,14 @@ import Insurers from "../components/section/ubicaciones/Insurers.astro";
 import { WHATSAPP_URL } from "../lib/consts";
 
 const heroData = {
-  eyebrow: "3 sedes para atenderte",
-  title: "Consultorios en CDMX<br>y Estado de México",
+  eyebrow: "Consultorio para atenderte",
+  title: "Consultorio en CDMX Oriente",
   tagline:
-    "Atención en hospitales privados de referencia. Fácil acceso y estacionamiento. Citas disponibles de lunes a sábado.",
+    "Atención en hospital privado de referencia. Fácil acceso y estacionamiento. Citas disponibles de lunes a sábado.",
   ctaText: "Agendar cita",
   bgImage: "/assets/consultorio.jpg",
   trustItems: [
-    "3 sedes disponibles",
-    "Consulta desde $800",
+    "Consulta desde $1,500",
     "Lunes a sábado",
     "Estacionamiento disponible",
     "GNP · AXA · Mapfre y más",
@@ -25,44 +24,6 @@ const heroData = {
 const sedes = [
   {
     sedeNumber: "01",
-    sedeLabel: "CDMX NORTE",
-    mapQuery:
-      "Hospital Ángeles Lindavista, Calle Riobamba 639, Gustavo A. Madero, CDMX",
-    zone: "CDMX Norte",
-    name: "Lindavista",
-    infoRows: [
-      {
-        label: "Hospital",
-        value: "<strong>Hospital Ángeles Lindavista</strong><br>Health Center Piso 1",
-      },
-      {
-        label: "Dirección",
-        value:
-          "Calle Riobamba 639, Col. Lindavista Sur<br>Gustavo A. Madero, CDMX",
-      },
-      { label: "Consultorio", value: "<strong>184</strong>" },
-      {
-        label: "Consulta",
-        value: '<strong style="color:var(--teal);">$1,500</strong>',
-      },
-      { label: "Teléfono", value: "<strong>55 2845 4843</strong>" },
-    ],
-    zoneChips: [
-      "Gustavo A. Madero",
-      "Vallejo",
-      "Ticomán",
-      "Zacatenco",
-      "La Villa",
-      "Insurgentes Norte",
-      "Tlalnepantla",
-    ],
-    ctaText: "Agendar cita en Lindavista",
-    ctaHref: WHATSAPP_URL,
-    ctaTarget: "_blank",
-    secondaryHref: "#",
-  },
-  {
-    sedeNumber: "02",
     sedeLabel: "CDMX ORIENTE",
     mapQuery: "Hospital MAC La Viga, Calz. de la Viga 1174, Iztapalapa, CDMX",
     zone: "CDMX Oriente",
@@ -89,50 +50,6 @@ const sedes = [
     ctaTarget: "_blank",
     secondaryHref: "#",
   },
-  {
-    sedeNumber: "03",
-    sedeLabel: "ESTADO DE MÉXICO",
-    mapQuery: "Urólogo Metropolitano - CHALCO",
-    zone: "Estado de México",
-    name: "Chalco",
-    infoRows: [
-      {
-        label: "Clínica",
-        value: "<strong>UM Chalco</strong><br>Consultorio 4",
-      },
-      {
-        label: "Dirección",
-        value:
-          "Av. San Isidro 3, Col. La Conchita<br>Chalco Centro, Estado de México",
-      },
-      {
-        label: "Referencia",
-        value:
-          "A un costado de Farmacias Guadalajara La Bomba, frente a Sushi Gold, a dos calles de la Clínica 71 del IMSS. Estacionamiento frente a la puerta.",
-        compact: true,
-      },
-      {
-        label: "Consulta",
-        value: '<strong style="color:var(--teal);">$800</strong>',
-      },
-      {
-        label: "Teléfono",
-        value: "<strong>55 2845 4843</strong> / 221 9933 153",
-      },
-    ],
-    zoneChips: [
-      "Valle de Chalco",
-      "Ixtapaluca",
-      "Los Reyes La Paz",
-      "Chimalhuacán",
-      "Tláhuac",
-      "Ozumba",
-    ],
-    ctaText: "Agendar cita en Chalco",
-    ctaHref: WHATSAPP_URL,
-    ctaTarget: "_blank",
-    secondaryHref: "#",
-  },
 ];
 
 const insuranceLogos = [
@@ -144,8 +61,8 @@ const insuranceLogos = [
 ---
 
 <Layout
-  title="Consultorios — Dr. Abraham López Venegas · CDMX y EdoMex"
-  description="Consultorios del Dr. Abraham López Venegas en Lindavista, La Viga · Iztapalapa y Chalco. Consulta desde $800. Atención de lunes a sábado. Aseguradoras GNP, AXA, Mapfre y BBVA."
+  title="Consultorio — Dr. Abraham López Venegas · La Viga, Iztapalapa"
+  description="Consultorio del Dr. Abraham López Venegas en La Viga · Iztapalapa, CDMX. Consulta desde $1,500. Atención de lunes a sábado. Aseguradoras GNP, AXA, Mapfre y BBVA."
   ogImage="/assets/consultorio.jpg"
 >
   <Hero {...heroData} />
@@ -155,14 +72,14 @@ const insuranceLogos = [
   <Insurers
     tag="Aseguradoras aceptadas"
     heading="Trabajamos con<br>tu seguro médico"
-    intro="Contáctanos para verificar cobertura en tu sede más cercana."
+    intro="Contáctanos para verificar tu cobertura."
     logos={insuranceLogos}
     footnote="+ otras aseguradoras. Consulta disponibilidad por WhatsApp."
   />
 
   <CtaBanner
-    title="¿No sabes cuál sede<br>te queda más cerca?"
-    text="Escríbenos por WhatsApp y te ayudamos a elegir la sede más conveniente según tu zona."
+    title="¿Listo para agendar<br>tu consulta?"
+    text="Escríbenos por WhatsApp y te ayudamos a agendar tu cita en La Viga · Iztapalapa."
     whatsappText="Consultar por WhatsApp"
   />
 </Layout>

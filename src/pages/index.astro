@@ -30,8 +30,8 @@ const trustItems = [
   },
   {
     icon: `<svg viewBox="0 0 24 24"><path d="M12 21.5s6.5-5.8 6.5-11A6.5 6.5 0 0 0 5.5 10.5c0 5.2 6.5 11 6.5 11z" stroke-linejoin="round"/><path d="M12 7.8v5.2M9.4 10.4h5.2" stroke-linecap="round"/></svg>`,
-    title: "3 consultorios",
-    subtitle: "CDMX Norte · Iztapalapa · Chalco EdoMex",
+    title: "Consultorio propio",
+    subtitle: "La Viga · Iztapalapa, CDMX",
   },
 ];
 
@@ -51,9 +51,9 @@ const bentoStats = [
     color: "var(--amber)",
   },
   {
-    value: "3",
-    suffix: "",
-    label: "Consultorios en CDMX y EdoMex",
+    value: "2000",
+    suffix: "+",
+    label: "Pacientes atendidos",
     color: "var(--teal)",
   },
 ];
@@ -117,17 +117,6 @@ const credentialStats = [
 
 const locations = [
   {
-    mapUrl: "https://maps.app.goo.gl/7VMUsVrLZr8MF9Hh8",
-    mapQuery:
-      "Hospital Ángeles Lindavista, Calle Riobamba 639, Gustavo A. Madero, CDMX",
-    zone: "CDMX Norte",
-    name: "Lindavista",
-    hospital: "Hospital Ángeles Lindavista",
-    address: "Calle Riobamba 639, Consultorio 184<br>Gustavo A. Madero, CDMX",
-    price: "Consulta $1,500",
-    href: "/ubicaciones/",
-  },
-  {
     mapUrl: "https://maps.app.goo.gl/V9BRqjUhKBoTTwRh7",
     mapQuery: "Hospital MAC La Viga, Calz. de la Viga 1174, Iztapalapa, CDMX",
     zone: "CDMX Oriente",
@@ -135,16 +124,6 @@ const locations = [
     hospital: "Hospital MAC La Viga",
     address: "Calz. de la Viga 1174, Consultorio 607<br>Iztapalapa, CDMX",
     price: "Consulta $1,500",
-    href: "/ubicaciones/",
-  },
-  {
-    mapUrl: "https://maps.app.goo.gl/2yC34YTcfzuhYbF78",
-    mapQuery: "Urólogo Metropolitano - CHALCO",
-    zone: "Estado de México",
-    name: "Chalco",
-    hospital: "UM Chalco",
-    address: "Av. San Isidro 3, Col. La Conchita<br>Chalco Centro, EdoMex",
-    price: "Consulta $800",
     href: "/ubicaciones/",
   },
 ];
@@ -209,23 +188,9 @@ const telephone = "+52 55 2845 4843";
 const sedeAddresses = [
   {
     "@type": "PostalAddress",
-    streetAddress: "Calle Riobamba 639, Consultorio 184",
-    addressLocality: "Gustavo A. Madero",
-    addressRegion: "Ciudad de México",
-    addressCountry: "MX",
-  },
-  {
-    "@type": "PostalAddress",
     streetAddress: "Calz. de la Viga 1174, Consultorio 607",
     addressLocality: "Iztapalapa",
     addressRegion: "Ciudad de México",
-    addressCountry: "MX",
-  },
-  {
-    "@type": "PostalAddress",
-    streetAddress: "Av. San Isidro 3, Col. La Conchita, Chalco Centro",
-    addressLocality: "Chalco",
-    addressRegion: "Estado de México",
     addressCountry: "MX",
   },
 ];
@@ -251,28 +216,16 @@ const schema = [
     url: siteUrl,
     telephone,
     image: doctorImage,
-    priceRange: "$800–$1,500",
+    priceRange: "$1,500",
     medicalSpecialty: "Urology",
     address: sedeAddresses[0],
     aggregateRating,
     department: [
       {
         "@type": "MedicalBusiness",
-        name: "Hospital Ángeles Lindavista — Consultorio 184",
-        telephone,
-        address: sedeAddresses[0],
-      },
-      {
-        "@type": "MedicalBusiness",
         name: "Hospital MAC La Viga — Consultorio 607",
         telephone,
-        address: sedeAddresses[1],
-      },
-      {
-        "@type": "MedicalBusiness",
-        name: "UM Chalco",
-        telephone,
-        address: sedeAddresses[2],
+        address: sedeAddresses[0],
       },
     ],
   },
@@ -328,7 +281,7 @@ const schema = [
 
 <Layout
   title="Dr. Abraham López Venegas — Urólogo Metropolitano CDMX"
-  description="Urólogo certificado UNAM. Cirugía de próstata con láser HoLEP y ThuFLEP. Consultorios en CDMX y Estado de México."
+  description="Urólogo certificado UNAM. Cirugía de próstata con láser HoLEP y ThuFLEP. Consultorio en La Viga · Iztapalapa, CDMX."
   schema={schema}
 >
   <Hero />
@@ -357,9 +310,9 @@ const schema = [
   />
 
   <Locations
-    tag="Consultorios"
-    heading="3 sedes en CDMX<br>y Estado de México"
-    intro="Atención en hospitales privados de referencia. Citas disponibles de lunes a sábado."
+    tag="Consultorio"
+    heading="Consultorio en CDMX Oriente"
+    intro="Atención en hospital privado de referencia. Citas disponibles de lunes a sábado."
     locations={locations}
     ctaHref="/ubicaciones/"
     ctaText="Ver mapa y horarios completos →"

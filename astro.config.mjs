@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.umgrupomedico.com/",
+  site: "https://urologialasercdmx.com/",
   trailingSlash: "always",
   integrations: [sitemap()],
 });
