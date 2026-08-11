@@ -7,6 +7,7 @@ import IconCards from "../components/section/IconCards.astro";
 import CompareSteps from "../components/section/holep/CompareSteps.astro";
 import Faq from "../components/section/holep/Faq.astro";
 import Specialist from "../components/section/Specialist.astro";
+import { breadcrumbListSchema } from "../lib/schema";
 
 const heroStats = [
   { value: "700", suffix: "+", label: "Cirugías HoLEP" },
@@ -150,6 +151,12 @@ const title = "Cirugía HoLEP — Dr. Abraham López Venegas · Urólogo CDMX";
 const description =
   "Cirugía de próstata con láser HoLEP en CDMX y EdoMex. Sin cortes externos, alta en 24–48 horas y recuperación en 1–2 semanas. Más de 700 cirugías realizadas por el Dr. Abraham López Venegas.";
 
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Próstata", href: "/prostata/" },
+  { label: "Cirugía HoLEP" },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -161,6 +168,23 @@ const schema = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: "Cirugía HoLEP (Holmium Laser Enucleation of the Prostate)",
+    alternateName: ["HoLEP", "MiLEP", "ThuFLEP"],
+    procedureType: "https://schema.org/SurgicalProcedure",
+    bodyLocation: "Próstata",
+    description: aboutParagraphs[0].replace(/<\/?strong>/g, ""),
+    howPerformed:
+      "Enucleación endoscópica del tejido prostático con láser de Holmio, sin incisiones externas.",
+    preparation: surgerySteps[1].text,
+    followup: surgerySteps[3].text,
+    indication: {
+      "@type": "MedicalIndication",
+      name: "Hiperplasia prostática benigna",
+    },
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
@@ -168,6 +192,7 @@ const schema = [
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
 ];
 ---
 

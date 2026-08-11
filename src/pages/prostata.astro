@@ -6,6 +6,7 @@ import Conditions from "../components/section/prostata/Conditions.astro";
 import WhenToVisit from "../components/section/prostata/WhenToVisit.astro";
 import Faq from "../components/section/FaqImage.astro";
 import Specialist from "../components/section/Specialist.astro";
+import { breadcrumbListSchema } from "../lib/schema";
 
 const heroStats = [
   { value: "700", suffix: "+", label: "Cirugías HoLEP" },
@@ -89,12 +90,47 @@ const specialistBadges = [
   "Doctoralia Awards 2023",
   "CNMU folio 1776",
 ];
+
+const title = "Próstata — Dr. Abraham López Venegas · Urólogo CDMX";
+const description =
+  "Información médica sobre próstata: hiperplasia benigna, síntomas, diagnóstico y cirugía láser HoLEP/ThuFLEP con el Dr. Abraham López Venegas, urólogo certificado UNAM en CDMX y Estado de México.";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Próstata" },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: title,
+    description,
+    url: new URL("/prostata/", Astro.site).toString(),
+    inLanguage: "es-MX",
+    about: [
+      { "@type": "MedicalCondition", name: "Hiperplasia prostática benigna" },
+      { "@type": "MedicalProcedure", name: "Cirugía láser HoLEP" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
 <Layout
-  title="Próstata — Dr. Abraham López Venegas · Urólogo CDMX"
-  description="Información médica sobre próstata: hiperplasia benigna, síntomas, diagnóstico y cirugía láser HoLEP/ThuFLEP con el Dr. Abraham López Venegas, urólogo certificado UNAM en CDMX y Estado de México."
+  title={title}
+  description={description}
   ogImage="/assets/sala-laser.jpg"
+  schema={schema}
 >
   <Hero
     eyebrow="Especialista en próstata · CDMX y EdoMex"

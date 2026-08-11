@@ -7,6 +7,7 @@ import { DOCTORALIA_URL } from "../lib/consts";
 import Formacion from "../components/section/perfil/Formacion.astro";
 import Specialties from "../components/section/perfil/Specialties.astro";
 import Quote from "../components/section/perfil/Quote.astro";
+import { breadcrumbListSchema } from "../lib/schema";
 
 const heroChips = [
   { text: "Doctoralia Awards 2022", variant: "teal" as const },
@@ -95,12 +96,87 @@ const reviews = [
     source: "Paciente verificado · Google · Consulta urológica",
   },
 ];
+
+const title = "Dr. Abraham López Venegas — Perfil y Trayectoria · Urólogo CDMX";
+const description =
+  "Conoce la trayectoria, formación y certificaciones del Dr. Abraham López Venegas, urólogo egresado de la UNAM con más de 700 cirugías HoLEP y ThuFLEP y Doctoralia Awards 2022 y 2023.";
+
+const doctorUrl = new URL("/perfil/", Astro.site).toString();
+const doctorImage = new URL("/assets/dr-retrato-2.jpg", Astro.site).toString();
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Perfil" },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    name: title,
+    description,
+    url: doctorUrl,
+    inLanguage: "es-MX",
+    mainEntity: {
+      "@type": "Physician",
+      name: "Dr. Abraham López Venegas",
+      jobTitle: "Urólogo",
+      url: doctorUrl,
+      image: doctorImage,
+      medicalSpecialty: "Urology",
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Universidad Nacional Autónoma de México",
+      },
+      award: ["Doctoralia Awards 2022", "Doctoralia Awards 2023"],
+      memberOf: [
+        { "@type": "Organization", name: "Sociedad Mexicana de Urología" },
+        {
+          "@type": "Organization",
+          name: "Colegio Nacional Mexicano de Urología",
+        },
+        {
+          "@type": "Organization",
+          name: "Confederación Americana de Urología",
+        },
+        { "@type": "Organization", name: "Sociedad Internacional de Urología" },
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "Cédula Profesional",
+          identifier: "9148863",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "Cédula de Especialidad en Urología",
+          identifier: "12366905",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory:
+            "Certificación del Consejo Nacional Mexicano de Urología",
+          identifier: "1776",
+        },
+      ],
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "1300",
+      },
+      review: reviews.map((review) => ({
+        "@type": "Review",
+        reviewBody: review.quote,
+        author: { "@type": "Person", name: "Paciente verificado" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      })),
+    },
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
-<Layout
-  title="Dr. Abraham López Venegas — Perfil y Trayectoria · Urólogo CDMX"
-  description="Conoce la trayectoria, formación y certificaciones del Dr. Abraham López Venegas, urólogo egresado de la UNAM con más de 700 cirugías HoLEP y ThuFLEP y Doctoralia Awards 2022 y 2023."
->
+<Layout title={title} description={description} schema={schema}>
   <Hero
     eyebrow="Urólogo certificado UNAM · CDMX y EdoMex"
     title="Dr. Abraham<br>López Venegas"

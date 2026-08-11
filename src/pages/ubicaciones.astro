@@ -5,6 +5,7 @@ import Hero from "../components/section/ubicaciones/Hero.astro";
 import Sedes from "../components/section/ubicaciones/Sedes.astro";
 import Insurers from "../components/section/ubicaciones/Insurers.astro";
 import { WHATSAPP_URL } from "../lib/consts";
+import { breadcrumbListSchema } from "../lib/schema";
 
 const heroData = {
   eyebrow: "Consultorio para atenderte",
@@ -58,12 +59,56 @@ const insuranceLogos = [
   { src: "/assets/logo-mapfre.svg", alt: "Mapfre" },
   { src: "/assets/logo-bbva.svg", alt: "BBVA Seguros" },
 ];
+
+const title = "Consultorio — Dr. Abraham López Venegas · La Viga, Iztapalapa";
+const description =
+  "Consultorio del Dr. Abraham López Venegas en La Viga · Iztapalapa, CDMX. Consulta desde $1,500. Atención de lunes a sábado. Aseguradoras GNP, AXA, Mapfre y BBVA.";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Ubicaciones" },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    name: "Dr. Abraham López Venegas — Hospital MAC La Viga",
+    description,
+    url: new URL("/ubicaciones/", Astro.site).toString(),
+    image: new URL("/assets/consultorio.jpg", Astro.site).toString(),
+    telephone: "+52 55 2845 4843",
+    priceRange: "$1,500",
+    medicalSpecialty: "Urology",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Calz. de la Viga 1174, Consultorio 607",
+      addressLocality: "Iztapalapa",
+      addressRegion: "Ciudad de México",
+      addressCountry: "MX",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+    },
+    acceptedInsurance: insuranceLogos.map((logo) => logo.alt),
+  },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
+];
 ---
 
 <Layout
-  title="Consultorio — Dr. Abraham López Venegas · La Viga, Iztapalapa"
-  description="Consultorio del Dr. Abraham López Venegas en La Viga · Iztapalapa, CDMX. Consulta desde $1,500. Atención de lunes a sábado. Aseguradoras GNP, AXA, Mapfre y BBVA."
+  title={title}
+  description={description}
   ogImage="/assets/consultorio.jpg"
+  schema={schema}
 >
   <Hero {...heroData} />
 

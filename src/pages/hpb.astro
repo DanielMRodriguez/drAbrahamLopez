@@ -7,6 +7,7 @@ import Symptoms from "../components/section/hpb/Symptoms.astro";
 import DiagnosisTreatment from "../components/section/hpb/DiagnosisTreatment.astro";
 import Faq from "../components/section/hpb/Faq.astro";
 import Specialist from "../components/section/Specialist.astro";
+import { breadcrumbListSchema } from "../lib/schema";
 
 const heroStats = [
   { value: "50", suffix: "%", label: "de los hombres a los 60 años la padece" },
@@ -134,6 +135,12 @@ const title =
 const description =
   "¿Qué es la hiperplasia prostática benigna y cómo se trata? Causas, síntomas, diagnóstico y opciones de tratamiento explicadas por el Dr. Abraham López Venegas, urólogo en CDMX y EdoMex.";
 
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Próstata", href: "/prostata/" },
+  { label: "Hiperplasia prostática benigna" },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -145,6 +152,25 @@ const schema = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "MedicalCondition",
+    name: "Hiperplasia prostática benigna",
+    alternateName: "HPB",
+    description: whatIsParagraphs[0].replace(/<\/?strong>/g, ""),
+    signOrSymptom: symptoms.map((symptom) => ({
+      "@type": "MedicalSignOrSymptom",
+      name: symptom.title,
+    })),
+    riskFactor: riskFactors.map((factor) => ({
+      "@type": "MedicalRiskFactor",
+      name: factor.title,
+    })),
+    possibleTreatment: txCards.map((card) => ({
+      "@type": "MedicalTherapy",
+      name: card.title,
+    })),
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
@@ -152,6 +178,7 @@ const schema = [
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
 ];
 ---
 

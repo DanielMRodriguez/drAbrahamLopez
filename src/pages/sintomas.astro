@@ -6,6 +6,7 @@ import IconCards from "../components/section/IconCards.astro";
 import WhatToDo from "../components/section/sintomas/WhatToDo.astro";
 import Faq from "../components/section/FaqImage.astro";
 import Specialist from "../components/section/Specialist.astro";
+import { breadcrumbListSchema } from "../lib/schema";
 
 const whyParagraphs = [
   'Los síntomas prostáticos aparecen <strong>gradualmente</strong> y muchos hombres los normalizan como parte del envejecimiento. Sin embargo, ignorarlos puede derivar en complicaciones serias.',
@@ -98,6 +99,12 @@ const title =
 const description =
   "Dificultad para orinar, chorro débil, nocturia y otros síntomas de próstata: cómo identificarlos y qué hacer. Información del Dr. Abraham López Venegas, urólogo en CDMX y EdoMex.";
 
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Próstata", href: "/prostata/" },
+  { label: "Síntomas" },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -116,6 +123,7 @@ const schema = [
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   },
+  breadcrumbListSchema(breadcrumbItems, Astro.site),
 ];
 ---
 
