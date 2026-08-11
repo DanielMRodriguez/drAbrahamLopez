@@ -1,5 +1,22 @@
 ---
 import { DOCTORALIA_URL } from "../lib/consts";
+
+const insurers = [
+  { name: "Allianz Seguros", slug: "allianz-seguros" },
+  { name: "AXA Seguros", slug: "axa-seguros" },
+  { name: "BBVA Seguros", slug: "bbva-seguros" },
+  { name: "BUPA Seguros", slug: "bupa-seguros" },
+  { name: "GNP Seguros", slug: "gnp-seguros" },
+  { name: "Inbursa Seguros", slug: "inbursa-seguros" },
+  { name: "Santander Seguros", slug: "santander-seguros" },
+  { name: "MetLife", slug: "metlife" },
+  { name: "Seguros Atlas", slug: "seguros-atlas" },
+  { name: "Seguros Banorte", slug: "seguros-banorte" },
+  { name: "Seguros MAPFRE", slug: "seguros-mapfre" },
+  { name: "Seguros Monterrey New York Life", slug: "seguros-monterrey-new-york-life" },
+  { name: "Seguros Multiva", slug: "seguros-multiva" },
+  { name: "Zurich Seguros", slug: "zurich-seguros" },
+];
 ---
 
 <!-- FOOTER -->
@@ -22,12 +39,16 @@ import { DOCTORALIA_URL } from "../lib/consts";
             </p>
           </div>
           <div class="col-12 col-sm-6 col-lg-3 foot-col">
-            <h4>Procedimientos</h4><ul>
-              <li><a href="/holep/">Cirugía HoLEP / ThuFLEP</a></li><li>
-                Cálculos urinarios con láser
-              </li><li>Circuncisión láser</li><li>
-                Salud masculina y andrología
-              </li>
+            <h4>Convenio con aseguradoras</h4><ul>
+              {
+                insurers.map((insurer) => (
+                  <li>
+                    <a href={`/urologos-que-aceptan-${insurer.slug}/`}>
+                      {insurer.name}
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
           <div class="col-12 col-sm-6 col-lg-3 foot-col">
