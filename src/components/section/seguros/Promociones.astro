@@ -1,0 +1,49 @@
+---
+interface Props {
+  name: string;
+  items: string[];
+  note: string;
+}
+
+const { name, items, note } = Astro.props;
+
+const icon = `<svg viewBox="0 0 24 24"><path d="M7 15l10-6M9.5 8.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM17.5 15.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/><rect x="3" y="4" width="18" height="16" rx="3"/></svg>`;
+---
+
+<section class="container-fluid section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div style="text-align:center;max-width:600px;margin:0 auto 44px;">
+          <span class="sect-tag">Promociones</span>
+          <h2 class="section-h">
+            Beneficios al usar tu seguro {name} con nosotros
+          </h2>
+        </div>
+        <div class="row icon-cards g-4">
+          {
+            items.map((item) => (
+              <div class="col-12 col-md-6 icon-card">
+                <div class="ic-icon" set:html={icon} />
+                <h3>{item.replace(/\*+$/, "")}</h3>
+                <p>
+                  Aplicable a tu cirugía de próstata con láser tramitada con tu
+                  seguro de gastos médicos mayores.
+                </p>
+              </div>
+            ))
+          }
+        </div>
+        {
+          note && (
+            <p
+              style="margin-top:24px;font-size:12.5px;color:var(--mist);text-align:center;max-width:680px;margin-left:auto;margin-right:auto;"
+            >
+              * {note}
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
