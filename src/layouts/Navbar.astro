@@ -1,6 +1,7 @@
 ---
 import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
 import { WHATSAPP_URL } from "../lib/consts";
+import { aseguradoras } from "../data/aseguradoras";
 ---
 
 <!-- NAV -->
@@ -19,6 +20,31 @@ import { WHATSAPP_URL } from "../lib/consts";
           <ul class="nav-links d-none d-lg-flex">
             <li><a class="nav-link" href="/prostata/">Próstata</a></li>
             <li><a class="nav-link" href="/ubicaciones/">Ubicaciones</a></li>
+            <li class="nav-item dropdown seguros-dd">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Convenio con aseguradoras
+              </a>
+              <ul class="dropdown-menu seguros-dd-menu">
+                {
+                  aseguradoras.map((a) => (
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href={`/urologos-que-aceptan-${a.slug}/`}
+                      >
+                        {a.name}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </li>
             <li><a class="nav-link" href="/perfil/">Dr. Abraham</a></li>
             <li><a class="nav-link" href="/blog/">Blog</a></li>
             <li><a href="tel:5528454843" class="nav-tel">55 2845 4843</a></li>
@@ -68,6 +94,32 @@ import { WHATSAPP_URL } from "../lib/consts";
     <ul class="nav-offcanvas-links">
       <li><a class="nav-offcanvas-link" href="/prostata/">Próstata</a></li>
       <li><a class="nav-offcanvas-link" href="/ubicaciones/">Ubicaciones</a></li>
+      <li>
+        <a
+          class="nav-offcanvas-link nav-offcanvas-sub-toggle"
+          data-bs-toggle="collapse"
+          href="#segurosSubmenu"
+          role="button"
+          aria-expanded="false"
+          aria-controls="segurosSubmenu"
+        >
+          Convenio con aseguradoras
+        </a>
+        <ul class="collapse nav-offcanvas-sublinks" id="segurosSubmenu">
+          {
+            aseguradoras.map((a) => (
+              <li>
+                <a
+                  class="nav-offcanvas-link nav-offcanvas-sublink"
+                  href={`/urologos-que-aceptan-${a.slug}/`}
+                >
+                  {a.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </li>
       <li><a class="nav-offcanvas-link" href="/perfil/">Dr. Abraham</a></li>
       <li><a class="nav-offcanvas-link" href="/blog/">Blog</a></li>
       <li>
