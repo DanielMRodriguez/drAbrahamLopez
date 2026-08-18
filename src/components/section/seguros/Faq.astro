@@ -9,11 +9,12 @@ interface FaqItem {
 
 interface Props {
   name: string;
+  logo: string;
   items: FaqItem[];
   closing: string;
 }
 
-const { name, items, closing } = Astro.props;
+const { name, logo, items, closing } = Astro.props;
 ---
 
 <section class="container-fluid section fog">
@@ -21,6 +22,17 @@ const { name, items, closing } = Astro.props;
     <div class="row gy-4">
       <div class="col-12 col-lg-6">
         <span class="sect-tag">Preguntas frecuentes</span>
+        <div
+          class="seguro-logo-badge"
+          style="display:inline-flex;align-items:center;justify-content:flex-start;width:fit-content;max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:14px 20px;margin:6px 0 20px;box-shadow:0 2px 10px rgba(0,0,0,.05);"
+        >
+          <img
+            src={logo}
+            alt={`Logo de ${name}`}
+            loading="lazy"
+            style="height:48px;width:auto;max-width:220px;object-fit:contain;display:block;"
+          />
+        </div>
         <h2 class="section-h" style="margin-bottom:28px;">
           Tu seguro {name} y tu cirugía urológica
         </h2>
