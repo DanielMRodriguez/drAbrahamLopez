@@ -4,6 +4,7 @@ import { WHATSAPP_URL } from "../../../lib/consts";
 
 interface Props {
   name: string;
+  logo: string;
   title: string;
   tagline: string;
   bullets: string[];
@@ -14,6 +15,7 @@ interface Props {
 
 const {
   name,
+  logo,
   title,
   tagline,
   bullets,
@@ -28,6 +30,17 @@ const {
     <div class="hero-eyebrow" style="margin-bottom:20px;">
       <div class="hero-eyebrow-dot"></div>
       <span>Convenio con {name}</span>
+    </div>
+    <div
+      class="seguro-logo-badge"
+      style="display:inline-flex;align-items:center;justify-content:flex-start;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:16px 22px;margin-bottom:24px;backdrop-filter:blur(4px);"
+    >
+      <img
+        src={logo}
+        alt={`Logo de ${name}`}
+        loading="eager"
+        style="height:56px;width:auto;max-width:240px;object-fit:contain;display:block;"
+      />
     </div>
     <h1>{title}</h1>
     <p>{tagline}</p>

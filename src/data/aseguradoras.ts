@@ -24,6 +24,7 @@ export interface SeoBlock {
 export interface Aseguradora {
   slug: string;
   name: string;
+  logo: string;
   seo: AseguradoraSeo;
   h1: string;
   hero: AseguradoraHero;
@@ -39,6 +40,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "allianz-seguros",
     "name": "Allianz Seguros",
+    "logo": "/assets/seguros/allianz.svg",
     "seo": {
       "title": "Urólogo que acepta Allianz Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Allianz Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -206,6 +208,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "axa-seguros",
     "name": "AXA Seguros",
+    "logo": "/assets/seguros/axa.svg",
     "seo": {
       "title": "Urólogo que acepta AXA Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten AXA Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -373,6 +376,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "bbva-seguros",
     "name": "BBVA Seguros",
+    "logo": "/assets/seguros/bbva.svg",
     "seo": {
       "title": "Urólogo que acepta BBVA Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten BBVA Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -540,6 +544,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "bupa-seguros",
     "name": "BUPA Seguros",
+    "logo": "/assets/seguros/bupa.webp",
     "seo": {
       "title": "Urólogo que acepta BUPA Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten BUPA Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -707,6 +712,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "gnp-seguros",
     "name": "GNP Seguros",
+    "logo": "/assets/seguros/gnp.svg",
     "seo": {
       "title": "Urólogo que acepta GNP Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten GNP Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -874,6 +880,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "inbursa-seguros",
     "name": "Inbursa Seguros",
+    "logo": "/assets/seguros/inbursa.svg",
     "seo": {
       "title": "Urólogo que acepta Inbursa Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Inbursa Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -1041,6 +1048,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "santander-seguros",
     "name": "Santander Seguros",
+    "logo": "/assets/seguros/santander.svg",
     "seo": {
       "title": "Urólogo que acepta Santander Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Santander Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -1208,6 +1216,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "metlife",
     "name": "MetLife",
+    "logo": "/assets/seguros/metlife.svg",
     "seo": {
       "title": "Urólogo que acepta MetLife en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten MetLife? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -1375,6 +1384,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "seguros-atlas",
     "name": "Seguros Atlas",
+    "logo": "/assets/seguros/atlas.webp",
     "seo": {
       "title": "Urólogo que acepta Seguros Atlas en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Seguros Atlas? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -1542,6 +1552,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "seguros-banorte",
     "name": "Seguros Banorte",
+    "logo": "/assets/seguros/banorte.svg",
     "seo": {
       "title": "Urólogo que acepta Seguros Banorte en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Seguros Banorte? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -1709,6 +1720,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "seguros-mapfre",
     "name": "Seguros MAPFRE",
+    "logo": "/assets/seguros/mapfre.svg",
     "seo": {
       "title": "Urólogo que acepta Seguros MAPFRE en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Seguros MAPFRE? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -1876,6 +1888,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "seguros-monterrey-new-york-life",
     "name": "Seguros Monterrey New York Life",
+    "logo": "/assets/seguros/monterrey-new-york-life.webp",
     "seo": {
       "title": "Urólogo que acepta Seguros Monterrey New York Life en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Seguros Monterrey New York Life? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -2043,6 +2056,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "seguros-multiva",
     "name": "Seguros Multiva",
+    "logo": "/assets/seguros/multiva.svg",
     "seo": {
       "title": "Urólogo que acepta Seguros Multiva en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Seguros Multiva? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
@@ -2210,6 +2224,7 @@ export const aseguradoras: Aseguradora[] = [
   {
     "slug": "zurich-seguros",
     "name": "Zurich Seguros",
+    "logo": "/assets/seguros/zurich.svg",
     "seo": {
       "title": "Urólogo que acepta Zurich Seguros en CDMX y Edomex | Dr. Abraham López Venegas",
       "description": "¿Buscas urólogos que acepten Zurich Seguros? El Dr. Abraham López Venegas te ayuda con tu cirugía de próstata con láser usando tu seguro de gastos médicos mayores. Simplificamos la papelería y conseguimos tu preautorización. Agenda por WhatsApp.",
